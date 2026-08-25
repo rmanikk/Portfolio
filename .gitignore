@@ -1,41 +1,95 @@
+# =========================
 # Python
+# =========================
+
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual environment
+
+# =========================
+# Virtual Environment
+# =========================
+
 venv/
 .venv/
 env/
 ENV/
 
+
+# =========================
 # Django
+# =========================
+
 *.log
 db.sqlite3
 db.sqlite3-journal
 
-# Environment variables / secrets
+
+# =========================
+# Environment Variables / Secrets
+# =========================
+
 .env
 .env.*
+!.env.example
 
-# IDE / Editor
-.vscode/
-.idea/
 
-# OS files
-.DS_Store
-Thumbs.db
+# =========================
+# Node.js / Frontend
+# =========================
 
-# Python packaging
-*.egg-info/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# =========================
+# Build Output
+# =========================
+
 dist/
 build/
 
-# Test / coverage
+staticfiles/
+
+
+# =========================
+# Django Media
+# =========================
+
+media/
+
+
+# =========================
+# Python Packaging
+# =========================
+
+*.egg-info/
+
+
+# =========================
+# Testing / Coverage
+# =========================
+
 .coverage
 htmlcov/
 .pytest_cache/
 
-# Static/media files generated locally
-staticfiles/
-media/
+
+# =========================
+# IDE / Editor
+# =========================
+
+.vscode/
+.idea/
+
+
+# =========================
+# OS Files
+# =========================
+
+.DS_Store
+Thumbs.db
