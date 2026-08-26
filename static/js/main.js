@@ -56,3 +56,83 @@ function updateThemeIcon(isLight) {
         `;
     }
 }
+
+
+/* =================================
+   CURSOR RED GLOW
+================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /*
+     * The glow element already exists in
+     * templates/home/index.html:
+     *
+     * <div id="cursor-glow" aria-hidden="true"></div>
+     *
+     * So we DON'T create another element here.
+     */
+    const cursorGlow = document.getElementById("cursor-glow");
+
+    // Stop if the glow element doesn't exist
+    if (!cursorGlow) {
+        console.warn("Cursor glow element not found.");
+        return;
+    }
+
+    /*
+     * Start the glow outside the screen.
+     * This prevents it from appearing at the top-left
+     * before the user moves the mouse.
+     */
+    let mouseX = -300;
+    let mouseY = -300;
+
+    let glowX = mouseX;
+    let glowY = mouseY;
+
+
+    /* ---------------------------------
+       Mouse Movement
+    --------------------------------- */
+
+    document.addEventListener("mousemove", (event) => {
+
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+
+        cursorGlow.classList.add("visible");
+    });
+
+
+    /* ---------------------------------
+       Hide Glow When Mouse Leaves
+    --------------------------------- */
+
+    document.addEventListener("mouseleave", () => {
+        cursorGlow.classList.remove("visible");
+    });
+
+
+    /* ---------------------------------
+       Smooth Glow Animation
+    --------------------------------- */
+
+    function animateGlow() {
+
+        /*
+         * The smaller this value is,
+         * the smoother/slower the glow follows.
+         */
+        glowX += (mouseX - glowX) * 0.12;
+        glowY += (mouseY - glowY) * 0.12;
+
+        cursorGlow.style.left = `${glowX}px`;
+        cursorGlow.style.top = `${glowY}px`;
+
+        requestAnimationFrame(animateGlow);
+    }
+
+    animateGlow();
+
+});

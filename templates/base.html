@@ -2,39 +2,68 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
->
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Portfolio{% endblock %}</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-   <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <title>
+        {% block title %}Portfolio{% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/output.css' %}"
+    >
+
+    {% block extra_css %}
+    {% endblock %}
+
 </head>
+
 
 <body>
 
     {% include "partials/navbar.html" %}
 
+
     <main>
+
         {% block content %}
         {% endblock %}
+
     </main>
+
 
     {% include "partials/footer.html" %}
 
+
     <script src="{% static 'js/main.js' %}"></script>
+
+    {% block extra_js %}
+    {% endblock %}
+
 </body>
+
 </html>

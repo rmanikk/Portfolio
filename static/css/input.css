@@ -18,6 +18,7 @@ body {
     color: #f5f5f5;
     font-family: "Inter", sans-serif;
 }
+
 /* --------------------------------
    Navbar
 -------------------------------- */
@@ -38,6 +39,7 @@ body {
 .nav-link.active {
     color: #f5f5f5;
 }
+
 .nav-link::after {
     content: "";
 
@@ -51,6 +53,7 @@ body {
     background: #ef4444;
 
     transform: translateX(-50%);
+
     transition: width 300ms ease;
 }
 
@@ -79,7 +82,6 @@ body {
     border-radius: 9999px;
 
     color: rgba(255, 255, 255, 0.65);
-
     background: rgba(255, 255, 255, 0.03);
 
     cursor: pointer;
@@ -99,4 +101,224 @@ body {
     border-color: rgba(255, 255, 255, 0.22);
 
     transform: rotate(12deg);
+}
+
+/* =================================
+   HOME / HERO
+================================= */
+
+.home-page {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+/* --------------------------------
+   Background Portrait
+-------------------------------- */
+
+.hero-background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.hero-background img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 0.99;
+
+    filter:
+        brightness(1.15)
+        contrast(1.08);
+
+    user-select: none;
+}
+
+/* --------------------------------
+   Dark Overlay
+-------------------------------- */
+
+.hero-background::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 45%,
+            rgba(5, 5, 5, 0.25) 75%,
+            #050505 100%
+        );
+
+    pointer-events: none;
+}
+
+/* --------------------------------
+   Hero
+-------------------------------- */
+
+.hero {
+    position: relative;
+
+    z-index: 10;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 24px 80px;
+}
+
+.hero-content {
+    width: 100%;
+
+    max-width: 840px;
+
+    text-align: center;
+}
+
+.hero-intro {
+    margin-bottom: 8px;
+
+    color: #ef4444;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+}
+
+.hero h1 {
+    margin: 0;
+
+    color: #f5f5f5;
+
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+
+    font-weight: 600;
+
+    letter-spacing: -0.045em;
+}
+
+.hero-role {
+    margin-top: 14px;
+
+    color: #a1a1aa;
+
+    font-size: 1.15rem;
+
+    font-weight: 400;
+}
+
+/* =================================
+   CURSOR RED GLOW
+================================= */
+
+/*
+   Mouse-following red aura.
+
+   This element already exists in the HTML:
+
+   <div id="cursor-glow" aria-hidden="true"></div>
+
+   JavaScript moves it according to the
+   mouse position.
+*/
+
+#cursor-glow {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 140px;
+    height: 140px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    /*
+       Keep it above the page content so the
+       glow remains visible over the background.
+    */
+    z-index: 99999;
+
+    /*
+       Hidden until the mouse starts moving.
+    */
+    opacity: 0;
+
+    /*
+       Centers the glow directly on the cursor.
+    */
+    transform: translate(-50%, -50%);
+
+    /*
+       Stronger red glow.
+    */
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 0, 0, 0.32) 0%,
+            rgba(239, 68, 68, 0.24) 18%,
+            rgba(239, 68, 68, 0.14) 35%,
+            rgba(239, 68, 68, 0.07) 52%,
+            rgba(239, 68, 68, 0.025) 65%,
+            transparent 78%
+        );
+
+    /*
+       Makes the edge of the glow soft.
+    */
+    filter: blur(8px);
+
+    /*
+       Smoothly fades the glow in/out.
+    */
+    transition: opacity 250ms ease;
+
+    /*
+       Improves animation performance.
+    */
+    will-change: left, top, opacity;
+
+    /*
+       Makes the red light blend naturally
+       with the background and image.
+    */
+    mix-blend-mode: screen;
+}
+
+/* --------------------------------
+   Visible Cursor Glow
+-------------------------------- */
+
+#cursor-glow.visible {
+    opacity: 1;
 }

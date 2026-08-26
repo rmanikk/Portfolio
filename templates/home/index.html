@@ -1,23 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %}
-Manik Kafle | Full-Stack Developer
-{% endblock %}
-
 {% block content %}
 
-<section>
-    <p>Hello, I'm</p>
+<main class="home-page">
 
-    <h1>Manik Kafle</h1>
+    <!-- Background Portrait -->
+    <div class="hero-background" aria-hidden="true">
+        <img
+            src="/static/images/hero-bg.png"
+            alt=""
+        >
+    </div>
 
-    <h2>Full-Stack Developer</h2>
+    <!-- Future cursor glow -->
+    <div id="cursor-glow" aria-hidden="true"></div>
 
-    <p>
-        I build thoughtful web applications
-        with Python and modern technologies.
-    </p>
+    <!-- Home Content -->
+    <section class="hero">
+        <div class="hero-content">
 
-</section>
+            <p class="hero-intro">Hi, I'm</p>
+
+            <h1>
+                Manik Kafle
+            </h1>
+
+            <p class="hero-role">
+                Full-Stack Developer
+            </p>
+
+        </div>
+    </section>
+
+</main>
 
 {% endblock %}

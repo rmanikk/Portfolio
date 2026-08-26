@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Projects — Manik Kafle{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="projects-page">
+
+   
+
+
+    <!-- =========================================
+         PROJECTS CONTENT
+    ========================================== -->
+
+    <section class="projects-section">
+
+        <div class="projects-container">
+
+            <!-- Page heading -->
+
+            <header class="projects-header">
+
+                <p class="projects-eyebrow">
+                    Selected Work
+                </p>
+
+                <h1>
+                    Projects
+                </h1>
+
+                <p class="projects-subtitle">
+                    My projects and work across different
+                    technologies and domains.
+                </p>
+
+            </header>
+
+
+            <!-- Divider -->
+
+            <div class="projects-divider"></div>
+
+
+            <!-- Project count -->
+
+            <div class="projects-list-header">
+
+                <h2>
+                    All Projects
+                    <span>2 projects</span>
+                </h2>
+
+            </div>
+
+
+            <!-- =====================================
+                 PROJECT GRID
+            ====================================== -->
+
+            <div class="projects-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <article
+                    class="project-card"
+                    data-project="fryx"
+                >
+
+                    <!-- Image -->
+
+                    <div class="project-image-wrapper">
+
+                        <img
+                            src="{% static 'images/hero-bg.png' %}"
+                            alt="Fryx project preview"
+                            class="project-image"
+                        >
+
+                        <div class="project-image-overlay"></div>
+
+                    </div>
+
+
+                    <!-- Content -->
+
+                    <div class="project-card-content">
+
+                        <div class="project-title-row">
+
+                            <h3>
+                                Fryx
+                            </h3>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Fryx GitHub repository"
+                                    class="project-icon-link"
+                                >
+                                    GitHub
+                                </a>
+
+                                <a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Fryx live demo"
+                                    class="project-icon-link"
+                                >
+                                    Live
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <p class="project-description">
+                            An AI-powered assistant platform designed
+                            for intelligent conversations, contextual
+                            search, and modern productivity workflows.
+                        </p>
+
+
+                        <!-- Technologies -->
+
+                        <div class="project-tags">
+
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>JavaScript</span>
+
+                        </div>
+
+
+                        <!-- Bottom action -->
+
+                        <div class="project-card-footer">
+
+                            <button
+                                type="button"
+                                class="project-details-button"
+                                data-project-open="fryx"
+                            >
+                                <span>Show Details</span>
+
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJECT 2 -->
+
+                <article
+                    class="project-card"
+                    data-project="threadly"
+                >
+
+                    <div class="project-image-wrapper">
+
+                        <img
+                            src="{% static 'images/hero-bg.png' %}"
+                            alt="Threadly project preview"
+                            class="project-image"
+                        >
+
+                        <div class="project-image-overlay"></div>
+
+                    </div>
+
+
+                    <div class="project-card-content">
+
+                        <div class="project-title-row">
+
+                            <h3>
+                                Threadly
+                            </h3>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Threadly GitHub repository"
+                                    class="project-icon-link"
+                                >
+                                    GitHub
+                                </a>
+
+                                <a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Threadly live demo"
+                                    class="project-icon-link"
+                                >
+                                    Live
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <p class="project-description">
+                            A full-stack discussion platform focused
+                            on structured communities, authentication,
+                            content management, and scalable APIs.
+                        </p>
+
+
+                        <div class="project-tags">
+
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>REST API</span>
+
+                        </div>
+
+
+                        <div class="project-card-footer">
+
+                            <button
+                                type="button"
+                                class="project-details-button"
+                                data-project-open="threadly"
+                            >
+                                <span>Show Details</span>
+
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PROJECT DETAILS MODAL
+    ========================================== -->
+
+    <div
+        id="project-modal"
+        class="project-modal"
+        aria-hidden="true"
+    >
+
+        <div class="project-modal-backdrop"></div>
+
+
+        <div
+            class="project-modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-project-title"
+        >
+
+            <!-- Close -->
+
+            <button
+                type="button"
+                id="project-modal-close"
+                class="project-modal-close"
+                aria-label="Close project details"
+            >
+                ×
+            </button>
+
+
+            <!-- Modal image -->
+
+            <div class="modal-image-wrapper">
+
+                <img
+                    id="modal-project-image"
+                    src=""
+                    alt=""
+                >
+
+            </div>
+
+
+            <!-- Modal content -->
+
+            <div class="project-modal-content">
+
+                <div class="modal-title-row">
+
+                    <div>
+
+                        <p class="modal-eyebrow">
+                            Project
+                        </p>
+
+                        <h2 id="modal-project-title">
+                            Project Name
+                        </h2>
+
+                    </div>
+
+                    <div
+                        id="modal-project-links"
+                        class="modal-links"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div class="modal-section">
+
+                    <h3>
+                        About the project
+                    </h3>
+
+                    <p id="modal-project-description"></p>
+
+                </div>
+
+
+                <div class="modal-section">
+
+                    <h3>
+                        Key features
+                    </h3>
+
+                    <ul id="modal-project-features">
+                    </ul>
+
+                </div>
+
+
+                <div class="modal-section">
+
+                    <h3>
+                        Technologies
+                    </h3>
+
+                    <div
+                        id="modal-project-technologies"
+                        class="modal-tags"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'js/projects.js' %}"></script>
+{% endblock %}
