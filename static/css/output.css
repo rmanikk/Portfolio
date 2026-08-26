@@ -1,17 +1,11 @@
 /*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
-@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-      "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans: "Inter", sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --text-5xl: 3rem;
-    --text-5xl--line-height: 1;
-    --font-weight-bold: 700;
-    --tracking-tight: -0.025em;
+    --spacing: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -165,70 +159,119 @@
   }
 }
 @layer utilities {
+  .fixed {
+    position: fixed;
+  }
   .static {
     position: static;
+  }
+  .top-0 {
+    top: 0px;
+  }
+  .left-0 {
+    left: 0px;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .mx-auto {
+    margin-inline: auto;
   }
   .block {
     display: block;
   }
-  .table {
-    display: table;
+  .flex {
+    display: flex;
   }
-  .border-collapse {
-    border-collapse: collapse;
+  .h-5 {
+    height: calc(var(--spacing) * 5);
   }
-  .resize {
-    resize: both;
+  .w-5 {
+    width: calc(var(--spacing) * 5);
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
+  .w-full {
+    width: 100%;
   }
-  .text-5xl {
-    font-size: var(--text-5xl);
-    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  .max-w-\[840px\] {
+    max-width: 840px;
   }
-  .font-bold {
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+  .items-center {
+    align-items: center;
   }
-  .tracking-tight {
-    --tw-tracking: var(--tracking-tight);
-    letter-spacing: var(--tracking-tight);
+  .justify-between {
+    justify-content: space-between;
   }
-  .underline {
-    text-decoration-line: underline;
+  .gap-7 {
+    gap: calc(var(--spacing) * 7);
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
   }
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop {
-      --tw-border-style: solid;
-      --tw-font-weight: initial;
-      --tw-tracking: initial;
-      --tw-outline-style: solid;
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
+  @media (width >= 48rem) {
+    .md\:gap-10 {
+      gap: calc(var(--spacing) * 10);
+    }
+    .md\:px-10 {
+      padding-inline: calc(var(--spacing) * 10);
     }
   }
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: #050505;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+}
+.nav-link {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #a1a1aa;
+  transition: color 250ms ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: #f5f5f5;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: #ef4444;
+  transform: translateX(-50%);
+  transition: width 300ms ease;
+}
+.nav-link:hover::after, .nav-link.active::after {
+  width: 14px;
+}
+.nav-link.active {
+  color: #ffffff;
+}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: color 300ms ease, background 300ms ease, border-color 300ms ease, transform 300ms ease;
+}
+.theme-toggle:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: rotate(12deg);
 }
