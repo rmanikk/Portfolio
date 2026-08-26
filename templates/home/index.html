@@ -1,37 +1,669 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block title %}Manik Kafle | Full-Stack Developer{% endblock %}
 
 {% block content %}
 
-<main class="home-page">
+<section class="home-page" id="home">
 
-    <!-- Background Portrait -->
+    <!-- Background -->
     <div class="hero-background" aria-hidden="true">
         <img
-            src="/static/images/hero-bg.png"
+            src="{% static 'images/hero-bg.png' %}"
             alt=""
         >
     </div>
 
-    <!-- Future cursor glow -->
+    <!-- Mouse Glow -->
     <div id="cursor-glow" aria-hidden="true"></div>
 
-    <!-- Home Content -->
-    <section class="hero">
-        <div class="hero-content">
 
-            <p class="hero-intro">Hi, I'm</p>
+    <!-- =================================
+         HERO
+    ================================== -->
 
-            <h1>
-                Manik Kafle
-            </h1>
+    <section class="hero" aria-labelledby="hero-title">
 
-            <p class="hero-role">
-                Full-Stack Developer
-            </p>
+        <!-- Same width as navbar -->
+        <div class="hero-container">
+
+            <div class="hero-copy">
+
+                <!-- Intro -->
+                <p class="hero-intro">
+                    Hi, I'm
+                </p>
+
+
+                <!-- Name -->
+                <h1 id="hero-title">
+                    Manik Kafle
+                </h1>
+
+
+                <!-- Role -->
+                <p class="hero-role">
+                    Full-Stack Developer
+                </p>
+
+
+                <!-- =================================
+                     SOCIAL LINKS
+                ================================== -->
+
+                <div class="hero-socials">
+
+                    <!-- LinkedIn -->
+                    <a
+                        href="https://www.linkedin.com/"
+                        class="social-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        data-social="LinkedIn"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569
+                                c0-1.328-.027-3.037-1.852-3.037
+                                -1.853 0-2.136 1.445-2.136 2.939
+                                v5.667H9.351V9h3.414v1.561h.046
+                                c.477-.9 1.637-1.85 3.37-1.85
+                                3.601 0 4.267 2.37 4.267 5.455
+                                v6.286z
+                                M5.337 7.433
+                                a2.062 2.062 0 1 1 0-4.123
+                                2.062 2.062 0 0 1 0 4.123z
+                                M3.555 9h3.564v11.452H3.555V9z"
+                            />
+                        </svg>
+                    </a>
+
+
+                    <!-- Instagram -->
+                    <a
+                        href="https://www.instagram.com/"
+                        class="social-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        data-social="Instagram"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5"
+                            />
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4"
+                            />
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1"
+                                fill="currentColor"
+                                stroke="none"
+                            />
+                        </svg>
+                    </a>
+
+
+                    <!-- Gmail -->
+                    <a
+                        href="mailto:your-email@gmail.com"
+                        class="social-link"
+                        aria-label="Gmail"
+                        data-social="Gmail"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="3"
+                                y="5"
+                                width="18"
+                                height="14"
+                                rx="2"
+                            />
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4 7l8 6 8-6"
+                            />
+                        </svg>
+                    </a>
+
+                </div>
+
+
+                <!-- =================================
+                     DESCRIPTION
+                ================================== -->
+
+                <p class="hero-description">
+                    I build modern, responsive web applications with clean code,
+                    practical technology, and thoughtful user experiences.
+                </p>
+
+
+                <!-- =================================
+                     TECHNOLOGY STACK
+                ================================== -->
+
+                <div
+                    class="tech-stack"
+                    aria-label="Technologies I work with"
+                >
+
+                    <!-- JavaScript -->
+                    <div
+                        class="tech-item"
+                        data-tech="JavaScript"
+                        aria-label="JavaScript"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/javascript/F7DF1E"
+                            alt="JavaScript"
+                        >
+                    </div>
+
+
+                    <!-- React -->
+                    <div
+                        class="tech-item"
+                        data-tech="React"
+                        aria-label="React"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/react/61DAFB"
+                            alt="React"
+                        >
+                    </div>
+
+
+                    <!-- Python -->
+                    <div
+                        class="tech-item"
+                        data-tech="Python"
+                        aria-label="Python"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/python/3776AB"
+                            alt="Python"
+                        >
+                    </div>
+
+
+                    <!-- Django -->
+                    <div
+                        class="tech-item"
+                        data-tech="Django"
+                        aria-label="Django"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/django/44B78B"
+                            alt="Django"
+                        >
+                    </div>
+
+
+                    <!-- Node.js -->
+                    <div
+                        class="tech-item"
+                        data-tech="Node.js"
+                        aria-label="Node.js"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/nodedotjs/339933"
+                            alt="Node.js"
+                        >
+                    </div>
+
+
+                    <!-- Express.js -->
+                    <div
+                        class="tech-item"
+                        data-tech="Express.js"
+                        aria-label="Express.js"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/express/FFFFFF"
+                            alt="Express.js"
+                        >
+                    </div>
+
+
+                    <!-- PostgreSQL -->
+                    <div
+                        class="tech-item"
+                        data-tech="PostgreSQL"
+                        aria-label="PostgreSQL"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/postgresql/4169E1"
+                            alt="PostgreSQL"
+                        >
+                    </div>
+
+
+                    <!-- Git -->
+                    <div
+                        class="tech-item"
+                        data-tech="Git"
+                        aria-label="Git"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/git/F05032"
+                            alt="Git"
+                        >
+                    </div>
+
+
+                    <!-- GitHub -->
+                    <div
+                        class="tech-item"
+                        data-tech="GitHub"
+                        aria-label="GitHub"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/github/FFFFFF"
+                            alt="GitHub"
+                        >
+                    </div>
+
+
+                    <!-- Vercel -->
+                    <div
+                        class="tech-item"
+                        data-tech="Vercel"
+                        aria-label="Vercel"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/vercel/FFFFFF"
+                            alt="Vercel"
+                        >
+                    </div>
+
+
+                    <!-- Render -->
+                    <div
+                        class="tech-item"
+                        data-tech="Render"
+                        aria-label="Render"
+                    >
+                        <img
+                            src="https://cdn.simpleicons.org/render/46E3B7"
+                            alt="Render"
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     BUTTONS
+                ================================== -->
+
+                <div class="hero-actions">
+
+                    <!-- Contact -->
+                    <a
+                        class="hero-button hero-button-primary"
+                        href="#contact"
+                    >
+                        Contact Me
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M7 17L17 7M8 7h9v9"
+                            />
+                        </svg>
+                    </a>
+
+
+                    <!-- Resume -->
+                    <a
+                        class="hero-button hero-button-secondary"
+                        href="#resume"
+                    >
+                        See Resume
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"
+                            />
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
+
     </section>
 
-</main>
+</section>
+
+
+<!-- =================================
+     FEATURED PROJECTS
+================================= -->
+
+<section class="featured-projects" id="projects">
+
+    <div class="projects-container">
+
+        <!-- Section Title -->
+        <div class="projects-title">
+            <h2>
+                Featured Projects
+            </h2>
+        </div>
+
+
+        <!-- Projects -->
+        <div class="projects-grid">
+
+
+            <!-- =================================
+                 PROJECT 1
+            ================================== -->
+
+            <article class="project-card">
+
+                <!-- Image -->
+                <a
+                    href="#"
+                    class="project-image"
+                    aria-label="View Versehana project"
+                >
+                    <img
+                        src="{% static 'images/project-1.png' %}"
+                        alt="Versehana project preview"
+                    >
+                </a>
+
+
+                <!-- Content -->
+                <div class="project-content">
+
+                    <h3>
+                        Versehana
+                    </h3>
+
+
+                    <p class="project-description">
+                        A full-stack web application built with
+                        modern technologies and a focus on clean
+                        design and user experience.
+                    </p>
+
+
+                    <!-- Links -->
+                    <div class="project-links">
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M7 17L17 7M8 7h9v9"
+                                />
+                            </svg>
+                        </a>
+
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Live
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M7 17L17 7M8 7h9v9"
+                                />
+                            </svg>
+                        </a>
+
+                    </div>
+
+
+                    <!-- View Project -->
+                    <a
+                        href="#"
+                        class="view-project"
+                    >
+                        View Project
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M5 12h14M13 6l6 6-6 6"
+                            />
+                        </svg>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 PROJECT 2
+            ================================== -->
+
+            <article class="project-card">
+
+                <!-- Image -->
+                <a
+                    href="#"
+                    class="project-image"
+                    aria-label="View Salary Prediction project"
+                >
+                    <img
+                        src="{% static 'images/project-2.png' %}"
+                        alt="Salary Prediction project preview"
+                    >
+                </a>
+
+
+                <!-- Content -->
+                <div class="project-content">
+
+                    <h3>
+                        Salary Prediction
+                    </h3>
+
+
+                    <p class="project-description">
+                        A machine learning web application that
+                        predicts salary using professional and
+                        educational information.
+                    </p>
+
+
+                    <!-- Links -->
+                    <div class="project-links">
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M7 17L17 7M8 7h9v9"
+                                />
+                            </svg>
+                        </a>
+
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Live
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M7 17L17 7M8 7h9v9"
+                                />
+                            </svg>
+                        </a>
+
+                    </div>
+
+
+                    <!-- View Project -->
+                    <a
+                        href="#"
+                        class="view-project"
+                    >
+                        View Project
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M5 12h14M13 6l6 6-6 6"
+                            />
+                        </svg>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- =================================
+             ALL PROJECTS BUTTON
+        ================================== -->
+
+        <div class="all-projects-button">
+
+            <a href="/projects/">
+                View All Projects
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 12h14M13 6l6 6-6 6"
+                    />
+                </svg>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}

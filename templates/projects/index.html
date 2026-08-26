@@ -1,264 +1,64 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Projects — Manik Kafle{% endblock %}
+{% block title %}Projects | Manik Kafle{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+<link
+    rel="stylesheet"
+    href="{% static 'css/projects.css' %}"
+>
 {% endblock %}
 
 {% block content %}
 
-<div class="projects-page">
+<section class="projects-page" id="projects-page">
 
-   
+    <!-- =================================
+         SAME BACKGROUND AS HOME
+    ================================== -->
+
+    <div class="hero-background" aria-hidden="true">
+        <img
+            src="{% static 'images/hero-bg.png' %}"
+            alt=""
+        >
+    </div>
 
 
-    <!-- =========================================
-         PROJECTS CONTENT
-    ========================================== -->
+    <!-- =================================
+         SAME MOUSE GLOW AS HOME
+    ================================== -->
 
-    <section class="projects-section">
+    <div id="cursor-glow" aria-hidden="true"></div>
+
+
+    <!-- =================================
+         PROJECT PAGE HEADER
+    ================================== -->
+
+    <section
+        class="projects-hero"
+        aria-labelledby="projects-title"
+    >
 
         <div class="projects-container">
 
-            <!-- Page heading -->
-
-            <header class="projects-header">
+            <div class="projects-heading">
 
                 <p class="projects-eyebrow">
-                    Selected Work
+                    My Work
                 </p>
 
-                <h1>
+                <h1 id="projects-title">
                     Projects
                 </h1>
 
-                <p class="projects-subtitle">
-                    My projects and work across different
-                    technologies and domains.
+                <p class="projects-intro">
+                    A collection of projects I've built while exploring
+                    full-stack development, modern technologies, and
+                    practical software solutions.
                 </p>
-
-            </header>
-
-
-            <!-- Divider -->
-
-            <div class="projects-divider"></div>
-
-
-            <!-- Project count -->
-
-            <div class="projects-list-header">
-
-                <h2>
-                    All Projects
-                    <span>2 projects</span>
-                </h2>
-
-            </div>
-
-
-            <!-- =====================================
-                 PROJECT GRID
-            ====================================== -->
-
-            <div class="projects-grid">
-
-
-                <!-- PROJECT 1 -->
-
-                <article
-                    class="project-card"
-                    data-project="fryx"
-                >
-
-                    <!-- Image -->
-
-                    <div class="project-image-wrapper">
-
-                        <img
-                            src="{% static 'images/hero-bg.png' %}"
-                            alt="Fryx project preview"
-                            class="project-image"
-                        >
-
-                        <div class="project-image-overlay"></div>
-
-                    </div>
-
-
-                    <!-- Content -->
-
-                    <div class="project-card-content">
-
-                        <div class="project-title-row">
-
-                            <h3>
-                                Fryx
-                            </h3>
-
-                            <div class="project-links">
-
-                                <a
-                                    href="https://github.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Fryx GitHub repository"
-                                    class="project-icon-link"
-                                >
-                                    GitHub
-                                </a>
-
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Fryx live demo"
-                                    class="project-icon-link"
-                                >
-                                    Live
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <p class="project-description">
-                            An AI-powered assistant platform designed
-                            for intelligent conversations, contextual
-                            search, and modern productivity workflows.
-                        </p>
-
-
-                        <!-- Technologies -->
-
-                        <div class="project-tags">
-
-                            <span>Python</span>
-                            <span>Django</span>
-                            <span>PostgreSQL</span>
-                            <span>JavaScript</span>
-
-                        </div>
-
-
-                        <!-- Bottom action -->
-
-                        <div class="project-card-footer">
-
-                            <button
-                                type="button"
-                                class="project-details-button"
-                                data-project-open="fryx"
-                            >
-                                <span>Show Details</span>
-
-                                <span aria-hidden="true">
-                                    →
-                                </span>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PROJECT 2 -->
-
-                <article
-                    class="project-card"
-                    data-project="threadly"
-                >
-
-                    <div class="project-image-wrapper">
-
-                        <img
-                            src="{% static 'images/hero-bg.png' %}"
-                            alt="Threadly project preview"
-                            class="project-image"
-                        >
-
-                        <div class="project-image-overlay"></div>
-
-                    </div>
-
-
-                    <div class="project-card-content">
-
-                        <div class="project-title-row">
-
-                            <h3>
-                                Threadly
-                            </h3>
-
-                            <div class="project-links">
-
-                                <a
-                                    href="https://github.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Threadly GitHub repository"
-                                    class="project-icon-link"
-                                >
-                                    GitHub
-                                </a>
-
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Threadly live demo"
-                                    class="project-icon-link"
-                                >
-                                    Live
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <p class="project-description">
-                            A full-stack discussion platform focused
-                            on structured communities, authentication,
-                            content management, and scalable APIs.
-                        </p>
-
-
-                        <div class="project-tags">
-
-                            <span>Python</span>
-                            <span>Django</span>
-                            <span>PostgreSQL</span>
-                            <span>REST API</span>
-
-                        </div>
-
-
-                        <div class="project-card-footer">
-
-                            <button
-                                type="button"
-                                class="project-details-button"
-                                data-project-open="threadly"
-                            >
-                                <span>Show Details</span>
-
-                                <span aria-hidden="true">
-                                    →
-                                </span>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
 
             </div>
 
@@ -267,122 +67,271 @@
     </section>
 
 
-    <!-- =========================================
-         PROJECT DETAILS MODAL
-    ========================================== -->
+    <!-- =================================
+         PROJECTS
+    ================================== -->
 
-    <div
-        id="project-modal"
-        class="project-modal"
-        aria-hidden="true"
+    <section
+        class="all-projects"
+        aria-labelledby="all-projects-title"
     >
 
-        <div class="project-modal-backdrop"></div>
+        <div class="projects-container">
 
-
-        <div
-            class="project-modal-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-project-title"
-        >
-
-            <!-- Close -->
-
-            <button
-                type="button"
-                id="project-modal-close"
-                class="project-modal-close"
-                aria-label="Close project details"
-            >
-                ×
-            </button>
-
-
-            <!-- Modal image -->
-
-            <div class="modal-image-wrapper">
-
-                <img
-                    id="modal-project-image"
-                    src=""
-                    alt=""
-                >
-
+            <div class="projects-title">
+                <h2 id="all-projects-title">
+                    All Projects
+                </h2>
             </div>
 
 
-            <!-- Modal content -->
+            <div class="projects-grid">
 
-            <div class="project-modal-content">
 
-                <div class="modal-title-row">
+                <!-- =================================
+                     PROJECT 1
+                ================================== -->
 
-                    <div>
+                <article class="project-card">
 
-                        <p class="modal-eyebrow">
-                            Project
+                    <!-- Project Image -->
+
+                    <a
+                        href="#"
+                        class="project-image"
+                        aria-label="View Versehana project"
+                    >
+                        <img
+                            src="{% static 'images/project-1.png' %}"
+                            alt="Versehana project preview"
+                        >
+                    </a>
+
+
+                    <!-- Project Content -->
+
+                    <div class="project-content">
+
+                        <h3>
+                            Versehana
+                        </h3>
+
+                        <p class="project-description">
+                            A full-stack web application built with
+                            modern technologies and a focus on clean
+                            design and user experience.
                         </p>
 
-                        <h2 id="modal-project-title">
-                            Project Name
-                        </h2>
+
+                        <!-- GitHub + Live Demo -->
+
+                        <div class="project-links">
+
+                            <a
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M7 17L17 7M8 7h9v9"
+                                    />
+                                </svg>
+                            </a>
+
+
+                            <a
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Live Demo
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M7 17L17 7M8 7h9v9"
+                                    />
+                                </svg>
+                            </a>
+
+                        </div>
+
+
+                        <!-- View Details -->
+
+                        <a
+                            href="#"
+                            class="view-project"
+                        >
+                            View Details
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M5 12h14M13 6l6 6-6 6"
+                                />
+                            </svg>
+                        </a>
 
                     </div>
 
-                    <div
-                        id="modal-project-links"
-                        class="modal-links"
+                </article>
+
+
+
+                <!-- =================================
+                     PROJECT 2
+                ================================== -->
+
+                <article class="project-card">
+
+                    <!-- Project Image -->
+
+                    <a
+                        href="#"
+                        class="project-image"
+                        aria-label="View Salary Prediction project"
                     >
+                        <img
+                            src="{% static 'images/project-2.png' %}"
+                            alt="Salary Prediction project preview"
+                        >
+                    </a>
+
+
+                    <!-- Project Content -->
+
+                    <div class="project-content">
+
+                        <h3>
+                            Salary Prediction
+                        </h3>
+
+                        <p class="project-description">
+                            A machine learning web application that
+                            predicts salary using professional and
+                            educational information.
+                        </p>
+
+
+                        <!-- GitHub + Live Demo -->
+
+                        <div class="project-links">
+
+                            <a
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M7 17L17 7M8 7h9v9"
+                                    />
+                                </svg>
+                            </a>
+
+
+                            <a
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Live Demo
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M7 17L17 7M8 7h9v9"
+                                    />
+                                </svg>
+                            </a>
+
+                        </div>
+
+
+                        <!-- View Details -->
+
+                        <a
+                            href="#"
+                            class="view-project"
+                        >
+                            View Details
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M5 12h14M13 6l6 6-6 6"
+                                />
+                            </svg>
+                        </a>
+
                     </div>
 
-                </div>
+                </article>
 
-
-                <div class="modal-section">
-
-                    <h3>
-                        About the project
-                    </h3>
-
-                    <p id="modal-project-description"></p>
-
-                </div>
-
-
-                <div class="modal-section">
-
-                    <h3>
-                        Key features
-                    </h3>
-
-                    <ul id="modal-project-features">
-                    </ul>
-
-                </div>
-
-
-                <div class="modal-section">
-
-                    <h3>
-                        Technologies
-                    </h3>
-
-                    <div
-                        id="modal-project-technologies"
-                        class="modal-tags"
-                    >
-                    </div>
-
-                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</div>
+</section>
 
 {% endblock %}
 
