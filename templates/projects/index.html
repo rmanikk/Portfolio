@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Projects | Manik Kafle{% endblock %}
+{% block title %}Projects — Manik Kafle{% endblock %}
 
 {% block extra_css %}
-<link
-    rel="stylesheet"
-    href="{% static 'css/projects.css' %}"
->
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<section class="projects-page" id="projects-page">
+<div class="projects-page">
 
-    <!-- =================================
-         SAME BACKGROUND AS HOME
-    ================================== -->
+    <!-- =========================================
+         EXISTING BACKGROUND
+         Keep the same background as Home
+    ========================================== -->
 
     <div class="hero-background" aria-hidden="true">
         <img
@@ -26,232 +24,233 @@
     </div>
 
 
-    <!-- =================================
-         SAME MOUSE GLOW AS HOME
-    ================================== -->
+    <!-- =========================================
+         PROJECTS CONTENT
+    ========================================== -->
 
-    <div id="cursor-glow" aria-hidden="true"></div>
-
-
-    <!-- =================================
-         PROJECT PAGE HEADER
-    ================================== -->
-
-    <section
-        class="projects-hero"
-        aria-labelledby="projects-title"
-    >
+    <section class="projects-section">
 
         <div class="projects-container">
 
-            <div class="projects-heading">
+            <!-- =================================
+                 PAGE HEADER
+            ================================== -->
+
+            <header class="projects-header">
 
                 <p class="projects-eyebrow">
-                    My Work
+                    Selected Work
                 </p>
 
-                <h1 id="projects-title">
+                <h1>
                     Projects
                 </h1>
 
-                <p class="projects-intro">
-                    A collection of projects I've built while exploring
-                    full-stack development, modern technologies, and
-                    practical software solutions.
+                <p class="projects-subtitle">
+                    List of projects completed
                 </p>
 
-            </div>
-
-        </div>
-
-    </section>
+            </header>
 
 
-    <!-- =================================
-         PROJECTS
-    ================================== -->
+            <!-- Divider -->
 
-    <section
-        class="all-projects"
-        aria-labelledby="all-projects-title"
-    >
+            <div class="projects-divider"></div>
 
-        <div class="projects-container">
 
-            <div class="projects-title">
-                <h2 id="all-projects-title">
+            <!-- =================================
+                 PROJECT COUNT
+                 Generated from Django
+            ================================== -->
+
+            <div class="projects-list-header">
+
+                <h2>
                     All Projects
+
+                    <span>
+                        {{ projects|length }}
+
+                        {% if projects|length == 1 %}
+                            project
+                        {% else %}
+                            projects
+                        {% endif %}
+                    </span>
                 </h2>
+
             </div>
 
+
+            <!-- =================================
+                 PROJECT GRID
+                 Backend Driven
+            ================================== -->
 
             <div class="projects-grid">
 
+                {% for project in projects %}
 
-                <!-- =================================
-                     PROJECT 1
-                ================================== -->
-
-                <article class="project-card">
-
-                    <!-- Project Image -->
-
-                    <a
-                        href="#"
-                        class="project-image"
-                        aria-label="View Versehana project"
+                    <article
+                        class="project-card"
+                        data-project="{{ project.slug }}"
                     >
-                        <img
-                            src="{% static 'images/project-1.png' %}"
-                            alt="Versehana project preview"
-                        >
-                    </a>
 
+                        <!-- =================================
+                             PROJECT IMAGE
+                        ================================== -->
 
-                    <!-- Project Content -->
+                        <div class="project-image-wrapper">
 
-                    <div class="project-content">
+                            {% if project.image %}
 
-                        <h3>
-                            Versehana
-                        </h3>
-
-                        <p class="project-description">
-                            A full-stack web application built with
-                            modern technologies and a focus on clean
-                            design and user experience.
-                        </p>
-
-
-                        <!-- GitHub + Live Demo -->
-
-                        <div class="project-links">
-
-                            <a
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                GitHub
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.8"
-                                    aria-hidden="true"
+                                <img
+                                    src="{{ project.image.url }}"
+                                    alt="{{ project.title }} project preview"
+                                    class="project-image"
                                 >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M7 17L17 7M8 7h9v9"
-                                    />
-                                </svg>
-                            </a>
 
+                            {% else %}
 
-                            <a
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Live Demo
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.8"
-                                    aria-hidden="true"
+                                <img
+                                    src="{% static 'images/hero-bg.png' %}"
+                                    alt="{{ project.title }} project preview"
+                                    class="project-image"
                                 >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M7 17L17 7M8 7h9v9"
-                                    />
-                                </svg>
-                            </a>
+
+                            {% endif %}
+
+                            <div class="project-image-overlay"></div>
 
                         </div>
 
 
-                        <!-- View Details -->
+                        <!-- =================================
+                             PROJECT CONTENT
+                        ================================== -->
 
-                        <a
-                            href="#"
-                            class="view-project"
-                        >
-                            View Details
+                        <div class="project-card-content">
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M5 12h14M13 6l6 6-6 6"
-                                />
-                            </svg>
-                        </a>
+                            <div class="project-title-row">
 
-                    </div>
-
-                </article>
+                                <h3>
+                                    {{ project.title }}
+                                </h3>
 
 
+                                <!-- =================================
+                                     PROJECT LINKS
+                                ================================== -->
 
-                <!-- =================================
-                     PROJECT 2
-                ================================== -->
+                                <div class="project-links">
 
-                <article class="project-card">
+                                    {% if project.github_url %}
 
-                    <!-- Project Image -->
+                                        <a
+                                            href="{{ project.github_url }}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="{{ project.title }} GitHub repository"
+                                            class="project-icon-link"
+                                        >
+                                            GitHub
 
-                    <a
-                        href="#"
-                        class="project-image"
-                        aria-label="View Salary Prediction project"
-                    >
-                        <img
-                            src="{% static 'images/project-2.png' %}"
-                            alt="Salary Prediction project preview"
-                        >
-                    </a>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="1.8"
+                                                aria-hidden="true"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    d="M7 17L17 7M8 7h9v9"
+                                                />
+                                            </svg>
 
+                                        </a>
 
-                    <!-- Project Content -->
-
-                    <div class="project-content">
-
-                        <h3>
-                            Salary Prediction
-                        </h3>
-
-                        <p class="project-description">
-                            A machine learning web application that
-                            predicts salary using professional and
-                            educational information.
-                        </p>
+                                    {% endif %}
 
 
-                        <!-- GitHub + Live Demo -->
+                                    {% if project.live_url %}
 
-                        <div class="project-links">
+                                        <a
+                                            href="{{ project.live_url }}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="{{ project.title }} live demo"
+                                            class="project-icon-link"
+                                        >
+                                            Live
+
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="1.8"
+                                                aria-hidden="true"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    d="M7 17L17 7M8 7h9v9"
+                                                />
+                                            </svg>
+
+                                        </a>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================
+                                 SHORT DESCRIPTION
+                            ================================== -->
+
+                            <p class="project-description">
+                                {{ project.short_description }}
+                            </p>
+
+
+                            <!-- =================================
+                                 TECHNOLOGIES
+                                 Generated from database
+                            ================================== -->
+
+                            {% if project.technologies %}
+
+                                <div class="project-technologies">
+
+                                    {% for technology in project.technologies %}
+
+                                        <span class="project-tech">
+                                            {{ technology }}
+                                        </span>
+
+                                    {% endfor %}
+
+                                </div>
+
+                            {% endif %}
+
+
+                            <!-- =================================
+                                 VIEW PROJECT
+                            ================================== -->
 
                             <a
                                 href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                class="view-project"
                             >
-                                GitHub
+
+                                View Details
 
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -264,66 +263,36 @@
                                     <path
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                        d="M7 17L17 7M8 7h9v9"
+                                        d="M5 12h14M13 6l6 6-6 6"
                                     />
                                 </svg>
-                            </a>
 
-
-                            <a
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Live Demo
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.8"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M7 17L17 7M8 7h9v9"
-                                    />
-                                </svg>
                             </a>
 
                         </div>
 
+                    </article>
 
-                        <!-- View Details -->
+                {% empty %}
 
-                        <a
-                            href="#"
-                            class="view-project"
-                        >
-                            View Details
+                    <!-- =================================
+                         NO PROJECTS
+                    ================================== -->
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M5 12h14M13 6l6 6-6 6"
-                                />
-                            </svg>
-                        </a>
+                    <div class="projects-empty">
+
+                        <h3>
+                            No projects yet.
+                        </h3>
+
+                        <p>
+                            Projects will appear here once they are added
+                            through the admin panel.
+                        </p>
 
                     </div>
 
-                </article>
-
+                {% endfor %}
 
             </div>
 
@@ -331,11 +300,6 @@
 
     </section>
 
-</section>
+</div>
 
-{% endblock %}
-
-
-{% block extra_js %}
-<script src="{% static 'js/projects.js' %}"></script>
 {% endblock %}
