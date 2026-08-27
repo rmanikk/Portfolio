@@ -494,7 +494,12 @@
 
     padding-bottom: 100px;
 }
+.blog-detail-page {
+    width: 100%;
+    max-width: 100vw;
 
+    overflow-x: hidden;
+}
 
 /* =========================================
    ARTICLE CONTAINER
@@ -594,26 +599,36 @@
 /* =========================================
    COVER IMAGE
 ========================================= */
+/* =========================================
+   ARTICLE COVER IMAGE
+========================================= */
 
 .article-cover-container {
     position: relative;
     z-index: 10;
 
-    padding: 0 24px 65px;
+    width: 100%;
+    padding: 0 24px 55px;
+
+    box-sizing: border-box;
 }
 
 
 .article-cover {
     width: 100%;
-    max-width: 1100px;
+    max-width: 760px;
+
+    height: 400px;
 
     margin: 0 auto;
 
     overflow: hidden;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     border: 1px solid rgba(255, 255, 255, 0.10);
+
+    box-sizing: border-box;
 }
 
 
@@ -621,11 +636,13 @@
     display: block;
 
     width: 100%;
-    max-height: 600px;
+    height: 100%;
 
     object-fit: cover;
-}
+    object-position: center;
 
+    box-sizing: border-box;
+}
 
 /* =========================================
    ARTICLE CONTENT
@@ -635,9 +652,8 @@
     position: relative;
     z-index: 10;
 
-    padding: 0 24px;
+    padding: 10px 24px 0;
 }
-
 
 .article-content {
     width: 100%;
@@ -658,29 +674,42 @@
 ========================================= */
 
 .article-content p {
-    margin: 0 0 1.5em;
+    margin: 0 0 1.7em;
 }
 
 
 .article-content h2 {
-    margin: 2.2em 0 0.7em;
+    margin: 2.5em 0 0.8em;
 
     color: #f5f5f5;
 
-    font-size: 1.65rem;
+    font-size: 1.8rem;
+
+    font-weight: 600;
 
     line-height: 1.25;
 
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
 }
 
 
 .article-content h3 {
-    margin: 2em 0 0.6em;
+    margin: 2.2em 0 0.7em;
 
     color: #f5f5f5;
 
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+.article-content > p:first-child {
+    color: #d4d4d8;
+
+    font-size: 1.08rem;
+
+    line-height: 1.85;
 }
 
 
@@ -745,7 +774,7 @@
 
     height: auto;
 
-    margin: 2.5rem auto;
+    margin: 3rem auto;
 
     border-radius: 14px;
 
@@ -765,11 +794,13 @@
 
 
 .article-content figcaption {
-    margin-top: 9px;
+    margin-top: 10px;
 
     color: #71717a;
 
     font-size: 0.7rem;
+
+    line-height: 1.5;
 
     text-align: center;
 }
