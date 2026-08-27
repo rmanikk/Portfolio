@@ -176,23 +176,22 @@ body {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
         linear-gradient(
             90deg,
             rgba(5, 5, 5, 0.96) 0%,
-            rgba(5, 5, 5, 0.84) 34%,
-            rgba(5, 5, 5, 0.40) 60%,
-            rgba(5, 5, 5, 0.18) 100%
+            rgba(5, 5, 5, 0.90) 34%,
+            rgba(5, 5, 5, 0.62) 60%,
+            rgba(5, 5, 5, 0.32) 100%
         ),
 
         radial-gradient(
             circle at center,
-            transparent 38%,
-            rgba(5, 5, 5, 0.28) 72%,
-            #050505 100%
+            transparent 34%,
+            rgba(5, 5, 5, 0.40) 70%,
+            rgba(5, 5, 5, 0.94) 100%
         );
 
     pointer-events: none;
