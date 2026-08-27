@@ -39,6 +39,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    "django_ckeditor_5",
     # Django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -151,5 +153,23 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+    },
+}
+CKEDITOR_5_CONFIGS = {
+    "extends": {
+        "toolbar": [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "link",
+            "bulletedList",
+            "numberedList",
+            "blockQuote",
+            "insertImage",
+            "mediaEmbed",
+            "undo",
+            "redo",
+        ],
     },
 }

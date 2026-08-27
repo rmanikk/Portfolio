@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog | Manik Kafle{% endblock %}
+
+{% block extra_css %}
+<link
+    rel="stylesheet"
+    href="{% static 'css/blog.css' %}"
+>
+{% endblock %}
+
+{% block content %}
+
+<section class="blog-page">
+
+    <!-- Background -->
+
+    <div
+        class="hero-background"
+        aria-hidden="true"
+    >
+        <img
+            src="{% static 'images/hero-bg.png' %}"
+            alt=""
+        >
+    </div>
+
+
+    <!-- Cursor Glow -->
+
+    <div
+        id="cursor-glow"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- Blog Header -->
+
+    <section class="blog-hero">
+
+        <div class="blog-container">
+
+            <div class="blog-heading">
+
+                <p class="blog-eyebrow">
+                    Thoughts &amp; Ideas
+                </p>
+
+                <h1>
+                    Blog
+                </h1>
+
+                <p class="blog-intro">
+                    A collection of thoughts, lessons, experiments,
+                    and things I'm learning along the way.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    {% if featured_post %}
+
+    <!-- Featured Blog -->
+
+    <section
+        class="featured-blog"
+        aria-labelledby="featured-blog-title"
+    >
+
+        <div class="blog-container">
+
+            <article class="featured-card">
+
+                {% if featured_post.cover_image %}
+
+                <a
+                    href="{% url 'blog:detail' featured_post.slug %}"
+                    class="featured-image"
+                    aria-label="Read {{ featured_post.title }}"
+                >
+
+                    <img
+                        src="{{ featured_post.cover_image.url }}"
+                        alt="{{ featured_post.title }}"
+                    >
+
+                </a>
+
+                {% endif %}
+
+
+                <div class="featured-content">
+
+                    <div class="blog-meta">
+
+                        <span>
+                            {{ featured_post.get_category_display }}
+                        </span>
+
+                        {% if featured_post.published_at %}
+                            <span>·</span>
+                            <time datetime="{{ featured_post.published_at|date:'Y-m-d' }}">
+                                {{ featured_post.published_at|date:"M d, Y" }}
+                            </time>
+                        {% endif %}
+
+                    </div>
+
+
+                    <h2 id="featured-blog-title">
+                        {{ featured_post.title }}
+                    </h2>
+
+
+                    {% if featured_post.excerpt %}
+
+                    <p>
+                        {{ featured_post.excerpt }}
+                    </p>
+
+                    {% endif %}
+
+
+                    <a
+                        href="{% url 'blog:detail' featured_post.slug %}"
+                        class="blog-read-more"
+                    >
+                        Read Article
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- Latest Blogs -->
+
+    <section
+        class="latest-blogs"
+        aria-labelledby="latest-blogs-title"
+    >
+
+        <div class="blog-container">
+
+            <div class="blog-list-header">
+
+                <h2 id="latest-blogs-title">
+                    Latest Articles
+                </h2>
+
+                <span>
+                    {{ posts|length }} article{{ posts|length|pluralize }}
+                </span>
+
+            </div>
+
+
+            {% if posts %}
+
+            <div class="blog-grid">
+
+                {% for post in posts %}
+
+                <article class="blog-card">
+
+                    {% if post.cover_image %}
+
+                    <a
+                        href="{% url 'blog:detail' post.slug %}"
+                        class="blog-card-image"
+                        aria-label="Read {{ post.title }}"
+                    >
+
+                        <img
+                            src="{{ post.cover_image.url }}"
+                            alt="{{ post.title }}"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+                    {% endif %}
+
+
+                    <div class="blog-card-content">
+
+                        <div class="blog-meta">
+
+                            <span>
+                                {{ post.get_category_display }}
+                            </span>
+
+                            {% if post.published_at %}
+                                <span>·</span>
+                                <time datetime="{{ post.published_at|date:'Y-m-d' }}">
+                                    {{ post.published_at|date:"M d, Y" }}
+                                </time>
+                            {% endif %}
+
+                        </div>
+
+
+                        <h3>
+                            {{ post.title }}
+                        </h3>
+
+
+                        {% if post.excerpt %}
+
+                        <p>
+                            {{ post.excerpt }}
+                        </p>
+
+                        {% endif %}
+
+
+                        <div class="blog-card-footer">
+
+                            <a
+                                href="{% url 'blog:detail' post.slug %}"
+                                class="blog-read-more"
+                            >
+                                Read Article
+
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="blog-empty">
+
+                <p>
+                    No articles published yet.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+</section>
+
+{% endblock %}
