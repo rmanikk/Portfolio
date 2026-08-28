@@ -1,9 +1,11 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
 from django_ckeditor_5.fields import CKEditor5Field
 
 
 class BlogPost(models.Model):
+
     CATEGORY_CHOICES = [
         ("development", "Development"),
         ("projects", "Projects"),
@@ -13,7 +15,9 @@ class BlogPost(models.Model):
         ("personal", "Personal"),
     ]
 
-    title = models.CharField(max_length=200)
+    title = models.CharField(
+        max_length=200
+    )
 
     slug = models.SlugField(
         max_length=220,
@@ -27,9 +31,9 @@ class BlogPost(models.Model):
     )
 
     content = CKEditor5Field(
-    "Content",
-    config_name="extends",
-)
+        "Content",
+        config_name="extends",
+    )
 
     cover_image = models.ImageField(
         upload_to="blog/covers/",
@@ -43,22 +47,37 @@ class BlogPost(models.Model):
         default="development"
     )
 
-    featured = models.BooleanField(default=False)
+    featured = models.BooleanField(
+        default=False
+    )
 
-    published = models.BooleanField(default=False)
+    published = models.BooleanField(
+        default=False
+    )
 
     published_at = models.DateTimeField(
         blank=True,
         null=True
     )
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
 
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
 
     def save(self, *args, **kwargs):
+
+        # Generate slug automatically
         if not self.slug:
             self.slug = slugify(self.title)
+
+        # Set publication date the first time
+        # the post is published.
+        if self.published and self.published_at is None:
+            self.published_at = timezone.now()
 
         super().save(*args, **kwargs)
 
@@ -66,4 +85,7 @@ class BlogPost(models.Model):
         return self.title
 
     class Meta:
-        ordering = ["-published_at", "-created_at"]
+        ordering = [
+            "-published_at",
+            "-created_at"
+        ]

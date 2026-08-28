@@ -14,7 +14,9 @@
 
 <section class="blog-page">
 
-    <!-- Background -->
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
 
     <div
         class="hero-background"
@@ -27,7 +29,9 @@
     </div>
 
 
-    <!-- Cursor Glow -->
+    <!-- =========================================
+         CURSOR GLOW
+    ========================================== -->
 
     <div
         id="cursor-glow"
@@ -35,7 +39,9 @@
     ></div>
 
 
-    <!-- Blog Header -->
+    <!-- =========================================
+         BLOG HEADER
+    ========================================== -->
 
     <section class="blog-hero">
 
@@ -63,7 +69,9 @@
     </section>
 
 
-    <!-- Latest Articles -->
+    <!-- =========================================
+         LATEST ARTICLES
+    ========================================== -->
 
     <section
         class="latest-blogs"
@@ -71,6 +79,8 @@
     >
 
         <div class="blog-container">
+
+            <!-- Section Header -->
 
             <div class="blog-list-header">
 
@@ -86,6 +96,10 @@
             </div>
 
 
+            <!-- =====================================
+                 BLOG POSTS
+            ====================================== -->
+
             {% if posts %}
 
             <div class="blog-grid">
@@ -94,7 +108,10 @@
 
                 <article class="blog-card">
 
-                    <!-- Cover Image -->
+
+                    <!-- =================================
+                         COVER IMAGE
+                    ================================== -->
 
                     {% if post.cover_image %}
 
@@ -110,40 +127,33 @@
                             loading="lazy"
                         >
 
-    <span class="blog-card-category">
-        {{ post.get_category_display }}
-    </span>
+
+                        <!-- Category -->
+
+                        <span class="blog-card-category">
+
+                            {{ post.get_category_display }}
+
+                        </span>
 
                     </a>
 
                     {% endif %}
 
 
-                    <!-- Card Content -->
+                    <!-- =================================
+                         CARD CONTENT
+                    ================================== -->
 
                     <div class="blog-card-content">
-
-                        <!-- Meta -->
-
-                        <div class="blog-meta">
-
-    {% if post.published_at %}
-
-        <time
-            datetime="{{ post.published_at|date:'Y-m-d' }}"
-        >
-            {{ post.published_at|date:"M d, Y" }}
-        </time>
-
-    {% endif %}
-
-</div>
 
 
                         <!-- Title -->
 
                         <h3>
+
                             {{ post.title }}
+
                         </h3>
 
 
@@ -152,15 +162,46 @@
                         {% if post.excerpt %}
 
                         <p>
+
                             {{ post.excerpt }}
+
                         </p>
 
                         {% endif %}
 
 
-                        <!-- Read More -->
+                        <!-- =================================
+                             CARD FOOTER
+                        ================================== -->
 
                         <div class="blog-card-footer">
+
+
+                            <!-- Published Date -->
+
+                            <div class="blog-card-date">
+
+                                {% if post.published_at %}
+
+                                <span
+                                    class="blog-date-icon"
+                                    aria-hidden="true"
+                                >
+                                    📅
+                                </span>
+
+                                <time
+                                    datetime="{{ post.published_at|date:'Y-m-d' }}"
+                                >
+                                    {{ post.published_at|date:"M d, Y" }}
+                                </time>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <!-- Read Article -->
 
                             <a
                                 href="{% url 'blog:detail' post.slug %}"
@@ -185,9 +226,12 @@
 
             </div>
 
-            {% else %}
 
-            <!-- Empty State -->
+            <!-- =====================================
+                 EMPTY STATE
+            ====================================== -->
+
+            {% else %}
 
             <div class="blog-empty">
 
