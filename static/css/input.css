@@ -1938,3 +1938,270 @@ body {
     }
 
 }
+/* =================================
+   FOOTER
+================================= */
+
+.site-footer {
+    position: relative;
+
+    z-index: 20;
+
+    width: 100%;
+
+    padding: 55px 24px 28px;
+
+    background: rgba(5, 5, 5, 0.72);
+
+    border-top: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* =================================
+   SAME WIDTH AS NAVBAR
+================================= */
+
+.footer-container {
+    width: 100%;
+
+    max-width: 840px;
+
+    margin: 0 auto;
+}
+
+
+/* =================================
+   SOCIAL LINKS
+================================= */
+
+.footer-socials {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+/* =================================
+   SOCIAL ICON
+================================= */
+
+.footer-social-link {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 36px;
+
+    height: 36px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.10
+    );
+
+    border-radius: 8px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.025
+    );
+
+    color: rgba(
+        228,
+        228,
+        231,
+        0.60
+    );
+
+    text-decoration: none;
+
+    transition:
+        transform 200ms ease,
+        color 200ms ease,
+        border-color 200ms ease,
+        background 200ms ease;
+}
+
+
+.footer-social-link svg {
+    width: 17px;
+
+    height: 17px;
+}
+
+
+.footer-social-link:hover {
+    transform: translateY(-3px);
+
+    color: #ffffff;
+
+    border-color: rgba(
+        185,
+        28,
+        28,
+        0.55
+    );
+
+    background: rgba(
+        127,
+        29,
+        29,
+        0.12
+    );
+}
+
+
+/* =================================
+   TOOLTIP
+================================= */
+
+.footer-social-link::after {
+    content: attr(data-social);
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: calc(100% + 9px);
+
+    transform:
+        translateX(-50%)
+        translateY(4px);
+
+    padding: 5px 8px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.10
+    );
+
+    border-radius: 6px;
+
+    background: rgba(
+        12,
+        12,
+        12,
+        0.94
+    );
+
+    color: #e4e4e7;
+
+    font-size: 0.65rem;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 180ms ease;
+}
+
+
+.footer-social-link:hover::after {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =================================
+   DIVIDER
+================================= */
+
+.footer-divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 28px 0 20px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.07
+    );
+}
+
+
+/* =================================
+   COPYRIGHT
+================================= */
+
+.footer-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: rgba(
+        244,
+        244,
+        245,
+        0.52
+    );
+
+    font-size: 0.85rem;
+
+    line-height: 1;
+     letter-spacing: 0.01em;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+    .site-footer {
+        padding:
+            45px 20px 24px;
+    }
+
+}

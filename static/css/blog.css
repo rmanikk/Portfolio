@@ -171,7 +171,7 @@
 
     color: #71717a;
 
-    font-size: 0.66rem;
+    font-size: 0.62rem;
     font-weight: 500;
 
     letter-spacing: 0.06em;
@@ -282,6 +282,68 @@
 }
 
 
+
+/* =========================================
+   CATEGORY BADGE
+========================================= */
+
+.blog-card-category {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 2;
+
+    padding: 6px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 999px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #ffffff;
+
+    font-size: 0.62rem;
+    font-weight: 600;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.blog-card-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(0.72)
+        contrast(1.05);
+
+    transition:
+        transform 500ms ease,
+        filter 500ms ease;
+}
+
+
+.blog-card:hover .blog-card-image img {
+    transform: scale(1.035);
+
+    filter:
+        brightness(0.82)
+        contrast(1.05);
+}
+
 /* =========================================
    BLOG GRID
 ========================================= */
@@ -289,10 +351,13 @@
 .blog-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    width: 100%;
 
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    box-sizing: border-box;
 }
 
 
@@ -304,6 +369,9 @@
     display: flex;
     flex-direction: column;
 
+    width: 100%;
+    height: 100%;
+
     min-width: 0;
 
     overflow: hidden;
@@ -314,13 +382,16 @@
 
     background: transparent;
 
+    box-sizing: border-box;
+
     transition:
         transform 300ms ease,
         border-color 300ms ease;
 }
 
+
 .blog-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 
     border-color: rgba(255, 255, 255, 0.18);
 }
@@ -331,10 +402,12 @@
 ========================================= */
 
 .blog-card-image {
+    position: relative;
+
     display: block;
 
     width: 100%;
-    height: 205px;
+    height: 220px;
 
     overflow: hidden;
 
@@ -370,6 +443,53 @@
 
 
 /* =========================================
+   CATEGORY BADGE
+========================================= */
+
+.blog-card-category {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 2;
+
+    padding: 6px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 999px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: #ffffff;
+
+    font-size: 0.62rem;
+    font-weight: 600;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    transition:
+        background 200ms ease,
+        border-color 200ms ease;
+}
+
+
+.blog-card:hover .blog-card-category {
+    background: rgba(0, 0, 0, 0.68);
+
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+
+/* =========================================
    CARD CONTENT
 ========================================= */
 
@@ -379,21 +499,53 @@
 
     flex: 1;
 
-    padding: 18px;
+    padding: 20px;
 }
 
 
+/* =========================================
+   CARD META
+========================================= */
+
+.blog-card-content .blog-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    color: #71717a;
+
+    font-size: 0.62rem;
+    font-weight: 500;
+
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
 .blog-card-content h3 {
-    margin: 10px 0 8px;
+    margin: 9px 0 8px;
 
     color: #f5f5f5;
 
-    font-size: 1.05rem;
+    font-size: 1.12rem;
     font-weight: 600;
 
-    letter-spacing: -0.025em;
+    line-height: 1.3;
+
+    letter-spacing: -0.028em;
 }
 
+
+/* =========================================
+   CARD EXCERPT
+========================================= */
 
 .blog-card-content p {
     display: -webkit-box;
@@ -402,9 +554,9 @@
 
     color: #a1a1aa;
 
-    font-size: 0.76rem;
+    font-size: 0.78rem;
 
-    line-height: 1.65;
+    line-height: 1.7;
 
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -422,7 +574,6 @@
 
     padding-top: 18px;
 }
-
 
 /* =========================================
    EMPTY STATE
@@ -481,6 +632,14 @@
     .blog-container {
         max-width: 520px;
     }
+    .blog-card-category {
+    top: 11px;
+    right: 11px;
+
+    padding: 5px 8px;
+
+    font-size: 0.58rem;
+}
 
 }
 

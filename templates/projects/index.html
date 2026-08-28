@@ -13,7 +13,7 @@
 
     <!-- =========================================
          EXISTING BACKGROUND
-         Keep the same background as Home
+         Same background as Home
     ========================================== -->
 
     <div class="hero-background" aria-hidden="true">
@@ -23,7 +23,10 @@
         >
     </div>
 
-     <!-- Cursor Glow -->
+
+    <!-- =========================================
+         CURSOR GLOW
+    ========================================== -->
 
     <div
         id="cursor-glow"
@@ -38,6 +41,7 @@
     <section class="projects-section">
 
         <div class="projects-container">
+
 
             <!-- =================================
                  PAGE HEADER
@@ -60,48 +64,54 @@
             </header>
 
 
-            <!-- Divider -->
+            <!-- =================================
+                 DIVIDER
+            ================================== -->
 
             <div class="projects-divider"></div>
 
 
             <!-- =================================
-                 PROJECT COUNT
-                 Generated from Django
+                 PROJECT LIST HEADER
             ================================== -->
 
             <div class="projects-list-header">
 
                 <h2>
                     All Projects
-
-                    <span>
-                        {{ projects|length }}
-
-                        {% if projects|length == 1 %}
-                            project
-                        {% else %}
-                            projects
-                        {% endif %}
-                    </span>
                 </h2>
+
+                <span class="projects-count">
+                    ({{ projects|length }}
+                    {% if projects|length == 1 %}
+                        project
+                    {% else %}
+                        projects
+                    {% endif %})
+                </span>
 
             </div>
 
 
             <!-- =================================
                  PROJECT GRID
-                 Backend Driven
+                 Fully Backend Driven
             ================================== -->
 
             <div class="projects-grid">
 
                 {% for project in projects %}
 
+
+                    <!-- =================================
+                         PROJECT CARD
+                    ================================== -->
+
                     <article
                         class="project-card"
                         data-project="{{ project.slug }}"
                     >
+
 
                         <!-- =================================
                              PROJECT IMAGE
@@ -138,6 +148,12 @@
 
                         <div class="project-card-content">
 
+
+                            <!-- =================================
+                                 TITLE + PROJECT LINKS
+                                 Same Row
+                            ================================== -->
+
                             <div class="project-title-row">
 
                                 <h3>
@@ -146,10 +162,13 @@
 
 
                                 <!-- =================================
-                                     PROJECT LINKS
+                                     GITHUB + LIVE DEMO
                                 ================================== -->
 
                                 <div class="project-links">
+
+
+                                    <!-- GitHub -->
 
                                     {% if project.github_url %}
 
@@ -160,27 +179,38 @@
                                             aria-label="{{ project.title }} GitHub repository"
                                             class="project-icon-link"
                                         >
-                                            GitHub
 
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="1.8"
+                                                fill="currentColor"
                                                 aria-hidden="true"
                                             >
+
                                                 <path
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    d="M7 17L17 7M8 7h9v9"
+                                                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.08
+                                                    3.29 9.39 7.86 10.91.58.11.79-.25.79-.56
+                                                    0-.27-.01-1-.01-1.96-3.2.69-3.88-1.54-3.88-1.54
+                                                    -.53-1.36-1.28-1.72-1.28-1.72-1.04-.71.08-.7.08-.7
+                                                    1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.24
+                                                    3.32.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28
+                                                    -5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47
+                                                    .11-3.06 0 0 .96-.31 3.15 1.18a10.94 10.94 0 015.74 0
+                                                    c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06
+                                                    .74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25
+                                                    5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19
+                                                    0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12
+                                                    23.5 5.65 18.35.5 12 .5z"
                                                 />
+
                                             </svg>
 
                                         </a>
 
                                     {% endif %}
 
+
+                                    <!-- Live Demo -->
 
                                     {% if project.live_url %}
 
@@ -191,7 +221,6 @@
                                             aria-label="{{ project.title }} live demo"
                                             class="project-icon-link"
                                         >
-                                            Live
 
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -201,11 +230,16 @@
                                                 stroke-width="1.8"
                                                 aria-hidden="true"
                                             >
+
                                                 <path
                                                     stroke-linecap="round"
                                                     stroke-linejoin="round"
-                                                    d="M7 17L17 7M8 7h9v9"
+                                                    d="M14 5h5v5
+                                                    M19 5l-8 8
+                                                    M18 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V7
+                                                    a1 1 0 011-1h5"
                                                 />
+
                                             </svg>
 
                                         </a>
@@ -219,23 +253,35 @@
 
                             <!-- =================================
                                  SHORT DESCRIPTION
+                                 Maximum 3 Lines
                             ================================== -->
 
-                            <p class="project-description">
-                                {{ project.short_description }}
-                            </p>
+                            {% if project.short_description %}
+
+                                <p class="project-description">
+                                    {{ project.short_description }}
+                                </p>
+
+                            {% else %}
+
+                                <p class="project-description">
+                                    {{ project.description|striptags }}
+                                </p>
+
+                            {% endif %}
 
 
                             <!-- =================================
                                  TECHNOLOGIES
-                                 Generated from database
+                                 Show Maximum 5
+                                 Remaining = +1 / +2 / +3...
                             ================================== -->
 
                             {% if project.technologies %}
 
                                 <div class="project-technologies">
 
-                                    {% for technology in project.technologies %}
+                                    {% for technology in project.technologies|slice:":5" %}
 
                                         <span class="project-tech">
                                             {{ technology }}
@@ -243,44 +289,62 @@
 
                                     {% endfor %}
 
+
+                                    {% if project.technologies|length > 5 %}
+
+                                        <span class="project-tech project-tech-more">
+                                            +{{ project.technologies|length|add:"-5" }}
+                                        </span>
+
+                                    {% endif %}
+
                                 </div>
 
                             {% endif %}
 
 
                             <!-- =================================
-                                 VIEW PROJECT
+                                 VIEW DETAILS
+                                 Dynamic Backend URL
                             ================================== -->
 
-                            <a
-                                href="#"
-                                class="view-project"
-                            >
+                            <div class="project-card-footer">
 
-                                View Details
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.8"
-                                    aria-hidden="true"
+                                <a
+                                    href="{% url 'projects:project_detail' project.slug %}"
+                                    class="project-details-button"
                                 >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M5 12h14M13 6l6 6-6 6"
-                                    />
-                                </svg>
 
-                            </a>
+                                    View Details
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        aria-hidden="true"
+                                    >
+
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M5 12h14M13 6l6 6-6 6"
+                                        />
+
+                                    </svg>
+
+                                </a>
+
+                            </div>
 
                         </div>
 
                     </article>
 
+
                 {% empty %}
+
 
                     <!-- =================================
                          NO PROJECTS
@@ -298,6 +362,7 @@
                         </p>
 
                     </div>
+
 
                 {% endfor %}
 

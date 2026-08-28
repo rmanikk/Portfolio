@@ -63,92 +63,7 @@
     </section>
 
 
-    {% if featured_post %}
-
-    <!-- Featured Blog -->
-
-    <section
-        class="featured-blog"
-        aria-labelledby="featured-blog-title"
-    >
-
-        <div class="blog-container">
-
-            <article class="featured-card">
-
-                {% if featured_post.cover_image %}
-
-                <a
-                    href="{% url 'blog:detail' featured_post.slug %}"
-                    class="featured-image"
-                    aria-label="Read {{ featured_post.title }}"
-                >
-
-                    <img
-                        src="{{ featured_post.cover_image.url }}"
-                        alt="{{ featured_post.title }}"
-                    >
-
-                </a>
-
-                {% endif %}
-
-
-                <div class="featured-content">
-
-                    <div class="blog-meta">
-
-                        <span>
-                            {{ featured_post.get_category_display }}
-                        </span>
-
-                        {% if featured_post.published_at %}
-                            <span>·</span>
-                            <time datetime="{{ featured_post.published_at|date:'Y-m-d' }}">
-                                {{ featured_post.published_at|date:"M d, Y" }}
-                            </time>
-                        {% endif %}
-
-                    </div>
-
-
-                    <h2 id="featured-blog-title">
-                        {{ featured_post.title }}
-                    </h2>
-
-
-                    {% if featured_post.excerpt %}
-
-                    <p>
-                        {{ featured_post.excerpt }}
-                    </p>
-
-                    {% endif %}
-
-
-                    <a
-                        href="{% url 'blog:detail' featured_post.slug %}"
-                        class="blog-read-more"
-                    >
-                        Read Article
-
-                        <span aria-hidden="true">
-                            →
-                        </span>
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-    {% endif %}
-
-
-    <!-- Latest Blogs -->
+    <!-- Latest Articles -->
 
     <section
         class="latest-blogs"
@@ -164,7 +79,8 @@
                 </h2>
 
                 <span>
-                    {{ posts|length }} article{{ posts|length|pluralize }}
+                    {{ posts|length }}
+                    article{{ posts|length|pluralize }}
                 </span>
 
             </div>
@@ -177,6 +93,8 @@
                 {% for post in posts %}
 
                 <article class="blog-card">
+
+                    <!-- Cover Image -->
 
                     {% if post.cover_image %}
 
@@ -192,33 +110,44 @@
                             loading="lazy"
                         >
 
+    <span class="blog-card-category">
+        {{ post.get_category_display }}
+    </span>
+
                     </a>
 
                     {% endif %}
 
 
+                    <!-- Card Content -->
+
                     <div class="blog-card-content">
+
+                        <!-- Meta -->
 
                         <div class="blog-meta">
 
-                            <span>
-                                {{ post.get_category_display }}
-                            </span>
+    {% if post.published_at %}
 
-                            {% if post.published_at %}
-                                <span>·</span>
-                                <time datetime="{{ post.published_at|date:'Y-m-d' }}">
-                                    {{ post.published_at|date:"M d, Y" }}
-                                </time>
-                            {% endif %}
+        <time
+            datetime="{{ post.published_at|date:'Y-m-d' }}"
+        >
+            {{ post.published_at|date:"M d, Y" }}
+        </time>
 
-                        </div>
+    {% endif %}
 
+</div>
+
+
+                        <!-- Title -->
 
                         <h3>
                             {{ post.title }}
                         </h3>
 
+
+                        <!-- Excerpt -->
 
                         {% if post.excerpt %}
 
@@ -229,17 +158,21 @@
                         {% endif %}
 
 
+                        <!-- Read More -->
+
                         <div class="blog-card-footer">
 
                             <a
                                 href="{% url 'blog:detail' post.slug %}"
                                 class="blog-read-more"
                             >
+
                                 Read Article
 
                                 <span aria-hidden="true">
                                     →
                                 </span>
+
                             </a>
 
                         </div>
@@ -253,6 +186,8 @@
             </div>
 
             {% else %}
+
+            <!-- Empty State -->
 
             <div class="blog-empty">
 

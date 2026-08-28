@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class Project(models.Model):
@@ -15,7 +16,10 @@ class Project(models.Model):
         max_length=300
     )
 
-    description = models.TextField()
+    description = CKEditor5Field(
+        "Description",
+        config_name="extends",
+    )
 
     image = models.ImageField(
         upload_to="projects/"

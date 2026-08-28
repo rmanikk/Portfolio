@@ -11,6 +11,10 @@ urlpatterns = [
     path("blog/", include("apps.blog.urls")),
 
     path("ckeditor5/", include("django_ckeditor_5.urls")),
+    path(
+    "contact/",
+    include("apps.contact.urls"),
+),
 
     path(
         "",

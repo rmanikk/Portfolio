@@ -1,0 +1,493 @@
+/* =================================
+   CONTACT PAGE
+================================= */
+
+.contact-page {
+    width: 100%;
+
+    padding:
+        90px 24px 100px;
+}
+
+
+.contact-container {
+    width: 100%;
+
+    max-width: 840px;
+
+    margin: 0 auto;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.contact-header {
+    max-width: 620px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+
+.contact-eyebrow {
+    margin: 0 0 12px;
+
+    color: #b91c1c;
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+.contact-header h1 {
+    margin: 0;
+
+    color: #f4f4f5;
+
+    font-size: clamp(
+        2rem,
+        5vw,
+        3rem
+    );
+
+    font-weight: 600;
+
+    letter-spacing: -0.04em;
+
+    line-height: 1.1;
+}
+
+
+.contact-intro {
+    max-width: 520px;
+
+    margin: 18px auto 0;
+
+    color: rgba(
+        244,
+        244,
+        245,
+        0.52
+    );
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+
+/* =================================
+   FORM CARD
+================================= */
+
+.contact-card {
+    width: 100%;
+
+    padding: 32px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius: 14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* =================================
+   FORM
+================================= */
+
+.contact-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+.contact-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.contact-field label {
+    color: rgba(
+        244,
+        244,
+        245,
+        0.72
+    );
+
+    font-size: 0.76rem;
+
+    font-weight: 500;
+}
+
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.22
+        );
+
+    color: #f4f4f5;
+
+    font-family: inherit;
+
+    font-size: 0.82rem;
+
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease,
+        background 200ms ease;
+}
+
+
+.contact-field input {
+    height: 46px;
+
+    padding: 0 14px;
+}
+
+
+.contact-field textarea {
+    min-height: 145px;
+
+    padding: 13px 14px;
+
+    resize: vertical;
+}
+
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+    color: rgba(
+        244,
+        244,
+        245,
+        0.25
+    );
+}
+
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+    border-color:
+        rgba(
+            185,
+            28,
+            28,
+            0.65
+        );
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.30
+        );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            185,
+            28,
+            28,
+            0.08
+        );
+}
+
+
+/* =================================
+   ERRORS
+================================= */
+
+.contact-error {
+    color: #f87171;
+
+    font-size: 0.7rem;
+}
+
+
+/* =================================
+   SUBMIT
+================================= */
+
+.contact-submit {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 4px;
+}
+
+
+.contact-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border: 1px solid
+        rgba(
+            185,
+            28,
+            28,
+            0.55
+        );
+
+    border-radius: 8px;
+
+    background:
+        rgba(
+            127,
+            29,
+            29,
+            0.32
+        );
+
+    color: #f4f4f5;
+
+    font-family: inherit;
+
+    font-size: 0.76rem;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        transform 200ms ease,
+        background 200ms ease,
+        border-color 200ms ease;
+}
+
+
+.contact-button svg {
+    width: 15px;
+
+    height: 15px;
+}
+
+
+.contact-button:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(
+            127,
+            29,
+            29,
+            0.48
+        );
+
+    border-color:
+        rgba(
+            185,
+            28,
+            28,
+            0.8
+        );
+}
+
+
+/* =================================
+   DIRECT CONTACT
+================================= */
+
+.contact-direct {
+    margin-top: 45px;
+
+    text-align: center;
+}
+
+
+.contact-direct-title {
+    margin: 0 0 16px;
+
+    color: rgba(
+        244,
+        244,
+        245,
+        0.42
+    );
+
+    font-size: 0.72rem;
+}
+
+
+.contact-socials {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.contact-social {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.07
+        );
+
+    border-radius: 7px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.02
+        );
+
+    color:
+        rgba(
+            244,
+            244,
+            245,
+            0.50
+        );
+
+    font-size: 0.7rem;
+
+    text-decoration: none;
+
+    transition:
+        color 200ms ease,
+        border-color 200ms ease,
+        background 200ms ease;
+}
+
+
+.contact-social svg {
+    width: 14px;
+
+    height: 14px;
+}
+
+
+.contact-social:hover {
+    color: #ffffff;
+
+    border-color:
+        rgba(
+            185,
+            28,
+            28,
+            0.45
+        );
+
+    background:
+        rgba(
+            127,
+            29,
+            29,
+            0.10
+        );
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .contact-page {
+        padding:
+            65px 20px 80px;
+    }
+
+
+    .contact-card {
+        padding: 22px;
+    }
+
+
+    .contact-submit {
+        justify-content: stretch;
+    }
+
+
+    .contact-button {
+        width: 100%;
+    }
+
+
+    .contact-socials {
+        flex-wrap: wrap;
+    }
+
+}

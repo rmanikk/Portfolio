@@ -1,0 +1,310 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Contact | Manik Kafle
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-page">
+
+    <div class="contact-container">
+
+        <!-- =================================
+             HEADER
+        ================================== -->
+
+        <div class="contact-header">
+
+            <p class="contact-eyebrow">
+                Get In Touch
+            </p>
+
+            <h1>
+                Let's work together.
+            </h1>
+
+            <p class="contact-intro">
+                Have a project, idea, or opportunity in mind?
+                Send me a message and I'll get back to you.
+            </p>
+
+        </div>
+
+
+        <!-- =================================
+             CONTACT FORM
+        ================================== -->
+
+        <div class="contact-card">
+
+            <form
+                method="POST"
+                class="contact-form"
+            >
+
+                {% csrf_token %}
+
+
+                <!-- Name -->
+                <div class="contact-field">
+
+                    <label for="{{ form.name.id_for_label }}">
+                        Name
+                    </label>
+
+                    {{ form.name }}
+
+                    {% if form.name.errors %}
+                        <div class="contact-error">
+                            {{ form.name.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="contact-field">
+
+                    <label for="{{ form.email.id_for_label }}">
+                        Email
+                    </label>
+
+                    {{ form.email }}
+
+                    {% if form.email.errors %}
+                        <div class="contact-error">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Subject -->
+                <div class="contact-field">
+
+                    <label for="{{ form.subject.id_for_label }}">
+                        Subject
+                    </label>
+
+                    {{ form.subject }}
+
+                    {% if form.subject.errors %}
+                        <div class="contact-error">
+                            {{ form.subject.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Message -->
+                <div class="contact-field">
+
+                    <label for="{{ form.message.id_for_label }}">
+                        Message
+                    </label>
+
+                    {{ form.message }}
+
+                    {% if form.message.errors %}
+                        <div class="contact-error">
+                            {{ form.message.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Non-field errors -->
+                {% if form.non_field_errors %}
+
+                    <div class="contact-error">
+                        {{ form.non_field_errors }}
+                    </div>
+
+                {% endif %}
+
+
+                <!-- Submit -->
+                <div class="contact-submit">
+
+                    <button
+                        type="submit"
+                        class="contact-button"
+                    >
+
+                        Send Message
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M7 17L17 7M8 7h9v9"
+                            />
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- =================================
+             DIRECT CONTACT
+        ================================== -->
+
+        <div class="contact-direct">
+
+            <p class="contact-direct-title">
+                Or reach me directly
+            </p>
+
+
+            <div class="contact-socials">
+
+                <!-- LinkedIn -->
+                <a
+                    href="https://www.linkedin.com/"
+                    class="contact-social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    data-social="LinkedIn"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569
+                            c0-1.328-.027-3.037-1.852-3.037
+                            -1.853 0-2.136 1.445-2.136 2.939
+                            v5.667H9.351V9h3.414v1.561h.046
+                            c.477-.9 1.637-1.85 3.37-1.85
+                            3.601 0 4.267 2.37 4.267 5.455
+                            v6.286z
+                            M5.337 7.433
+                            a2.062 2.062 0 1 1 0-4.123
+                            2.062 2.062 0 0 1 0 4.123z
+                            M3.555 9h3.564v11.452H3.555V9z"
+                        />
+                    </svg>
+
+                    <span>
+                        LinkedIn
+                    </span>
+
+                </a>
+
+
+                <!-- Instagram -->
+                <a
+                    href="https://www.instagram.com/"
+                    class="contact-social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    data-social="Instagram"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="3"
+                            y="3"
+                            width="18"
+                            height="18"
+                            rx="5"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        />
+
+                        <circle
+                            cx="17.5"
+                            cy="6.5"
+                            r="1"
+                            fill="currentColor"
+                            stroke="none"
+                        />
+                    </svg>
+
+                    <span>
+                        Instagram
+                    </span>
+
+                </a>
+
+
+                <!-- Email -->
+                <a
+                    href="mailto:your-email@gmail.com"
+                    class="contact-social"
+                    aria-label="Email"
+                    data-social="Email"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="3"
+                            y="5"
+                            width="18"
+                            height="14"
+                            rx="2"
+                        />
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M4 7l8 6 8-6"
+                        />
+                    </svg>
+
+                    <span>
+                        Email
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

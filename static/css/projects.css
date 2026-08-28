@@ -16,10 +16,8 @@
 .projects-section {
     position: relative;
     z-index: 10;
-
     padding: 125px 24px 100px;
 }
-
 
 .projects-container {
     width: 100%;
@@ -36,42 +34,28 @@
     text-align: center;
 }
 
-
 .projects-eyebrow {
     margin: 0 0 10px;
-
     color: #ef4444;
-
     font-size: 0.72rem;
     font-weight: 600;
-
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
-
 .projects-header h1 {
     margin: 0;
-
     color: #f5f5f5;
-
     font-size: clamp(2.25rem, 5vw, 3.2rem);
-
     font-weight: 600;
-
     letter-spacing: -0.045em;
 }
 
-
 .projects-subtitle {
     max-width: 520px;
-
     margin: 12px auto 0;
-
     color: #a1a1aa;
-
     font-size: 0.95rem;
-
     line-height: 1.7;
 }
 
@@ -82,11 +66,8 @@
 
 .projects-divider {
     width: 100%;
-
     height: 1px;
-
     margin: 30px 0 20px;
-
     background: rgba(255, 255, 255, 0.09);
 }
 
@@ -96,33 +77,25 @@
 ========================================= */
 
 .projects-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 18px;
 }
 
-
 .projects-list-header h2 {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-
     margin: 0;
-
     color: #f5f5f5;
-
     font-size: 1.05rem;
-
     font-weight: 600;
-
     letter-spacing: -0.02em;
 }
 
-
-.projects-list-header h2 span {
+.projects-count {
     color: #71717a;
-
     font-size: 0.72rem;
-
     font-weight: 400;
+    white-space: nowrap;
 }
 
 
@@ -132,9 +105,7 @@
 
 .projects-grid {
     display: grid;
-
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
     gap: 14px;
 }
 
@@ -145,7 +116,6 @@
 
 .project-card {
     position: relative;
-
     overflow: hidden;
 
     display: flex;
@@ -154,7 +124,6 @@
     min-width: 0;
 
     border: 1px solid rgba(255, 255, 255, 0.10);
-
     border-radius: 14px;
 
     background:
@@ -172,7 +141,6 @@
         border-color 300ms ease,
         background 300ms ease;
 }
-
 
 .project-card:hover {
     transform: translateY(-4px);
@@ -194,22 +162,18 @@
 
 .project-image-wrapper {
     position: relative;
-
     height: 205px;
-
     overflow: hidden;
-
     background: #111;
 }
-
 
 .project-image {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
+
+    object-fit: cover;
 
     filter:
         brightness(0.72)
@@ -220,7 +184,6 @@
         filter 500ms ease;
 }
 
-
 .project-card:hover .project-image {
     transform: scale(1.035);
 
@@ -229,10 +192,8 @@
         contrast(1.05);
 }
 
-
 .project-image-overlay {
     position: absolute;
-
     inset: 0;
 
     background:
@@ -266,53 +227,58 @@
 
 .project-title-row {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-
     gap: 16px;
+    width: 100%;
 }
-
 
 .project-title-row h3 {
     margin: 0;
-
     color: #f5f5f5;
-
     font-size: 1.05rem;
-
     font-weight: 600;
-
     letter-spacing: -0.025em;
-}
+    line-height: 1.3;
 
+    /* Prevent title from pushing icons down */
+    min-width: 0;
+}
 
 .project-links {
     display: flex;
     align-items: center;
-
+    justify-content: flex-end;
     gap: 12px;
-
     flex-shrink: 0;
 }
 
-
 .project-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
     color: #71717a;
-
-    font-size: 0.68rem;
-
-    font-weight: 500;
-
     text-decoration: none;
 
-    transition: color 200ms ease;
+    transition:
+        color 200ms ease,
+        transform 200ms ease;
 }
 
+.project-icon-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
 
 .project-icon-link:hover {
-    color: #f5f5f5;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
-
 
 /* =========================================
    DESCRIPTION
@@ -326,7 +292,6 @@
     color: #a1a1aa;
 
     font-size: 0.76rem;
-
     line-height: 1.65;
 
     -webkit-line-clamp: 3;
@@ -337,36 +302,83 @@
 
 
 /* =========================================
-   TAGS
+   TECHNOLOGY BADGES
 ========================================= */
 
-.project-tags {
+.project-technologies {
     display: flex;
+
     flex-wrap: wrap;
 
-    gap: 6px;
-}
-
-
-.project-tags span {
-    display: inline-flex;
     align-items: center;
 
-    min-height: 24px;
+    gap: 6px;
 
-    padding: 0 8px;
+    margin-top: 2px;
+}
 
-    border: 1px solid rgba(255, 255, 255, 0.10);
+.project-tech {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 25px;
+
+    padding: 0 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
 
     border-radius: 6px;
 
     color: #a1a1aa;
 
-    background: rgba(255, 255, 255, 0.035);
+    background: rgba(255, 255, 255, 0.045);
 
     font-size: 0.64rem;
 
+    font-weight: 500;
+
     line-height: 1;
+
+    white-space: nowrap;
+
+    transition:
+        color 200ms ease,
+        border-color 200ms ease,
+        background 200ms ease;
+}
+
+.project-tech:hover {
+    color: #e4e4e7;
+
+    border-color: rgba(255, 255, 255, 0.18);
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================
+   MORE TECHNOLOGIES
+   +1 / +2 / +3
+========================================= */
+
+.project-tech-more {
+    color: #d4d4d8;
+
+    border-color: rgba(239, 68, 68, 0.22);
+
+    background: rgba(239, 68, 68, 0.06);
+
+    font-weight: 600;
+}
+
+.project-tech-more:hover {
+    color: #ffffff;
+
+    border-color: rgba(239, 68, 68, 0.35);
+
+    background: rgba(239, 68, 68, 0.10);
 }
 
 
@@ -376,6 +388,8 @@
 
 .project-card-footer {
     display: flex;
+
+    align-items: center;
     justify-content: flex-end;
 
     margin-top: auto;
@@ -384,34 +398,38 @@
 }
 
 
-.project-details-button {
+/* =========================================
+   VIEW DETAILS
+========================================= */
+
+.view-project {
     display: inline-flex;
+
     align-items: center;
 
-    gap: 8px;
-
-    padding: 0;
-
-    border: 0;
+    gap: 7px;
 
     color: #a1a1aa;
 
-    background: transparent;
-
-    font: inherit;
-
     font-size: 0.72rem;
+    font-weight: 500;
 
-    cursor: pointer;
+    text-decoration: none;
 
     transition:
         color 200ms ease,
         gap 200ms ease;
 }
 
+.view-project svg {
+    width: 15px;
+    height: 15px;
 
-.project-details-button:hover {
-    gap: 12px;
+    flex-shrink: 0;
+}
+
+.view-project:hover {
+    gap: 11px;
 
     color: #ffffff;
 }
@@ -423,21 +441,19 @@
 
 .project-modal {
     position: fixed;
-
     inset: 0;
 
     z-index: 1000;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     padding: 24px;
 
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 
     transition:
@@ -445,12 +461,9 @@
         visibility 250ms ease;
 }
 
-
 .project-modal.is-open {
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
 }
 
@@ -461,7 +474,6 @@
 
 .project-modal-backdrop {
     position: absolute;
-
     inset: 0;
 
     background: rgba(0, 0, 0, 0.72);
@@ -501,9 +513,9 @@
 
     transform: translateY(15px) scale(0.985);
 
-    transition: transform 300ms ease;
+    transition:
+        transform 300ms ease;
 }
-
 
 .project-modal.is-open .project-modal-panel {
     transform: translateY(0) scale(1);
@@ -523,6 +535,7 @@
     z-index: 5;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -549,7 +562,6 @@
         border-color 200ms ease;
 }
 
-
 .project-modal-close:hover {
     color: #ffffff;
 
@@ -571,7 +583,6 @@
 
     background: #111;
 }
-
 
 .modal-image-wrapper img {
     width: 100%;
@@ -596,8 +607,13 @@
 }
 
 
+/* =========================================
+   MODAL TITLE
+========================================= */
+
 .modal-title-row {
     display: flex;
+
     align-items: flex-start;
     justify-content: space-between;
 
@@ -605,7 +621,6 @@
 
     margin-bottom: 30px;
 }
-
 
 .modal-eyebrow {
     margin: 0 0 7px;
@@ -621,7 +636,6 @@
     text-transform: uppercase;
 }
 
-
 .modal-title-row h2 {
     margin: 0;
 
@@ -635,6 +649,10 @@
 }
 
 
+/* =========================================
+   MODAL LINKS
+========================================= */
+
 .modal-links {
     display: flex;
 
@@ -643,20 +661,33 @@
     padding-top: 4px;
 }
 
-
 .modal-links a {
-    color: #a1a1aa;
+    display: inline-flex;
 
-    font-size: 0.72rem;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    color: #a1a1aa;
 
     text-decoration: none;
 
-    transition: color 200ms ease;
+    transition:
+        color 200ms ease,
+        transform 200ms ease;
 }
 
+.modal-links a svg {
+    width: 21px;
+    height: 21px;
+}
 
 .modal-links a:hover {
     color: #ffffff;
+
+    transform: translateY(-1px);
 }
 
 
@@ -667,7 +698,6 @@
 .modal-section {
     margin-top: 24px;
 }
-
 
 .modal-section h3 {
     margin: 0 0 9px;
@@ -681,7 +711,6 @@
     letter-spacing: -0.01em;
 }
 
-
 .modal-section p {
     margin: 0;
 
@@ -692,9 +721,9 @@
     line-height: 1.75;
 }
 
-
 .modal-section ul {
     display: flex;
+
     flex-direction: column;
 
     gap: 8px;
@@ -717,14 +746,21 @@
 
 .modal-tags {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 7px;
 }
 
-
 .modal-tags span {
-    padding: 6px 9px;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 27px;
+
+    padding: 0 9px;
 
     border: 1px solid rgba(255, 255, 255, 0.10);
 
@@ -764,6 +800,33 @@
     }
 
 
+    .project-title-row {
+        gap: 12px;
+    }
+
+
+    .project-links {
+        gap: 10px;
+    }
+
+
+    .project-icon-link {
+        width: 28px;
+        height: 28px;
+    }
+
+
+    .project-icon-link svg {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .projects-list-header {
+        margin-bottom: 16px;
+    }
+
+
     .project-modal {
         padding: 12px;
     }
@@ -797,7 +860,8 @@
 
     .project-card,
     .project-image,
-    .project-details-button,
+    .view-project,
+    .project-icon-link,
     .project-modal,
     .project-modal-panel {
         transition: none;
