@@ -399,10 +399,9 @@
 
 </section>
 
-
 <!-- =================================
      FEATURED PROJECTS
-================================= -->
+================================== -->
 
 <section class="featured-projects" id="projects">
 
@@ -410,59 +409,148 @@
 
         <!-- Section Title -->
         <div class="projects-title">
+
             <h2>
                 Featured Projects
             </h2>
+
         </div>
 
 
-        <!-- Projects -->
+        <!-- Project Grid -->
         <div class="projects-grid">
 
+            {% for project in featured_projects %}
 
-            <!-- =================================
-                 PROJECT 1
-            ================================== -->
+                <article class="project-card">
 
-            <article class="project-card">
+                    <!-- =================================
+                         PROJECT IMAGE
+                    ================================== -->
 
-                <!-- Image -->
-                <a
-                    href="#"
-                    class="project-image"
-                    aria-label="View Versehana project"
-                >
-                    <img
-                        src="{% static 'images/project-1.png' %}"
-                        alt="Versehana project preview"
+                    <a
+                        href="{% url 'projects:project_detail' project.slug %}"
+                        class="project-image"
+                        aria-label="View {{ project.title }} project"
                     >
-                </a>
+
+                        {% if project.image %}
+
+                            <img
+                                src="{{ project.image.url }}"
+                                alt="{{ project.title }} project preview"
+                            >
+
+                        {% else %}
+
+                            <img
+                                src="{% static 'images/hero-bg.png' %}"
+                                alt="{{ project.title }} project preview"
+                            >
+
+                        {% endif %}
+
+                    </a>
 
 
-                <!-- Content -->
-                <div class="project-content">
+                    <!-- =================================
+                         PROJECT CONTENT
+                    ================================== -->
 
-                    <h3>
-                        Versehana
-                    </h3>
+                    <div class="project-content">
 
-
-                    <p class="project-description">
-                        A full-stack web application built with
-                        modern technologies and a focus on clean
-                        design and user experience.
-                    </p>
+                        <h3>
+                            {{ project.title }}
+                        </h3>
 
 
-                    <!-- Links -->
-                    <div class="project-links">
+                        {% if project.description %}
+
+                            <p class="project-description">
+                                {{ project.description|truncatewords:20 }}
+                            </p>
+
+                        {% endif %}
+
+
+                        <!-- =================================
+                             PROJECT LINKS
+                        ================================== -->
+
+                        <div class="project-links">
+
+                            {% if project.github_url %}
+
+                                <a
+                                    href="{{ project.github_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+
+                                    GitHub
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M7 17L17 7M8 7h9v9"
+                                        />
+                                    </svg>
+
+                                </a>
+
+                            {% endif %}
+
+
+                            {% if project.live_url %}
+
+                                <a
+                                    href="{{ project.live_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+
+                                    Live
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M7 17L17 7M8 7h9v9"
+                                        />
+                                    </svg>
+
+                                </a>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- =================================
+                             VIEW PROJECT
+                        ================================== -->
 
                         <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="{% url 'projects:project_detail' project.slug %}"
+                            class="view-project"
                         >
-                            GitHub
+
+                            View Project
 
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -470,178 +558,37 @@
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-width="1.8"
+                                aria-hidden="true"
                             >
                                 <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    d="M7 17L17 7M8 7h9v9"
+                                    d="M5 12h14M13 6l6 6-6 6"
                                 />
                             </svg>
-                        </a>
 
-
-                        <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Live
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M7 17L17 7M8 7h9v9"
-                                />
-                            </svg>
                         </a>
 
                     </div>
 
+                </article>
 
-                    <!-- View Project -->
-                    <a
-                        href="#"
-                        class="view-project"
-                    >
-                        View Project
+            {% empty %}
 
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.8"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M5 12h14M13 6l6 6-6 6"
-                            />
-                        </svg>
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- =================================
-                 PROJECT 2
-            ================================== -->
-
-            <article class="project-card">
-
-                <!-- Image -->
-                <a
-                    href="#"
-                    class="project-image"
-                    aria-label="View Salary Prediction project"
-                >
-                    <img
-                        src="{% static 'images/project-2.png' %}"
-                        alt="Salary Prediction project preview"
-                    >
-                </a>
-
-
-                <!-- Content -->
-                <div class="project-content">
+                <div class="projects-empty">
 
                     <h3>
-                        Salary Prediction
+                        No featured projects yet.
                     </h3>
 
-
-                    <p class="project-description">
-                        A machine learning web application that
-                        predicts salary using professional and
-                        educational information.
+                    <p>
+                        Select projects as featured from the
+                        admin panel.
                     </p>
-
-
-                    <!-- Links -->
-                    <div class="project-links">
-
-                        <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            GitHub
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M7 17L17 7M8 7h9v9"
-                                />
-                            </svg>
-                        </a>
-
-
-                        <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Live
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M7 17L17 7M8 7h9v9"
-                                />
-                            </svg>
-                        </a>
-
-                    </div>
-
-
-                    <!-- View Project -->
-                    <a
-                        href="#"
-                        class="view-project"
-                    >
-                        View Project
-
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.8"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M5 12h14M13 6l6 6-6 6"
-                            />
-                        </svg>
-                    </a>
 
                 </div>
 
-            </article>
+            {% endfor %}
 
         </div>
 
@@ -652,7 +599,8 @@
 
         <div class="all-projects-button">
 
-            <a href="/projects/">
+            <a href="{% url 'projects:project_list' %}">
+
                 View All Projects
 
                 <svg
@@ -661,6 +609,7 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="1.8"
+                    aria-hidden="true"
                 >
                     <path
                         stroke-linecap="round"
@@ -668,6 +617,136 @@
                         d="M5 12h14M13 6l6 6-6 6"
                     />
                 </svg>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =================================
+     FEATURED BLOG
+================================== -->
+
+<section class="featured-blog" id="blog">
+    
+
+    <div class="blog-container">
+
+        <!-- Section Title -->
+        <div class="blog-title">
+            <h2>
+                Featured Blog
+            </h2>
+        </div>
+
+
+        <!-- Blog Posts -->
+        <div class="blog-grid">
+
+            {% for post in featured_blogs %}
+
+                <article class="blog-card">
+
+                    <!-- Image -->
+                    <a
+                        href="{% url 'blog:detail' post.slug %}"
+                        class="blog-image"
+                        aria-label="Read {{ post.title }}"
+                    >
+
+                        {% if post.cover_image %}
+                            <img
+                                src="{{ post.cover_image.url }}"
+                                alt="{{ post.title }}"
+                            >
+                        {% endif %}
+
+                    </a>
+
+
+                    <!-- Content -->
+                    <div class="blog-content">
+
+                        {% if post.category %}
+                            <span class="blog-category">
+                                {{ post.category }}
+                            </span>
+                        {% endif %}
+
+
+                        <h3>
+                            {{ post.title }}
+                        </h3>
+
+
+                        <p class="blog-description">
+                            {{ post.excerpt }}
+                        </p>
+
+
+                        <!-- Read Article -->
+                        <a
+                            href="{% url 'blog:detail' post.slug %}"
+                            class="read-blog"
+                        >
+                            Read Article
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M5 12h14M13 6l6 6-6 6"
+                                />
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            {% empty %}
+
+                <p class="no-featured-blog">
+                    No featured articles yet.
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- All Blog Posts -->
+        <div class="all-blog-button">
+
+            <a href="{% url 'blog:list' %}">
+                View All Posts
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 12h14M13 6l6 6-6 6"
+                    />
+                </svg>
+
             </a>
 
         </div>
