@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/experience.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Page Header -->
+<section class="experience-header">
+    
+
+    <div class="experience-header-inner">
+
+        <span class="experience-eyebrow">
+            EXPERIENCE
+        </span>
+
+        <h1>
+            My Professional Journey
+        </h1>
+
+        <p>
+            A timeline of my professional experience,
+            the roles I've taken on, and the work I've contributed to.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Experience Section -->
+<section class="experience-section">
+
+    <div class="experience-container">
+
+        <div class="experience-section-heading">
+
+            <h2>
+                All Experiences
+                <span>
+                    ({{ experience_count }})
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="experience-timeline">
+
+            {% for company in companies %}
+
+                <div class="experience-company">
+
+                    <!-- Company -->
+                    <div class="company-marker">
+                        <span></span>
+                    </div>
+
+                    <div class="company-content">
+
+                        <div class="company-header">
+
+                            {% if company.logo %}
+                                <img
+                                    src="{{ company.logo.url }}"
+                                    alt="{{ company.name }}"
+                                    class="company-logo"
+                                >
+                            {% endif %}
+
+                            <div>
+                                <h3>
+                                    {{ company.name }}
+                                </h3>
+
+                                {% if company.website %}
+                                    <a
+                                        href="{{ company.website }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Visit website ↗
+                                    </a>
+                                {% endif %}
+                            </div>
+
+                        </div>
+
+
+                        <!-- Positions -->
+                        <div class="company-experiences">
+
+                            {% for experience in company.experiences.all %}
+
+                                <article class="experience-item">
+
+                                    <button
+                                        class="experience-toggle"
+                                        type="button"
+                                        aria-expanded="false"
+                                    >
+
+                                        <div class="experience-title">
+
+                                            <h4>
+                                                {{ experience.position }}
+                                            </h4>
+
+                                            <span class="employment-type">
+                                                {{ experience.get_employment_type_display }}
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="experience-meta">
+
+                                            <span>
+                                                {{ experience.start_date|date:"m.Y" }}
+                                                —
+                                                {% if experience.currently_working %}
+                                                    Present
+                                                {% elif experience.end_date %}
+                                                    {{ experience.end_date|date:"m.Y" }}
+                                                {% endif %}
+                                            </span>
+
+                                            {% if experience.duration %}
+                                                <span>
+                                                    {{ experience.duration }}
+                                                </span>
+                                            {% endif %}
+
+                                            <span class="experience-arrow">
+                                                ↓
+                                            </span>
+
+                                        </div>
+
+                                    </button>
+
+
+                                    <!-- Expandable Content -->
+                                    <div class="experience-details">
+
+                                        {% if experience.bullets.all %}
+
+                                            <ul class="experience-bullets">
+
+                                                {% for bullet in experience.bullets.all %}
+
+                                                    <li>
+                                                        {{ bullet.description }}
+                                                    </li>
+
+                                                {% endfor %}
+
+                                            </ul>
+
+                                        {% endif %}
+
+
+                                        {% if experience.technologies %}
+
+                                            <div class="experience-technologies">
+
+                                                {% for technology in experience.technologies %}
+
+                                                    <span class="technology-tag">
+                                                        {{ technology }}
+                                                    </span>
+
+                                                {% endfor %}
+
+                                            </div>
+
+                                        {% endif %}
+
+                                    </div>
+
+                                </article>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <div class="experience-empty">
+                    <p>
+                        No experience added yet.
+                    </p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+    document.querySelectorAll(".experience-toggle").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const item = button.closest(".experience-item");
+
+            const isOpen = item.classList.contains("is-open");
+
+            document
+                .querySelectorAll(".experience-item.is-open")
+                .forEach(openItem => {
+
+                    openItem.classList.remove("is-open");
+
+                    openItem
+                        .querySelector(".experience-toggle")
+                        .setAttribute("aria-expanded", "false");
+
+                });
+
+            if (!isOpen) {
+
+                item.classList.add("is-open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            }
+
+        });
+
+    });
+</script>
+
+{% endblock %}

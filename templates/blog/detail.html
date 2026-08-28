@@ -16,7 +16,9 @@
 
 <main class="blog-detail-page">
 
-    <!-- Background -->
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
 
     <div
         class="hero-background"
@@ -29,80 +31,104 @@
     </div>
 
 
-    <!-- Article Header -->
+    <!-- =========================================
+         COVER IMAGE
+    ========================================== -->
+
+    {% if post.cover_image %}
+
+    <section class="article-cover-section">
+
+        <figure class="article-cover">
+
+            <img
+                src="{{ post.cover_image.url }}"
+                alt="{{ post.title }}"
+            >
+
+        </figure>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- =========================================
+         ARTICLE INFORMATION
+    ========================================== -->
 
     <header class="article-header">
 
         <div class="article-container">
 
-            <a
-                href="{% url 'blog:list' %}"
-                class="article-back"
-            >
-                ← Back to Blog
-            </a>
 
+            <!-- Category -->
 
-            <div class="article-meta">
+            <div class="article-category">
 
-                <span>
-                    {{ post.get_category_display }}
-                </span>
-
-                {% if post.published_at %}
-
-                    <span>·</span>
-
-                    <time
-                        datetime="{{ post.published_at|date:'Y-m-d' }}"
-                    >
-                        {{ post.published_at|date:"M d, Y" }}
-                    </time>
-
-                {% endif %}
+                {{ post.get_category_display }}
 
             </div>
 
 
+            <!-- Title -->
+
             <h1 class="article-title">
+
                 {{ post.title }}
+
             </h1>
 
 
+            <!-- Excerpt -->
+
             {% if post.excerpt %}
 
-                <p class="article-excerpt">
-                    {{ post.excerpt }}
-                </p>
+            <p class="article-excerpt">
+
+                {{ post.excerpt }}
+
+            </p>
 
             {% endif %}
+
+
+            <!-- Published Date -->
+
+            {% if post.published_at %}
+
+            <div class="article-date">
+
+                <span
+                    class="article-date-icon"
+                    aria-hidden="true"
+                >
+                    📅
+                </span>
+
+                <time
+                    datetime="{{ post.published_at|date:'Y-m-d' }}"
+                >
+                    {{ post.published_at|date:"M d, Y" }}
+                </time>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- Divider -->
+
+            <div class="article-divider"></div>
 
         </div>
 
     </header>
 
 
-    <!-- Cover Image -->
-
-    {% if post.cover_image %}
-
-        <div class="article-cover-container">
-
-            <figure class="article-cover">
-
-                <img
-                    src="{{ post.cover_image.url }}"
-                    alt="{{ post.title }}"
-                >
-
-            </figure>
-
-        </div>
-
-    {% endif %}
-
-
-    <!-- Article Content -->
+    <!-- =========================================
+         ARTICLE CONTENT
+    ========================================== -->
 
     <article class="article-content-container">
 
@@ -115,7 +141,112 @@
     </article>
 
 
-    <!-- Back -->
+    <!-- =========================================
+         READ OTHER ARTICLES
+         (Will be connected dynamically next)
+    ========================================== -->
+
+    <section class="other-articles">
+
+        <div class="article-container">
+
+            <div class="other-articles-header">
+
+               
+
+                <h2>
+                    Read Other Articles
+                </h2>
+
+                <p>
+                    Continue exploring thoughts, projects,
+                    and ideas.
+                </p>
+
+            </div>
+
+
+            <!-- Dynamic article cards will go here -->
+
+            <div class="other-articles-grid">
+
+                {% for other_post in other_posts %}
+
+                <article class="other-article-card">
+
+                    {% if other_post.cover_image %}
+
+                    <a
+                        href="{% url 'blog:detail' other_post.slug %}"
+                        class="other-article-image"
+                    >
+
+                        <img
+                            src="{{ other_post.cover_image.url }}"
+                            alt="{{ other_post.title }}"
+                            loading="lazy"
+                        >
+
+                        <span class="other-article-category">
+
+                            {{ other_post.get_category_display }}
+
+                        </span>
+
+                    </a>
+
+                    {% endif %}
+
+
+                    <div class="other-article-content">
+
+                        <h3>
+
+                            {{ other_post.title }}
+
+                        </h3>
+
+
+                        {% if other_post.excerpt %}
+
+                        <p>
+
+                            {{ other_post.excerpt }}
+
+                        </p>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'blog:detail' other_post.slug %}"
+                            class="other-article-link"
+                        >
+
+                            Read Article
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         BACK TO BLOG
+    ========================================== -->
 
     <div class="article-footer">
 
@@ -123,7 +254,9 @@
             href="{% url 'blog:list' %}"
             class="article-back"
         >
-            ← Back to all articles
+
+            ← Back to Blog
+
         </a>
 
     </div>

@@ -12,8 +12,7 @@
 <div class="projects-page">
 
     <!-- =========================================
-         EXISTING BACKGROUND
-         Same background as Home
+         BACKGROUND
     ========================================== -->
 
     <div class="hero-background" aria-hidden="true">
@@ -49,16 +48,13 @@
 
             <header class="projects-header">
 
-                <p class="projects-eyebrow">
-                    Selected Work
-                </p>
-
+               
                 <h1>
                     Projects
                 </h1>
 
                 <p class="projects-subtitle">
-                    List of projects completed
+                    Some ideas were worth the trouble. Here they are.
                 </p>
 
             </header>
@@ -95,17 +91,12 @@
 
             <!-- =================================
                  PROJECT GRID
-                 Fully Backend Driven
+                 BACKEND DRIVEN
             ================================== -->
 
             <div class="projects-grid">
 
                 {% for project in projects %}
-
-
-                    <!-- =================================
-                         PROJECT CARD
-                    ================================== -->
 
                     <article
                         class="project-card"
@@ -150,8 +141,8 @@
 
 
                             <!-- =================================
-                                 TITLE + PROJECT LINKS
-                                 Same Row
+                                 TITLE + GITHUB + LIVE
+                                 SAME ROW
                             ================================== -->
 
                             <div class="project-title-row">
@@ -161,14 +152,12 @@
                                 </h3>
 
 
-                                <!-- =================================
-                                     GITHUB + LIVE DEMO
-                                ================================== -->
-
                                 <div class="project-links">
 
 
-                                    <!-- GitHub -->
+                                    <!-- =========================
+                                         GITHUB
+                                    ========================== -->
 
                                     {% if project.github_url %}
 
@@ -186,7 +175,6 @@
                                                 fill="currentColor"
                                                 aria-hidden="true"
                                             >
-
                                                 <path
                                                     d="M12 .5C5.65.5.5 5.65.5 12c0 5.08
                                                     3.29 9.39 7.86 10.91.58.11.79-.25.79-.56
@@ -202,7 +190,6 @@
                                                     0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12
                                                     23.5 5.65 18.35.5 12 .5z"
                                                 />
-
                                             </svg>
 
                                         </a>
@@ -210,7 +197,9 @@
                                     {% endif %}
 
 
-                                    <!-- Live Demo -->
+                                    <!-- =========================
+                                         LIVE DEMO
+                                    ========================== -->
 
                                     {% if project.live_url %}
 
@@ -230,7 +219,6 @@
                                                 stroke-width="1.8"
                                                 aria-hidden="true"
                                             >
-
                                                 <path
                                                     stroke-linecap="round"
                                                     stroke-linejoin="round"
@@ -239,7 +227,6 @@
                                                     M18 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V7
                                                     a1 1 0 011-1h5"
                                                 />
-
                                             </svg>
 
                                         </a>
@@ -253,7 +240,9 @@
 
                             <!-- =================================
                                  SHORT DESCRIPTION
-                                 Maximum 3 Lines
+
+                                 Only 3 lines displayed.
+                                 Full description stays in DB.
                             ================================== -->
 
                             {% if project.short_description %}
@@ -273,8 +262,20 @@
 
                             <!-- =================================
                                  TECHNOLOGIES
-                                 Show Maximum 5
-                                 Remaining = +1 / +2 / +3...
+
+                                 SHOW:
+                                 1-5 technologies normally
+
+                                 If more than 5:
+                                 5 technologies + +N
+
+                                 Example:
+                                 Django
+                                 PostgreSQL
+                                 HTML
+                                 CSS
+                                 JavaScript
+                                 +2
                             ================================== -->
 
                             {% if project.technologies %}
@@ -305,14 +306,14 @@
 
                             <!-- =================================
                                  VIEW DETAILS
-                                 Dynamic Backend URL
+                                 DYNAMIC BACKEND URL
                             ================================== -->
 
                             <div class="project-card-footer">
 
                                 <a
                                     href="{% url 'projects:project_detail' project.slug %}"
-                                    class="project-details-button"
+                                    class="view-project"
                                 >
 
                                     View Details
@@ -325,13 +326,11 @@
                                         stroke-width="1.8"
                                         aria-hidden="true"
                                     >
-
                                         <path
                                             stroke-linecap="round"
                                             stroke-linejoin="round"
                                             d="M5 12h14M13 6l6 6-6 6"
                                         />
-
                                     </svg>
 
                                 </a>

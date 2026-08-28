@@ -25,6 +25,10 @@ urlpatterns = [
         "projects/",
         include("apps.projects.urls")
     ),
+    path(
+    "experience/",
+    include("apps.experience.urls")
+),
 
 ]
 if settings.DEBUG:

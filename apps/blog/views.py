@@ -27,10 +27,18 @@ def blog_detail(request, slug):
         published=True,
     )
 
+    other_posts = (
+        BlogPost.objects
+        .filter(published=True)
+        .exclude(pk=post.pk)
+        .order_by("-published_at", "-created_at")[:2]
+    )
+
     return render(
         request,
         "blog/detail.html",
         {
             "post": post,
+            "other_posts": other_posts,
         },
     )

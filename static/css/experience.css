@@ -1,0 +1,417 @@
+/* =========================================
+   EXPERIENCE PAGE
+   ========================================= */
+
+.experience-header {
+    padding: 120px 24px 80px;
+}
+
+.experience-header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+}
+
+.experience-header h1 {
+    margin: 0;
+
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.experience-header p {
+    max-width: 600px;
+    margin-top: 24px;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================
+   EXPERIENCE SECTION
+   ========================================= */
+
+.experience-section {
+    padding: 40px 24px 120px;
+}
+
+.experience-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-section-heading {
+    margin-bottom: 50px;
+}
+
+.experience-section-heading h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.experience-section-heading h2 span {
+    margin-left: 5px;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   TIMELINE
+   ========================================= */
+
+.experience-timeline {
+    position: relative;
+}
+
+.experience-company {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 32px 1fr;
+
+    column-gap: 28px;
+
+    padding-bottom: 70px;
+}
+
+
+/* Vertical line */
+
+.experience-company::before {
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+    top: 28px;
+    bottom: 0;
+
+    width: 1px;
+
+    background: currentColor;
+    opacity: 0.12;
+}
+
+
+/* Marker */
+
+.company-marker {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+.company-marker span {
+    width: 10px;
+    height: 10px;
+
+    margin-top: 8px;
+
+    border: 2px solid currentColor;
+    border-radius: 50%;
+
+    background: var(--background, inherit);
+}
+
+
+/* =========================================
+   COMPANY
+   ========================================= */
+
+.company-content {
+    min-width: 0;
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+.company-logo {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+.company-header h3 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.company-header a {
+    display: inline-block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    opacity: 0.5;
+
+    text-decoration: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.company-header a:hover {
+    opacity: 1;
+}
+
+
+/* =========================================
+   EXPERIENCE ITEM
+   ========================================= */
+
+.company-experiences {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.experience-item {
+    border-bottom: 1px solid currentColor;
+    border-color: color-mix(
+        in srgb,
+        currentColor 10%,
+        transparent
+    );
+}
+
+.experience-toggle {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 22px 0;
+
+    border: 0;
+
+    background: none;
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font: inherit;
+}
+
+
+/* Position */
+
+.experience-title {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.experience-title h4 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.employment-type {
+    padding: 4px 8px;
+
+    border: 1px solid currentColor;
+    border-radius: 999px;
+
+    font-size: 10px;
+
+    opacity: 0.5;
+}
+
+
+/* Meta */
+
+.experience-meta {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    flex-shrink: 0;
+
+    font-size: 12px;
+
+    opacity: 0.55;
+}
+
+.experience-arrow {
+    display: inline-flex;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* =========================================
+   EXPANDABLE DETAILS
+   ========================================= */
+
+.experience-details {
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    overflow: hidden;
+
+    transition: grid-template-rows 0.3s ease;
+}
+
+.experience-details > * {
+    min-height: 0;
+}
+
+.experience-item.is-open .experience-details {
+    grid-template-rows: 1fr;
+}
+
+.experience-item.is-open .experience-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================
+   BULLETS
+   ========================================= */
+
+.experience-bullets {
+    margin: 0;
+
+    padding: 0 0 20px 20px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    opacity: 0.7;
+}
+
+.experience-bullets li {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   TECHNOLOGIES
+   ========================================= */
+
+.experience-technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    padding-bottom: 24px;
+}
+
+.technology-tag {
+    padding: 5px 10px;
+
+    border: 1px solid currentColor;
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    opacity: 0.55;
+}
+
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
+.experience-empty {
+    padding: 60px 0;
+
+    text-align: center;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .experience-header {
+        padding: 80px 20px 60px;
+    }
+
+    .experience-section {
+        padding: 20px 20px 80px;
+    }
+
+    .experience-company {
+        grid-template-columns: 24px 1fr;
+        column-gap: 18px;
+    }
+
+    .experience-company::before {
+        left: 11px;
+    }
+
+    .experience-toggle {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .experience-title {
+        flex-wrap: wrap;
+    }
+
+    .experience-meta {
+        width: 100%;
+
+        justify-content: flex-start;
+    }
+
+    .experience-arrow {
+        margin-left: auto;
+    }
+
+}

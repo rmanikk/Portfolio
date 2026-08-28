@@ -32,27 +32,60 @@ Contact | Manik Kafle
     ></div>
 
     <div class="contact-container">
+        <!-- =================================
+     MESSAGES
+================================== -->
+
+{% if messages %}
+
+    <div class="contact-messages">
+
+        {% for message in messages %}
+
+            <div class="contact-message {{ message.tags }}">
+
+                <span>
+                    {{ message }}
+                </span>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endif %}
 
         <!-- =================================
-             HEADER
-        ================================== -->
+     CONTACT HEADER
+================================== -->
 
-        <div class="contact-header">
+<div class="contact-header">
 
-            <p class="contact-eyebrow">
-                Get In Touch
-            </p>
+    <div class="contact-header-top">
 
-            <h1>
-                Let's work together.
-            </h1>
+        <span class="contact-header-line"></span>
 
-            <p class="contact-intro">
-                Have a project, idea, or opportunity in mind?
-                Send me a message and I'll get back to you.
-            </p>
+        <p class="contact-eyebrow">
+            Get In Touch
+        </p>
 
-        </div>
+        <span class="contact-header-line"></span>
+
+    </div>
+
+
+    <h1>
+        Let's work together.
+    </h1>
+
+
+    <p class="contact-intro">
+        Have a project, idea, or opportunity in mind?
+        I'd love to hear about it.
+    </p>
+
+</div>
 
 
         <!-- =================================
