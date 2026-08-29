@@ -38,6 +38,12 @@
     {% if post.cover_image %}
 
     <section class="article-cover-section">
+          <a
+        href="{% url 'blog:list' %}"
+        class="article-top-back"
+    >
+        ← Back to Blog
+    </a>
 
         <figure class="article-cover">
 

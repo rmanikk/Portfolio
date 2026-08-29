@@ -1,3 +1,7 @@
+/* =================================
+   THEME TOGGLE
+================================= */
+
 const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
 
@@ -9,7 +13,8 @@ if (themeToggle) {
     }
 
     themeToggle.addEventListener("click", () => {
-        const isLight = document.documentElement.classList.toggle("light");
+        const isLight =
+            document.documentElement.classList.toggle("light");
 
         localStorage.setItem(
             "theme",
@@ -24,10 +29,13 @@ if (themeToggle) {
     );
 }
 
+
 function updateThemeIcon(isLight) {
+
     if (!themeIcon) return;
 
     if (isLight) {
+
         themeIcon.innerHTML = `
             <path
                 stroke-linecap="round"
@@ -44,7 +52,9 @@ function updateThemeIcon(isLight) {
                    4.5 4.5 0 019 0z"
             />
         `;
+
     } else {
+
         themeIcon.innerHTML = `
             <path
                 stroke-linecap="round"
@@ -59,32 +69,89 @@ function updateThemeIcon(isLight) {
 
 
 /* =================================
+   NAVBAR SCROLL
+================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const navbar = document.getElementById("main-navbar");
+
+    if (!navbar) return;
+
+
+    let lastScrollY = window.scrollY;
+
+
+    function updateNavbar() {
+
+        const currentScrollY = window.scrollY;
+
+
+        /* -----------------------------
+           Scrolled State
+        ----------------------------- */
+
+        if (currentScrollY > 20) {
+
+            navbar.classList.add("navbar-scrolled");
+
+        } else {
+
+            navbar.classList.remove("navbar-scrolled");
+
+        }
+
+
+        /* -----------------------------
+           Hide / Show Navbar
+        ----------------------------- */
+
+        if (
+            currentScrollY > lastScrollY &&
+            currentScrollY > 100
+        ) {
+
+            navbar.classList.add("navbar-hidden");
+
+        } else {
+
+            navbar.classList.remove("navbar-hidden");
+
+        }
+
+
+        lastScrollY = currentScrollY;
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateNavbar,
+        { passive: true }
+    );
+
+
+    updateNavbar();
+
+});
+
+
+/* =================================
    CURSOR RED GLOW
 ================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /*
-     * The glow element already exists in
-     * templates/home/index.html:
-     *
-     * <div id="cursor-glow" aria-hidden="true"></div>
-     *
-     * So we DON'T create another element here.
-     */
-    const cursorGlow = document.getElementById("cursor-glow");
+    const cursorGlow =
+        document.getElementById("cursor-glow");
 
-    // Stop if the glow element doesn't exist
+
     if (!cursorGlow) {
         console.warn("Cursor glow element not found.");
         return;
     }
 
-    /*
-     * Start the glow outside the screen.
-     * This prevents it from appearing at the top-left
-     * before the user moves the mouse.
-     */
+
     let mouseX = -300;
     let mouseY = -300;
 
@@ -96,22 +163,29 @@ document.addEventListener("DOMContentLoaded", () => {
        Mouse Movement
     --------------------------------- */
 
-    document.addEventListener("mousemove", (event) => {
+    document.addEventListener(
+        "mousemove",
+        (event) => {
 
-        mouseX = event.clientX;
-        mouseY = event.clientY;
+            mouseX = event.clientX;
+            mouseY = event.clientY;
 
-        cursorGlow.classList.add("visible");
-    });
+            cursorGlow.classList.add("visible");
+        }
+    );
 
 
     /* ---------------------------------
        Hide Glow When Mouse Leaves
     --------------------------------- */
 
-    document.addEventListener("mouseleave", () => {
-        cursorGlow.classList.remove("visible");
-    });
+    document.addEventListener(
+        "mouseleave",
+        () => {
+
+            cursorGlow.classList.remove("visible");
+        }
+    );
 
 
     /* ---------------------------------
@@ -120,18 +194,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animateGlow() {
 
-        /*
-         * The smaller this value is,
-         * the smoother/slower the glow follows.
-         */
-        glowX += (mouseX - glowX) * 0.12;
-        glowY += (mouseY - glowY) * 0.12;
+        glowX +=
+            (mouseX - glowX) * 0.12;
 
-        cursorGlow.style.left = `${glowX}px`;
-        cursorGlow.style.top = `${glowY}px`;
+        glowY +=
+            (mouseY - glowY) * 0.12;
 
-        requestAnimationFrame(animateGlow);
+
+        cursorGlow.style.left =
+            `${glowX}px`;
+
+        cursorGlow.style.top =
+            `${glowY}px`;
+
+
+        requestAnimationFrame(
+            animateGlow
+        );
     }
+
 
     animateGlow();
 

@@ -24,6 +24,50 @@ body {
 /* =================================
    NAVBAR
 ================================= */
+/* =================================
+   NAVBAR
+================================= */
+
+.navbar {
+    transition:
+        background-color 300ms ease,
+        backdrop-filter 300ms ease,
+        -webkit-backdrop-filter 300ms ease,
+        transform 300ms ease,
+        padding 300ms ease,
+        border-color 300ms ease;
+}
+
+
+/* =================================
+   NAVBAR SCROLLED
+================================= */
+
+.navbar.navbar-scrolled {
+    background: rgba(5, 5, 5, 0.78);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+
+/* =================================
+   NAVBAR HIDDEN
+================================= */
+
+.navbar.navbar-hidden {
+    transform: translateY(-100%);
+}
 
 .nav-link {
     position: relative;

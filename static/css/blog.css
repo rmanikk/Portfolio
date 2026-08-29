@@ -647,6 +647,37 @@
 
     box-sizing: border-box;
 }
+/* =========================================
+   TOP BACK TO BLOG
+========================================= */
+
+.article-top-back {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+    max-width: 920px;
+
+    margin: 0 auto 16px;
+
+    color: #71717a;
+
+    font-size: 0.72rem;
+
+    text-decoration: none;
+
+    transition:
+        color 200ms ease,
+        transform 200ms ease;
+}
+
+
+.article-top-back:hover {
+    color: #ffffff;
+
+    transform: translateX(-3px);
+}
 
 .article-cover {
     position: relative;
