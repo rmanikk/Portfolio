@@ -4,6 +4,16 @@
 <html lang="en">
 
 <head>
+    <script>
+    (() => {
+        const theme =
+            localStorage.getItem("theme");
+
+        if (theme === "light") {
+            document.documentElement.classList.add("light");
+        }
+    })();
+</script>
 
     <link
         rel="preconnect"
@@ -39,6 +49,8 @@
 
     {% block extra_css %}
     {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
 
 </head>
 

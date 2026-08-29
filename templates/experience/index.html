@@ -5,42 +5,75 @@
 <link rel="stylesheet" href="{% static 'css/experience.css' %}">
 {% endblock %}
 
+
 {% block content %}
 
+<!-- =========================================
+     BACKGROUND
+========================================== -->
 
-<!-- Page Header -->
-<section class="experience-header">
-    
+<div class="hero-background" aria-hidden="true">
+    <img
+        src="{% static 'images/hero-bg.png' %}"
+        alt=""
+    >
+</div>
 
-    <div class="experience-header-inner">
 
-        <span class="experience-eyebrow">
-            EXPERIENCE
-        </span>
+<!-- =========================================
+     CURSOR GLOW
+========================================== -->
+
+<div
+    id="cursor-glow"
+    aria-hidden="true"
+></div>
+
+
+<!-- =========================================
+     EXPERIENCE PAGE
+========================================== -->
+
+<main class="experience-page">
+
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <header class="experience-header">
 
         <h1>
-            My Professional Journey
+            Work Experience
         </h1>
 
         <p>
-            A timeline of my professional experience,
-            the roles I've taken on, and the work I've contributed to.
+            A look at the roles, responsibilities, and work
+            I've contributed to throughout my journey.
         </p>
 
-    </div>
+    </header>
+</header>
 
-</section>
 
+<!-- =========================================
+     EXPERIENCE SECTION
+========================================== -->
 
-<!-- Experience Section -->
 <section class="experience-section">
 
     <div class="experience-container">
+
+
+        <!-- =========================================
+             SECTION HEADING
+        ========================================== -->
 
         <div class="experience-section-heading">
 
             <h2>
                 All Experiences
+
                 <span>
                     ({{ experience_count }})
                 </span>
@@ -49,154 +82,21 @@
         </div>
 
 
+        <!-- =========================================
+             EXPERIENCE LIST
+        ========================================== -->
+
         <div class="experience-timeline">
 
             {% for company in companies %}
 
-                <div class="experience-company">
-
-                    <!-- Company -->
-                    <div class="company-marker">
-                        <span></span>
-                    </div>
-
-                    <div class="company-content">
-
-                        <div class="company-header">
-
-                            {% if company.logo %}
-                                <img
-                                    src="{{ company.logo.url }}"
-                                    alt="{{ company.name }}"
-                                    class="company-logo"
-                                >
-                            {% endif %}
-
-                            <div>
-                                <h3>
-                                    {{ company.name }}
-                                </h3>
-
-                                {% if company.website %}
-                                    <a
-                                        href="{{ company.website }}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Visit website ↗
-                                    </a>
-                                {% endif %}
-                            </div>
-
-                        </div>
-
-
-                        <!-- Positions -->
-                        <div class="company-experiences">
-
-                            {% for experience in company.experiences.all %}
-
-                                <article class="experience-item">
-
-                                    <button
-                                        class="experience-toggle"
-                                        type="button"
-                                        aria-expanded="false"
-                                    >
-
-                                        <div class="experience-title">
-
-                                            <h4>
-                                                {{ experience.position }}
-                                            </h4>
-
-                                            <span class="employment-type">
-                                                {{ experience.get_employment_type_display }}
-                                            </span>
-
-                                        </div>
-
-
-                                        <div class="experience-meta">
-
-                                            <span>
-                                                {{ experience.start_date|date:"m.Y" }}
-                                                —
-                                                {% if experience.currently_working %}
-                                                    Present
-                                                {% elif experience.end_date %}
-                                                    {{ experience.end_date|date:"m.Y" }}
-                                                {% endif %}
-                                            </span>
-
-                                            {% if experience.duration %}
-                                                <span>
-                                                    {{ experience.duration }}
-                                                </span>
-                                            {% endif %}
-
-                                            <span class="experience-arrow">
-                                                ↓
-                                            </span>
-
-                                        </div>
-
-                                    </button>
-
-
-                                    <!-- Expandable Content -->
-                                    <div class="experience-details">
-
-                                        {% if experience.bullets.all %}
-
-                                            <ul class="experience-bullets">
-
-                                                {% for bullet in experience.bullets.all %}
-
-                                                    <li>
-                                                        {{ bullet.description }}
-                                                    </li>
-
-                                                {% endfor %}
-
-                                            </ul>
-
-                                        {% endif %}
-
-
-                                        {% if experience.technologies %}
-
-                                            <div class="experience-technologies">
-
-                                                {% for technology in experience.technologies %}
-
-                                                    <span class="technology-tag">
-                                                        {{ technology }}
-                                                    </span>
-
-                                                {% endfor %}
-
-                                            </div>
-
-                                        {% endif %}
-
-                                    </div>
-
-                                </article>
-
-                            {% endfor %}
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <!-- your existing company code -->
 
             {% empty %}
 
                 <div class="experience-empty">
                     <p>
-                        No experience added yet.
+                        No work experience added yet.
                     </p>
                 </div>
 
@@ -208,46 +108,336 @@
 
 </section>
 
+    <!-- =========================================
+         EXPERIENCE LIST
+    ========================================== -->
+
+    <section class="experience-section">
+
+        <div class="experience-container">
+
+
+            {% for company in companies %}
+
+                <div class="experience-company">
+
+
+                    <!-- =================================
+                         COMPANY HEADER
+                    ================================== -->
+
+                    <div class="company-header">
+
+                        {% if company.logo %}
+
+                            <img
+                                src="{{ company.logo.url }}"
+                                alt="{{ company.name }}"
+                                class="company-logo"
+                            >
+
+                        {% else %}
+
+                            <div class="company-logo company-logo-fallback">
+                                {{ company.name|first|upper }}
+                            </div>
+
+                        {% endif %}
+
+
+                        <div class="company-info">
+
+                            <h2>
+                                {{ company.name }}
+                            </h2>
+
+                            {% if company.website %}
+
+                                <a
+                                    href="{{ company.website }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {{ company.website }}
+                                    ↗
+                                </a>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         COMPANY POSITIONS
+                    ================================== -->
+
+                    <div class="company-experiences">
+
+                        {% for experience in company.experiences.all %}
+
+                            <article
+                                class="experience-item
+                                {% if experience.bullets.all %}
+                                    has-details
+                                {% endif %}"
+                            >
+
+
+                                <!-- =================================
+                                     ROLE HEADER
+                                ================================== -->
+
+                                <div class="experience-role-row">
+
+
+                                    <div class="experience-role">
+
+                                        <h3>
+                                            {{ experience.position }}
+                                        </h3>
+
+                                        <span class="employment-type">
+                                            {{ experience.get_employment_type_display }}
+                                        </span>
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         EXPAND BUTTON
+                                    ================================== -->
+
+                                    {% if experience.bullets.all %}
+
+                                        <button
+                                            type="button"
+                                            class="experience-toggle"
+                                            aria-expanded="false"
+                                            aria-label="Show key works"
+                                        >
+
+                                            <span class="experience-arrow">
+                                                ↓
+                                            </span>
+
+                                        </button>
+
+                                    {% endif %}
+
+
+                                </div>
+
+
+                                <!-- =================================
+                                     DATE
+                                ================================== -->
+
+                                <div class="experience-meta">
+
+                                    <span>
+
+                                        {{ experience.start_date|date:"m.Y" }}
+
+                                        —
+
+                                        {% if experience.currently_working %}
+
+                                            Present
+
+                                        {% elif experience.end_date %}
+
+                                            {{ experience.end_date|date:"m.Y" }}
+
+                                        {% endif %}
+
+                                    </span>
+
+
+                                    {% if experience.duration %}
+
+                                        <span>
+                                            · {{ experience.duration }}
+                                        </span>
+
+                                    {% endif %}
+
+                                </div>
+
+
+                                <!-- =================================
+                                     EXPANDABLE KEY WORKS
+                                ================================== -->
+
+                                {% if experience.bullets.all %}
+
+                                    <div class="experience-details">
+
+                                        <ul class="experience-bullets">
+
+                                            {% for bullet in experience.bullets.all %}
+
+                                                <li>
+                                                    {{ bullet.description }}
+                                                </li>
+
+                                            {% endfor %}
+
+                                        </ul>
+
+                                    </div>
+
+                                {% endif %}
+
+
+                                <!-- =================================
+                                     TECHNOLOGIES
+                                     ALWAYS VISIBLE
+                                ================================== -->
+
+                                {% if experience.technologies %}
+
+                                    <div class="experience-technologies">
+
+                                        {% for technology in experience.technologies %}
+
+                                            <span class="technology-tag">
+                                                {{ technology }}
+                                            </span>
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                {% endif %}
+
+
+                            </article>
+
+                        {% endfor %}
+
+                    </div>
+
+
+                </div>
+
+
+            {% empty %}
+
+                <div class="experience-empty">
+
+                    <p>
+                        No work experience added yet.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+
+    </section>
+
+</main>
+
 {% endblock %}
 
 
 {% block extra_js %}
 
 <script>
-    document.querySelectorAll(".experience-toggle").forEach(button => {
 
-        button.addEventListener("click", () => {
+    document
+        .querySelectorAll(".experience-toggle")
+        .forEach(button => {
 
-            const item = button.closest(".experience-item");
+            button.addEventListener("click", () => {
 
-            const isOpen = item.classList.contains("is-open");
+                const item =
+                    button.closest(".experience-item");
 
-            document
-                .querySelectorAll(".experience-item.is-open")
-                .forEach(openItem => {
+                const arrow =
+                    button.querySelector(".experience-arrow");
 
-                    openItem.classList.remove("is-open");
+                const isOpen =
+                    item.classList.contains("is-open");
 
-                    openItem
-                        .querySelector(".experience-toggle")
-                        .setAttribute("aria-expanded", "false");
 
-                });
+                /*
+                 * Close all other experiences
+                 */
 
-            if (!isOpen) {
+                document
+                    .querySelectorAll(
+                        ".experience-item.is-open"
+                    )
+                    .forEach(openItem => {
 
-                item.classList.add("is-open");
+                        openItem.classList.remove(
+                            "is-open"
+                        );
 
-                button.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
+                        const openButton =
+                            openItem.querySelector(
+                                ".experience-toggle"
+                            );
 
-            }
+                        const openArrow =
+                            openItem.querySelector(
+                                ".experience-arrow"
+                            );
+
+                        if (openButton) {
+
+                            openButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            openButton.setAttribute(
+                                "aria-label",
+                                "Show key works"
+                            );
+
+                        }
+
+                        if (openArrow) {
+                            openArrow.textContent = "↓";
+                        }
+
+                    });
+
+
+                /*
+                 * Open clicked experience
+                 */
+
+                if (!isOpen) {
+
+                    item.classList.add(
+                        "is-open"
+                    );
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    button.setAttribute(
+                        "aria-label",
+                        "Hide key works"
+                    );
+
+                    arrow.textContent = "↑";
+
+                }
+
+            });
 
         });
 
-    });
 </script>
 
 {% endblock %}

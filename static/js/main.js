@@ -1,40 +1,45 @@
 /* =================================
-   THEME TOGGLE
+   THEME SYSTEM
 ================================= */
+
+const html = document.documentElement;
 
 const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
 
-if (themeToggle) {
-    const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme === "light") {
-        document.documentElement.classList.add("light");
-    }
+/* =================================
+   APPLY THEME
+================================= */
 
-    themeToggle.addEventListener("click", () => {
-        const isLight =
-            document.documentElement.classList.toggle("light");
+function applyTheme(theme) {
 
-        localStorage.setItem(
-            "theme",
-            isLight ? "light" : "dark"
-        );
+    const isLight = theme === "light";
 
-        updateThemeIcon(isLight);
-    });
+    html.classList.toggle("light", isLight);
 
-    updateThemeIcon(
-        document.documentElement.classList.contains("light")
+    localStorage.setItem(
+        "theme",
+        isLight ? "light" : "dark"
     );
+
+    updateThemeIcon(isLight);
+    updateBackgroundImages(isLight);
 }
 
+
+/* =================================
+   THEME ICON
+================================= */
 
 function updateThemeIcon(isLight) {
 
     if (!themeIcon) return;
 
+
     if (isLight) {
+
+        /* Sun */
 
         themeIcon.innerHTML = `
             <path
@@ -53,7 +58,14 @@ function updateThemeIcon(isLight) {
             />
         `;
 
+        themeToggle?.setAttribute(
+            "aria-label",
+            "Switch to dark theme"
+        );
+
     } else {
+
+        /* Moon */
 
         themeIcon.innerHTML = `
             <path
@@ -64,10 +76,268 @@ function updateThemeIcon(isLight) {
                    A9.753 9.753 0 1021.752 15.002z"
             />
         `;
+
+        themeToggle?.setAttribute(
+            "aria-label",
+            "Switch to light theme"
+        );
     }
 }
 
 
+/* =================================
+   BACKGROUND IMAGE
+================================= */
+
+function updateBackgroundImages(isLight) {
+
+    const backgroundImages =
+        document.querySelectorAll(
+            "[data-dark-src][data-light-src]"
+        );
+
+
+    backgroundImages.forEach((image) => {
+
+        const darkSrc =
+            image.dataset.darkSrc;
+
+        const lightSrc =
+            image.dataset.lightSrc;
+
+
+        if (isLight) {
+
+            if (image.src !== lightSrc) {
+                image.src = lightSrc;
+            }
+
+        } else {
+
+            if (image.src !== darkSrc) {
+                image.src = darkSrc;
+            }
+        }
+    });
+}
+
+
+/* =================================
+   INITIAL THEME
+================================= */
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+const initialTheme =
+    savedTheme === "light"
+        ? "light"
+        : "dark";
+
+
+applyTheme(initialTheme);
+
+
+/* =================================
+   THEME TOGGLE
+================================= */
+
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            const isCurrentlyLight =
+                html.classList.contains("light");
+
+
+            const newTheme =
+                isCurrentlyLight
+                    ? "dark"
+                    : "light";
+
+
+            applyTheme(newTheme);
+        }
+    );
+}
+
+
+/* =================================
+   NAVBAR SCROLL
+================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const navbar =
+            document.getElementById("main-navbar");
+
+
+        if (!navbar) return;
+
+
+        let lastScrollY =
+            window.scrollY;
+
+
+        function updateNavbar() {
+
+            const currentScrollY =
+                window.scrollY;
+
+
+            /* -----------------------------
+               Scrolled State
+            ----------------------------- */
+
+            if (currentScrollY > 20) {
+
+                navbar.classList.add(
+                    "navbar-scrolled"
+                );
+
+            } else {
+
+                navbar.classList.remove(
+                    "navbar-scrolled"
+                );
+            }
+
+
+            /* -----------------------------
+               Hide / Show Navbar
+            ----------------------------- */
+
+            if (
+                currentScrollY > lastScrollY &&
+                currentScrollY > 100
+            ) {
+
+                navbar.classList.add(
+                    "navbar-hidden"
+                );
+
+            } else {
+
+                navbar.classList.remove(
+                    "navbar-hidden"
+                );
+            }
+
+
+            lastScrollY =
+                currentScrollY;
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            updateNavbar,
+            {
+                passive: true
+            }
+        );
+
+
+        updateNavbar();
+    }
+);
+
+
+/* =================================
+   CURSOR GLOW
+================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const cursorGlow =
+            document.getElementById(
+                "cursor-glow"
+            );
+
+
+        if (!cursorGlow) return;
+
+
+        let mouseX = -300;
+        let mouseY = -300;
+
+        let glowX = mouseX;
+        let glowY = mouseY;
+
+
+        /* ---------------------------------
+           Mouse Movement
+        --------------------------------- */
+
+        document.addEventListener(
+            "mousemove",
+            (event) => {
+
+                mouseX =
+                    event.clientX;
+
+                mouseY =
+                    event.clientY;
+
+
+                cursorGlow.classList.add(
+                    "visible"
+                );
+            }
+        );
+
+
+        /* ---------------------------------
+           Hide When Mouse Leaves
+        --------------------------------- */
+
+        document.addEventListener(
+            "mouseleave",
+            () => {
+
+                cursorGlow.classList.remove(
+                    "visible"
+                );
+            }
+        );
+
+
+        /* ---------------------------------
+           Smooth Glow Animation
+        --------------------------------- */
+
+        function animateGlow() {
+
+            glowX +=
+                (mouseX - glowX) * 0.12;
+
+            glowY +=
+                (mouseY - glowY) * 0.12;
+
+
+            cursorGlow.style.left =
+                `${glowX}px`;
+
+            cursorGlow.style.top =
+                `${glowY}px`;
+
+
+            requestAnimationFrame(
+                animateGlow
+            );
+        }
+
+
+        animateGlow();
+    }
+);
 /* =================================
    NAVBAR SCROLL
 ================================= */
@@ -215,5 +485,142 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     animateGlow();
+
+});
+
+/* =================================
+   CONTACT SUCCESS MODAL
+================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal = document.getElementById(
+        "contact-success-modal"
+    );
+
+    if (!modal) {
+        return;
+    }
+
+
+    const closeButtons =
+        modal.querySelectorAll(
+            "[data-close-modal]"
+        );
+
+
+    const sendAgainButton =
+        document.getElementById(
+            "send-again-button"
+        );
+
+
+    /* =================================
+       CLOSE MODAL
+    ================================= */
+
+    function closeModal() {
+
+        modal.remove();
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    /* =================================
+       PREVENT BACKGROUND SCROLL
+    ================================= */
+
+    document.body.style.overflow = "hidden";
+
+
+    /* =================================
+       CLOSE BUTTONS
+    ================================= */
+
+    closeButtons.forEach((button) => {
+
+        button.addEventListener(
+            "click",
+            closeModal
+        );
+
+    });
+
+
+    /* =================================
+       SEND AGAIN
+    ================================= */
+
+    if (sendAgainButton) {
+
+        sendAgainButton.addEventListener(
+            "click",
+            () => {
+
+                closeModal();
+
+
+                const form =
+                    document.querySelector(
+                        ".contact-form"
+                    );
+
+
+                if (!form) {
+                    return;
+                }
+
+
+                form.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+
+                const firstInput =
+                    form.querySelector(
+                        "input:not([type='hidden']), textarea"
+                    );
+
+
+                if (firstInput) {
+
+                    setTimeout(() => {
+
+                        firstInput.focus();
+
+                    }, 500);
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =================================
+       ESCAPE KEY
+    ================================= */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key === "Escape" &&
+                document.getElementById(
+                    "contact-success-modal"
+                )
+            ) {
+
+                closeModal();
+
+            }
+
+        }
+    );
 
 });

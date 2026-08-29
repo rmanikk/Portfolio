@@ -23,8 +23,16 @@ def project_detail(request, slug):
         slug=slug,
     )
 
+    # Pick two other projects for the "Explore More Projects" section.
+    recommended_projects = (
+        Project.objects
+        .exclude(pk=project.pk)
+        .order_by("-pk")[:2]
+    )
+
     context = {
         "project": project,
+        "recommended_projects": recommended_projects,
     }
 
     return render(

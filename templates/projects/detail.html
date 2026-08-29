@@ -1,0 +1,577 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ project.title }} — Manik Kafle
+{% endblock %}
+
+
+{% block extra_css %}
+<link
+    rel="stylesheet"
+    href="{% static 'css/projects.css' %}"
+>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="projects-page project-detail-page">
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div
+        class="hero-background"
+        aria-hidden="true"
+    >
+        <img
+            src="{% static 'images/hero-bg.png' %}"
+            alt=""
+        >
+    </div>
+
+
+    <!-- =========================================
+         CURSOR GLOW
+    ========================================== -->
+
+    <div
+        id="cursor-glow"
+        aria-hidden="true"
+    ></div>
+
+
+    <section class="projects-section">
+
+        <div class="projects-container project-detail-container">
+
+
+            <!-- =========================================
+                 BACK TO PROJECTS — TOP
+            ========================================== -->
+
+            <a
+                href="{% url 'projects:project_list' %}"
+                class="project-back-link"
+            >
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19 12H5M11 18l-6-6 6-6"
+                    />
+                </svg>
+
+                Back to Projects
+
+            </a>
+
+
+            <!-- =========================================
+                 COVER IMAGE
+            ========================================== -->
+
+            {% if project.image %}
+
+                <div class="project-detail-cover">
+
+                    <img
+                        src="{{ project.image.url }}"
+                        alt="{{ project.title }} project cover"
+                    >
+
+                    <div class="project-detail-cover-overlay"></div>
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- =========================================
+                 PROJECT HEADER
+            ========================================== -->
+
+            <header class="project-detail-header">
+
+
+                <!-- Technologies -->
+
+                {% if project.technologies %}
+
+                    <div class="project-detail-technologies">
+
+                        {% for technology in project.technologies %}
+
+                            <span class="project-detail-tech">
+                                {{ technology }}
+                            </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+
+                <!-- Title -->
+
+                <div class="project-detail-title-row">
+
+                    <div>
+
+                        <p class="project-detail-eyebrow">
+                            Project
+                        </p>
+
+                        <h1>
+                            {{ project.title }}
+                        </h1>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Short Description -->
+
+                {% if project.short_description %}
+
+                    <p class="project-detail-intro">
+                        {{ project.short_description }}
+                    </p>
+
+                {% endif %}
+
+
+                <!-- =========================================
+                     PROJECT ACTIONS
+                ========================================== -->
+
+                <div class="project-detail-actions">
+
+
+                    {% if project.live_url %}
+
+                        <a
+                            href="{{ project.live_url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-action-button"
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M14 5h5v5
+                                    M19 5l-8 8
+                                    M18 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V7
+                                    a1 1 0 011-1h5"
+                                />
+                            </svg>
+
+                            <span>
+                                Live Demo
+                            </span>
+
+                        </a>
+
+                    {% endif %}
+
+
+                    {% if project.github_url %}
+
+                        <a
+                            href="{{ project.github_url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-action-button"
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.08
+                                    3.29 9.39 7.86 10.91.58.11.79-.25.79-.56
+                                    0-.27-.01-1-.01-1.96-3.2.69-3.88-1.54-3.88-1.54
+                                    -.53-1.36-1.28-1.72-1.28-1.72-1.04-.71.08-.7.08-.7
+                                    1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.24
+                                    3.32.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28
+                                    -5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47
+                                    .11-3.06 0 0 .96-.31 3.15 1.18a10.94 10.94 0 015.74 0
+                                    c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06
+                                    .74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25
+                                    5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19
+                                    0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12
+                                    23.5 5.65 18.35.5 12 .5z"
+                                />
+                            </svg>
+
+                            <span>
+                                Source Code
+                            </span>
+
+                        </a>
+
+                    {% endif %}
+
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================================
+                 DIVIDER
+            ========================================== -->
+
+            <div class="project-detail-divider"></div>
+
+
+            <!-- =========================================
+                 PROJECT CONTENT
+            ========================================== -->
+
+            <article class="project-detail-content">
+
+
+                {% if project.description %}
+
+                    {{ project.description|safe }}
+
+                {% else %}
+
+                    <p>
+                        More details about this project will be added soon.
+                    </p>
+
+                {% endif %}
+
+
+            </article>
+
+
+            <!-- =========================================
+     EXPLORE MORE PROJECTS
+========================================= -->
+
+{% if recommended_projects %}
+
+    <section class="project-recommendations">
+
+        <div class="project-recommendations-header">
+
+            <div>
+
+                <h2>
+                    Read Other Articles
+                </h2>
+
+                <p>
+                    Continue exploring thoughts, projects, and ideas.
+                </p>
+
+            </div>
+
+            <a
+                href="{% url 'projects:project_list' %}"
+                class="view-project"
+            >
+                View All
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 12h14M13 6l6 6-6 6"
+                    />
+                </svg>
+
+            </a>
+
+        </div>
+
+
+        <!-- Recommended Projects -->
+
+        <div class="project-recommendations-grid">
+
+            {% for recommended in recommended_projects %}
+
+                <article class="project-card">
+
+                    <!-- Image -->
+
+                    <div class="project-image-wrapper">
+
+                        {% if recommended.image %}
+
+                            <img
+                                src="{{ recommended.image.url }}"
+                                alt="{{ recommended.title }} project preview"
+                                class="project-image"
+                            >
+
+                        {% else %}
+
+                            <img
+                                src="{% static 'images/hero-bg.png' %}"
+                                alt="{{ recommended.title }} project preview"
+                                class="project-image"
+                            >
+
+                        {% endif %}
+
+                        <div class="project-image-overlay"></div>
+
+                    </div>
+
+
+                    <!-- Content -->
+
+                    <div class="project-card-content">
+
+
+                        <!-- Title + Links -->
+
+                        <div class="project-title-row">
+
+                            <h3>
+                                {{ recommended.title }}
+                            </h3>
+
+
+                            <div class="project-links">
+
+                                {% if recommended.github_url %}
+
+                                    <a
+                                        href="{{ recommended.github_url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="{{ recommended.title }} GitHub repository"
+                                        class="project-icon-link"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M12 .5C5.65.5.5 5.65.5 12c0 5.08
+                                                3.29 9.39 7.86 10.91.58.11.79-.25.79-.56
+                                                0-.27-.01-1-.01-1.96-3.2.69-3.88-1.54-3.88-1.54
+                                                -.53-1.36-1.28-1.72-1.28-1.72-1.04-.71.08-.7.08-.7
+                                                1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.24
+                                                3.32.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28
+                                                -5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47
+                                                .11-3.06 0 0 .96-.31 3.15 1.18a10.94 10.94 0 015.74 0
+                                                c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06
+                                                .74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25
+                                                5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19
+                                                0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12
+                                                23.5 5.65 18.35.5 12 .5z"
+                                            />
+                                        </svg>
+
+                                    </a>
+
+                                {% endif %}
+
+
+                                {% if recommended.live_url %}
+
+                                    <a
+                                        href="{{ recommended.live_url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="{{ recommended.title }} live demo"
+                                        class="project-icon-link"
+                                    >
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="1.8"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M14 5h5v5
+                                                M19 5l-8 8
+                                                M18 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V7
+                                                a1 1 0 011-1h5"
+                                            />
+                                        </svg>
+
+                                    </a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Description -->
+
+                        {% if recommended.short_description %}
+
+                            <p class="project-description">
+                                {{ recommended.short_description }}
+                            </p>
+
+                        {% else %}
+
+                            <p class="project-description">
+                                {{ recommended.description|striptags }}
+                            </p>
+
+                        {% endif %}
+
+
+                        <!-- Technologies -->
+
+                        {% if recommended.technologies %}
+
+                            <div class="project-technologies">
+
+                                {% for technology in recommended.technologies|slice:":5" %}
+
+                                    <span class="project-tech">
+                                        {{ technology }}
+                                    </span>
+
+                                {% endfor %}
+
+
+                                {% if recommended.technologies|length > 5 %}
+
+                                    <span class="project-tech project-tech-more">
+                                        +{{ recommended.technologies|length|add:"-5" }}
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- View Details -->
+
+                        <div class="project-card-footer">
+
+                            <a
+                                href="{% url 'projects:project_detail' recommended.slug %}"
+                                class="view-project"
+                            >
+
+                                View Details
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 12h14M13 6l6 6-6 6"
+                                    />
+                                </svg>
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+{% endif %}
+
+
+            <!-- =========================================
+                 BACK TO PROJECTS — BOTTOM
+            ========================================== -->
+
+            <div class="project-detail-bottom">
+
+                <a
+                    href="{% url 'projects:project_list' %}"
+                    class="project-back-link"
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M19 12H5M11 18l-6-6 6-6"
+                        />
+                    </svg>
+
+                    Back to Projects
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

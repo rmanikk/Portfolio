@@ -10,9 +10,11 @@
     <!-- Background -->
     <div class="hero-background" aria-hidden="true">
         <img
-            src="{% static 'images/hero-bg.png' %}"
-            alt=""
-        >
+    src="{% static 'images/hero-bg.png' %}"
+    data-dark-src="{% static 'images/hero-bg.png' %}"
+    data-light-src="{% static 'images/hero-bg-light.png' %}"
+    alt=""
+>
     </div>
 
     <!-- Mouse Glow -->
@@ -407,56 +409,34 @@
 
     <div class="projects-container">
 
-        <!-- Section Title -->
         <div class="projects-title">
-
-            <h2>
-                Featured Projects
-            </h2>
-
+            <h2>Featured Projects</h2>
         </div>
 
-
-        <!-- Project Grid -->
         <div class="projects-grid">
 
             {% for project in featured_projects %}
 
                 <article class="project-card">
 
-                    <!-- =================================
-                         PROJECT IMAGE
-                    ================================== -->
-
+                    <!-- Project Image -->
                     <a
                         href="{% url 'projects:project_detail' project.slug %}"
-                        class="project-image"
+                        class="project-image-wrapper"
                         aria-label="View {{ project.title }} project"
                     >
 
                         {% if project.image %}
-
                             <img
                                 src="{{ project.image.url }}"
                                 alt="{{ project.title }} project preview"
                             >
-
-                        {% else %}
-
-                            <img
-                                src="{% static 'images/hero-bg.png' %}"
-                                alt="{{ project.title }} project preview"
-                            >
-
                         {% endif %}
 
                     </a>
 
 
-                    <!-- =================================
-                         PROJECT CONTENT
-                    ================================== -->
-
+                    <!-- Project Content -->
                     <div class="project-content">
 
                         <h3>
@@ -465,28 +445,21 @@
 
 
                         {% if project.description %}
-
                             <p class="project-description">
                                 {{ project.description|truncatewords:20 }}
                             </p>
-
                         {% endif %}
 
 
-                        <!-- =================================
-                             PROJECT LINKS
-                        ================================== -->
-
+                        <!-- GitHub + Live -->
                         <div class="project-links">
 
                             {% if project.github_url %}
-
                                 <a
                                     href="{{ project.github_url }}"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-
                                     GitHub
 
                                     <svg
@@ -503,20 +476,16 @@
                                             d="M7 17L17 7M8 7h9v9"
                                         />
                                     </svg>
-
                                 </a>
-
                             {% endif %}
 
 
                             {% if project.live_url %}
-
                                 <a
                                     href="{{ project.live_url }}"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-
                                     Live
 
                                     <svg
@@ -533,23 +502,17 @@
                                             d="M7 17L17 7M8 7h9v9"
                                         />
                                     </svg>
-
                                 </a>
-
                             {% endif %}
 
                         </div>
 
 
-                        <!-- =================================
-                             VIEW PROJECT
-                        ================================== -->
-
+                        <!-- View Project -->
                         <a
                             href="{% url 'projects:project_detail' project.slug %}"
                             class="view-project"
                         >
-
                             View Project
 
                             <svg
@@ -575,32 +538,19 @@
 
             {% empty %}
 
-                <div class="projects-empty">
-
-                    <h3>
-                        No featured projects yet.
-                    </h3>
-
-                    <p>
-                        Select projects as featured from the
-                        admin panel.
-                    </p>
-
-                </div>
+                <p class="no-featured-project">
+                    No featured projects yet.
+                </p>
 
             {% endfor %}
 
         </div>
 
 
-        <!-- =================================
-             ALL PROJECTS BUTTON
-        ================================== -->
-
+        <!-- View All -->
         <div class="all-projects-button">
 
             <a href="{% url 'projects:project_list' %}">
-
                 View All Projects
 
                 <svg

@@ -1,205 +1,195 @@
-/* =========================================
+/* =========================================================
    EXPERIENCE PAGE
-   ========================================= */
+   ========================================================= */
+
+.experience-page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
 
 .experience-header {
-    padding: 120px 24px 80px;
-}
-
-.experience-header-inner {
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
-}
-
-.experience-eyebrow {
-    display: inline-block;
-    margin-bottom: 18px;
-
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+    padding: 95px 24px 45px;
+    text-align: center;
 }
 
 .experience-header h1 {
     margin: 0;
 
-    font-size: clamp(42px, 6vw, 72px);
+    font-size: clamp(42px, 6vw, 64px);
+    font-weight: 600;
     line-height: 1.05;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.045em;
 }
 
 .experience-header p {
-    max-width: 600px;
-    margin-top: 24px;
+    max-width: 560px;
+    margin: 16px auto 0;
 
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
 
-    opacity: 0.65;
+    opacity: 0.6;
 }
 
 
-/* =========================================
+/* =========================================================
    EXPERIENCE SECTION
-   ========================================= */
+   ========================================================= */
 
-.experience-section {
-    padding: 40px 24px 120px;
-}
+
 
 .experience-container {
-    max-width: 900px;
+    width: 100%;
+    max-width: 850px;
     margin: 0 auto;
 }
 
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
 .experience-section-heading {
-    margin-bottom: 50px;
+    margin-bottom: 8px;
 }
 
 .experience-section-heading h2 {
     margin: 0;
 
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 .experience-section-heading h2 span {
-    margin-left: 5px;
+    margin-left: 4px;
 
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
 
     opacity: 0.5;
 }
 
 
-/* =========================================
-   TIMELINE
-   ========================================= */
-
-.experience-timeline {
-    position: relative;
-}
+/* =========================================================
+   COMPANY
+   ========================================================= */
 
 .experience-company {
-    position: relative;
+    margin-bottom: 22px;
+}
 
-    display: grid;
-    grid-template-columns: 32px 1fr;
-
-    column-gap: 28px;
-
-    padding-bottom: 70px;
+.experience-company:last-child {
+    margin-bottom: 0;
 }
 
 
-/* Vertical line */
-
-.experience-company::before {
-    content: "";
-
-    position: absolute;
-
-    left: 15px;
-    top: 28px;
-    bottom: 0;
-
-    width: 1px;
-
-    background: currentColor;
-    opacity: 0.12;
-}
-
-
-/* Marker */
-
-.company-marker {
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-
-    z-index: 2;
-}
-
-.company-marker span {
-    width: 10px;
-    height: 10px;
-
-    margin-top: 8px;
-
-    border: 2px solid currentColor;
-    border-radius: 50%;
-
-    background: var(--background, inherit);
-}
-
-
-/* =========================================
-   COMPANY
-   ========================================= */
-
-.company-content {
-    min-width: 0;
-}
+/* =========================================================
+   COMPANY HEADER
+   ========================================================= */
 
 .company-header {
     display: flex;
     align-items: center;
 
-    gap: 14px;
+    gap: 13px;
 
-    margin-bottom: 28px;
+    margin-bottom: 14px;
 }
+
+
+/* Circular logo */
 
 .company-logo {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
 
-    object-fit: contain;
+    flex-shrink: 0;
 
-    border-radius: 10px;
+    object-fit: cover;
+
+    border-radius: 50%;
 }
 
-.company-header h3 {
+
+/* Fallback logo */
+
+.company-logo-fallback {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border: 1px solid currentColor;
+
+    opacity: 0.7;
+}
+
+
+/* Company info */
+
+.company-info {
+    min-width: 0;
+}
+
+.company-info h2 {
     margin: 0;
 
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
+
+    letter-spacing: -0.01em;
 }
 
-.company-header a {
+.company-info a {
     display: inline-block;
 
-    margin-top: 3px;
+    margin-top: 2px;
 
-    font-size: 12px;
-
-    opacity: 0.5;
+    font-size: 11px;
 
     text-decoration: none;
+
+    opacity: 0.5;
 
     transition: opacity 0.2s ease;
 }
 
-.company-header a:hover {
-    opacity: 1;
+.company-info a:hover {
+    opacity: 0.9;
 }
 
 
-/* =========================================
-   EXPERIENCE ITEM
-   ========================================= */
+/* =========================================================
+   COMPANY EXPERIENCES
+   ========================================================= */
 
 .company-experiences {
-    display: flex;
-    flex-direction: column;
-
-    gap: 2px;
+    margin-left: 57px;
 }
 
+
+/* =========================================================
+   EXPERIENCE ITEM
+   ========================================================= */
+
 .experience-item {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
     border-bottom: 1px solid currentColor;
+
     border-color: color-mix(
         in srgb,
         currentColor 10%,
@@ -207,48 +197,48 @@
     );
 }
 
-.experience-toggle {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
-
-    padding: 22px 0;
-
-    border: 0;
-
-    background: none;
-
-    color: inherit;
-
-    text-align: left;
-
-    cursor: pointer;
-
-    font: inherit;
+.experience-item:last-child {
+    margin-bottom: 0;
 }
 
 
-/* Position */
+/* =========================================================
+   ROLE ROW
+   ========================================================= */
 
-.experience-title {
+.experience-role-row {
     display: flex;
-    align-items: center;
 
-    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.experience-role {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 9px;
 
     min-width: 0;
 }
 
-.experience-title h4 {
+.experience-role h3 {
     margin: 0;
 
     font-size: 16px;
     font-weight: 500;
+
+    line-height: 1.4;
 }
+
+
+/* =========================================================
+   EMPLOYMENT TYPE
+   ========================================================= */
 
 .employment-type {
     padding: 4px 8px;
@@ -256,37 +246,87 @@
     border: 1px solid currentColor;
     border-radius: 999px;
 
-    font-size: 10px;
+    font-size: 9px;
+    line-height: 1;
 
     opacity: 0.5;
 }
 
 
-/* Meta */
+/* =========================================================
+   ARROW
+   ========================================================= */
 
-.experience-meta {
+.experience-toggle {
     display: flex;
-    align-items: center;
 
-    gap: 14px;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
 
     flex-shrink: 0;
 
-    font-size: 12px;
+    padding: 0;
 
-    opacity: 0.55;
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    opacity: 0.5;
+
+    transition:
+        opacity 0.2s ease,
+        background 0.2s ease;
+}
+
+.experience-toggle:hover {
+    opacity: 1;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
 }
 
 .experience-arrow {
-    display: inline-flex;
-
-    transition: transform 0.25s ease;
+    font-size: 16px;
+    line-height: 1;
 }
 
 
-/* =========================================
+/* =========================================================
+   DATE + DURATION
+   ========================================================= */
+
+.experience-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
    EXPANDABLE DETAILS
-   ========================================= */
+   ========================================================= */
 
 .experience-details {
     display: grid;
@@ -295,123 +335,185 @@
 
     overflow: hidden;
 
-    transition: grid-template-rows 0.3s ease;
+    transition:
+        grid-template-rows 0.3s ease;
 }
 
 .experience-details > * {
     min-height: 0;
 }
 
-.experience-item.is-open .experience-details {
+.experience-item.is-open
+.experience-details {
     grid-template-rows: 1fr;
 }
 
-.experience-item.is-open .experience-arrow {
-    transform: rotate(180deg);
-}
 
-
-/* =========================================
-   BULLETS
-   ========================================= */
+/* =========================================================
+   KEY WORKS
+   ========================================================= */
 
 .experience-bullets {
     margin: 0;
 
-    padding: 0 0 20px 20px;
+    padding: 18px 0 2px 18px;
 
-    font-size: 14px;
+    font-size: 13px;
 
     line-height: 1.7;
 
-    opacity: 0.7;
+    /*
+     * More visible than before.
+     */
+    opacity: 0.78;
 }
 
 .experience-bullets li {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
+
+    padding-left: 3px;
+}
+
+.experience-bullets li:last-child {
+    margin-bottom: 0;
 }
 
 
-/* =========================================
+/* =========================================================
    TECHNOLOGIES
-   ========================================= */
+   ALWAYS AT THE END
+   ========================================================= */
 
 .experience-technologies {
     display: flex;
+
     flex-wrap: wrap;
 
-    gap: 7px;
+    gap: 6px;
 
-    padding-bottom: 24px;
+    margin-top: 14px;
 }
 
 .technology-tag {
-    padding: 5px 10px;
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 9px;
 
     border: 1px solid currentColor;
     border-radius: 999px;
 
-    font-size: 11px;
+    font-size: 10px;
+
+    line-height: 1;
 
     opacity: 0.55;
 }
 
 
-/* =========================================
+/* =========================================================
    EMPTY STATE
-   ========================================= */
+   ========================================================= */
 
 .experience-empty {
-    padding: 60px 0;
+    padding: 40px 0;
 
     text-align: center;
+
+    font-size: 14px;
 
     opacity: 0.5;
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-   ========================================= */
+   ========================================================= */
 
 @media (max-width: 700px) {
 
     .experience-header {
-        padding: 80px 20px 60px;
+        padding: 75px 20px 40px;
+    }
+
+    .experience-header h1 {
+        font-size: 42px;
+    }
+
+    .experience-header p {
+        font-size: 14px;
     }
 
     .experience-section {
-        padding: 20px 20px 80px;
+        padding: 5px 20px 70px;
     }
 
     .experience-company {
-        grid-template-columns: 24px 1fr;
-        column-gap: 18px;
+        margin-bottom: 36px;
     }
 
-    .experience-company::before {
-        left: 11px;
+    .company-header {
+        margin-bottom: 14px;
     }
 
-    .experience-toggle {
-        align-items: flex-start;
-        flex-direction: column;
+    .company-logo {
+        width: 40px;
+        height: 40px;
+    }
 
+    .company-info h2 {
+        font-size: 16px;
+    }
+
+    .company-experiences {
+        margin-left: 0;
+    }
+
+    .experience-role-row {
         gap: 10px;
     }
 
-    .experience-title {
-        flex-wrap: wrap;
+    .experience-role h3 {
+        font-size: 15px;
     }
 
     .experience-meta {
-        width: 100%;
-
-        justify-content: flex-start;
+        font-size: 10px;
     }
 
-    .experience-arrow {
-        margin-left: auto;
+    .experience-bullets {
+        font-size: 12px;
+        line-height: 1.7;
+        opacity: 0.78;
     }
 
+    .technology-tag {
+        font-size: 10px;
+    }
+}
+/* =========================================================
+   ALL EXPERIENCES
+   ========================================================= */
+
+.experience-section-heading {
+    margin-bottom: 18px;
+}
+
+.experience-section-heading h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    letter-spacing: -0.015em;
+}
+
+.experience-section-heading h2 span {
+    margin-left: 5px;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    opacity: 0.45;
 }

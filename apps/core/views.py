@@ -20,7 +20,7 @@ def home(request):
     ).order_by(
         "-published_at",
         "-created_at"
-    )[:3]
+    )[:2]
 
     featured_experience = Experience.objects.filter(
         featured=True

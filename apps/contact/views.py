@@ -16,13 +16,12 @@ def contact(request):
 
             messages.success(
                 request,
-                "Your message has been sent successfully."
+                "TEST: Your message has been sent successfully."
             )
 
             return redirect("contact:contact")
 
     else:
-
         form = ContactMessageForm()
 
     return render(
