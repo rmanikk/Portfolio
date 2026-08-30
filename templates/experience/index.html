@@ -48,68 +48,14 @@
         </h1>
 
         <p>
-            A look at the roles, responsibilities, and work
-            I've contributed to throughout my journey.
+           Work, responsibilities, and a few problems I decided were worth the trouble.
         </p>
 
     </header>
-</header>
 
-
-<!-- =========================================
-     EXPERIENCE SECTION
-========================================== -->
-
-<section class="experience-section">
-
-    <div class="experience-container">
-
-
-        <!-- =========================================
-             SECTION HEADING
-        ========================================== -->
-
-        <div class="experience-section-heading">
-
-            <h2>
-                All Experiences
-
-                <span>
-                    ({{ experience_count }})
-                </span>
-            </h2>
-
-        </div>
-
-
-        <!-- =========================================
-             EXPERIENCE LIST
-        ========================================== -->
-
-        <div class="experience-timeline">
-
-            {% for company in companies %}
-
-                <!-- your existing company code -->
-
-            {% empty %}
-
-                <div class="experience-empty">
-                    <p>
-                        No work experience added yet.
-                    </p>
-                </div>
-
-            {% endfor %}
-
-        </div>
-
-    </div>
-
-</section>
 
     <!-- =========================================
-         EXPERIENCE LIST
+         EXPERIENCE SECTION
     ========================================== -->
 
     <section class="experience-section">
@@ -117,224 +63,259 @@
         <div class="experience-container">
 
 
-            {% for company in companies %}
+            <!-- =========================================
+                 SECTION HEADING
+            ========================================== -->
 
-                <div class="experience-company">
+            <div class="experience-section-heading">
 
+                <h2>
+                    All Experiences
 
-                    <!-- =================================
-                         COMPANY HEADER
-                    ================================== -->
+                    <span>
+                        ({{ experience_count }})
+                    </span>
+                </h2>
 
-                    <div class="company-header">
-
-                        {% if company.logo %}
-
-                            <img
-                                src="{{ company.logo.url }}"
-                                alt="{{ company.name }}"
-                                class="company-logo"
-                            >
-
-                        {% else %}
-
-                            <div class="company-logo company-logo-fallback">
-                                {{ company.name|first|upper }}
-                            </div>
-
-                        {% endif %}
+            </div>
 
 
-                        <div class="company-info">
+            <!-- =========================================
+                 EXPERIENCE LIST
+            ========================================== -->
 
-                            <h2>
-                                {{ company.name }}
-                            </h2>
+            <div class="experience-timeline">
 
-                            {% if company.website %}
+                {% for company in companies %}
 
-                                <a
-                                    href="{{ company.website }}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                    <div class="experience-company">
+
+
+                        <!-- =================================
+                             COMPANY HEADER
+                        ================================== -->
+
+                        <div class="company-header">
+
+
+                            <!-- Company notation -->
+
+                            <span class="company-number">
+                                •
+                            </span>
+
+
+                            <!-- Company Logo -->
+
+                            {% if company.logo %}
+
+                                <img
+                                    src="{{ company.logo.url }}"
+                                    alt="{{ company.name }}"
+                                    class="company-logo"
                                 >
-                                    {{ company.website }}
-                                    ↗
-                                </a>
+
+                            {% else %}
+
+                                <div class="company-logo company-logo-fallback">
+                                    {{ company.name|first|upper }}
+                                </div>
 
                             {% endif %}
+
+
+                            <!-- Company Information -->
+
+                            <div class="company-info">
+
+                                <h2>
+                                    {{ company.name }}
+                                </h2>
+
+                                {% if company.website %}
+
+                                    <a
+                                        href="{{ company.website }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {{ company.website }}
+                                        ↗
+                                    </a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             COMPANY POSITIONS
+                        ================================== -->
+
+                        <div class="company-experiences">
+
+                            {% for experience in company.experiences.all %}
+
+                                <article class="experience-item">
+
+
+                                    <!-- =================================
+                                         ROLE HEADER
+                                    ================================== -->
+
+                                    <div class="experience-role-row">
+
+
+                                        <!-- Role + Employment Type -->
+
+                                        <div class="experience-role">
+
+                                            <h3>
+                                                {{ experience.position }}
+                                            </h3>
+
+                                            <span class="employment-type">
+                                                {{ experience.get_employment_type_display }}
+                                            </span>
+
+                                        </div>
+
+
+                                        <!-- =================================
+                                             EXPAND BUTTON
+                                        ================================== -->
+
+                                        {% if experience.bullets.all %}
+
+                                            <button
+                                                type="button"
+                                                class="experience-toggle"
+                                                aria-expanded="false"
+                                                aria-label="Show key works"
+                                            >
+
+                                                <span class="experience-arrow">
+                                                    ↓
+                                                </span>
+
+                                            </button>
+
+                                        {% endif %}
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         DATE + DURATION
+                                    ================================== -->
+
+                                    <div class="experience-meta">
+
+                                        <span>
+
+                                            {{ experience.start_date|date:"m.Y" }}
+
+                                            —
+
+                                            {% if experience.currently_working %}
+
+                                                Present
+
+                                            {% elif experience.end_date %}
+
+                                                {{ experience.end_date|date:"m.Y" }}
+
+                                            {% endif %}
+
+                                        </span>
+
+
+                                        {% if experience.duration %}
+
+                                            <span>
+                                                · {{ experience.duration }}
+                                            </span>
+
+                                        {% endif %}
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         EXPANDABLE KEY WORKS
+                                    ================================== -->
+
+                                    {% if experience.bullets.all %}
+
+                                        <div class="experience-details">
+
+                                            <ul class="experience-bullets">
+
+                                                {% for bullet in experience.bullets.all %}
+
+                                                    <li>
+                                                        {{ bullet.description }}
+                                                    </li>
+
+                                                {% endfor %}
+
+                                            </ul>
+
+                                        </div>
+
+                                    {% endif %}
+
+
+                                    <!-- =================================
+                                         TECHNOLOGIES
+                                         ALWAYS VISIBLE
+                                    ================================== -->
+
+                                    {% if experience.technologies %}
+
+                                        <div class="experience-technologies">
+
+                                            {% for technology in experience.technologies %}
+
+                                                <span class="technology-tag">
+                                                    {{ technology }}
+                                                </span>
+
+                                            {% endfor %}
+
+                                        </div>
+
+                                    {% endif %}
+
+
+                                </article>
+
+                            {% endfor %}
 
                         </div>
 
                     </div>
 
 
+                {% empty %}
+
                     <!-- =================================
-                         COMPANY POSITIONS
+                         EMPTY STATE
                     ================================== -->
 
-                    <div class="company-experiences">
+                    <div class="experience-empty">
 
-                        {% for experience in company.experiences.all %}
-
-                            <article
-                                class="experience-item
-                                {% if experience.bullets.all %}
-                                    has-details
-                                {% endif %}"
-                            >
-
-
-                                <!-- =================================
-                                     ROLE HEADER
-                                ================================== -->
-
-                                <div class="experience-role-row">
-
-
-                                    <div class="experience-role">
-
-                                        <h3>
-                                            {{ experience.position }}
-                                        </h3>
-
-                                        <span class="employment-type">
-                                            {{ experience.get_employment_type_display }}
-                                        </span>
-
-                                    </div>
-
-
-                                    <!-- =================================
-                                         EXPAND BUTTON
-                                    ================================== -->
-
-                                    {% if experience.bullets.all %}
-
-                                        <button
-                                            type="button"
-                                            class="experience-toggle"
-                                            aria-expanded="false"
-                                            aria-label="Show key works"
-                                        >
-
-                                            <span class="experience-arrow">
-                                                ↓
-                                            </span>
-
-                                        </button>
-
-                                    {% endif %}
-
-
-                                </div>
-
-
-                                <!-- =================================
-                                     DATE
-                                ================================== -->
-
-                                <div class="experience-meta">
-
-                                    <span>
-
-                                        {{ experience.start_date|date:"m.Y" }}
-
-                                        —
-
-                                        {% if experience.currently_working %}
-
-                                            Present
-
-                                        {% elif experience.end_date %}
-
-                                            {{ experience.end_date|date:"m.Y" }}
-
-                                        {% endif %}
-
-                                    </span>
-
-
-                                    {% if experience.duration %}
-
-                                        <span>
-                                            · {{ experience.duration }}
-                                        </span>
-
-                                    {% endif %}
-
-                                </div>
-
-
-                                <!-- =================================
-                                     EXPANDABLE KEY WORKS
-                                ================================== -->
-
-                                {% if experience.bullets.all %}
-
-                                    <div class="experience-details">
-
-                                        <ul class="experience-bullets">
-
-                                            {% for bullet in experience.bullets.all %}
-
-                                                <li>
-                                                    {{ bullet.description }}
-                                                </li>
-
-                                            {% endfor %}
-
-                                        </ul>
-
-                                    </div>
-
-                                {% endif %}
-
-
-                                <!-- =================================
-                                     TECHNOLOGIES
-                                     ALWAYS VISIBLE
-                                ================================== -->
-
-                                {% if experience.technologies %}
-
-                                    <div class="experience-technologies">
-
-                                        {% for technology in experience.technologies %}
-
-                                            <span class="technology-tag">
-                                                {{ technology }}
-                                            </span>
-
-                                        {% endfor %}
-
-                                    </div>
-
-                                {% endif %}
-
-
-                            </article>
-
-                        {% endfor %}
+                        <p>
+                            No work experience added yet.
+                        </p>
 
                     </div>
 
+                {% endfor %}
 
-                </div>
-
-
-            {% empty %}
-
-                <div class="experience-empty">
-
-                    <p>
-                        No work experience added yet.
-                    </p>
-
-                </div>
-
-            {% endfor %}
-
+            </div>
 
         </div>
 
@@ -389,6 +370,7 @@
                                 ".experience-arrow"
                             );
 
+
                         if (openButton) {
 
                             openButton.setAttribute(
@@ -403,8 +385,11 @@
 
                         }
 
+
                         if (openArrow) {
+
                             openArrow.textContent = "↓";
+
                         }
 
                     });

@@ -21,11 +21,10 @@
 }
 
 .experience-header h1 {
-    margin: 0;
-
-    font-size: clamp(42px, 6vw, 64px);
+      margin: 0;
+    color: #f5f5f5;
+    font-size: clamp(2.25rem, 5vw, 3.2rem);
     font-weight: 600;
-    line-height: 1.05;
     letter-spacing: -0.045em;
 }
 
@@ -64,18 +63,19 @@
 .experience-section-heading h2 {
     margin: 0;
 
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
-    letter-spacing: -0.01em;
+
+    letter-spacing: -0.015em;
 }
 
 .experience-section-heading h2 span {
-    margin-left: 4px;
+    margin-left: 5px;
 
     font-size: 13px;
     font-weight: 400;
 
-    opacity: 0.5;
+    opacity: 0.45;
 }
 
 
@@ -98,6 +98,7 @@
 
 .company-header {
     display: flex;
+
     align-items: center;
 
     gap: 13px;
@@ -106,7 +107,32 @@
 }
 
 
-/* Circular logo */
+/* =========================================================
+   COMPANY NOTATION
+   ========================================================= */
+
+.company-number {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 10px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   CIRCULAR COMPANY LOGO
+   ========================================================= */
 
 .company-logo {
     width: 44px;
@@ -120,7 +146,9 @@
 }
 
 
-/* Fallback logo */
+/* =========================================================
+   FALLBACK LOGO
+   ========================================================= */
 
 .company-logo-fallback {
     display: flex;
@@ -137,7 +165,9 @@
 }
 
 
-/* Company info */
+/* =========================================================
+   COMPANY INFO
+   ========================================================= */
 
 .company-info {
     min-width: 0;
@@ -176,7 +206,7 @@
    ========================================================= */
 
 .company-experiences {
-    margin-left: 57px;
+    margin-left: 67px;
 }
 
 
@@ -186,6 +216,7 @@
 
 .experience-item {
     padding-bottom: 20px;
+
     margin-bottom: 20px;
 
     border-bottom: 1px solid currentColor;
@@ -219,6 +250,7 @@
     display: flex;
 
     align-items: center;
+
     flex-wrap: wrap;
 
     gap: 9px;
@@ -244,9 +276,11 @@
     padding: 4px 8px;
 
     border: 1px solid currentColor;
+
     border-radius: 999px;
 
     font-size: 9px;
+
     line-height: 1;
 
     opacity: 0.5;
@@ -299,6 +333,7 @@
 
 .experience-arrow {
     font-size: 16px;
+
     line-height: 1;
 }
 
@@ -362,9 +397,6 @@
 
     line-height: 1.7;
 
-    /*
-     * More visible than before.
-     */
     opacity: 0.78;
 }
 
@@ -402,6 +434,7 @@
     padding: 5px 9px;
 
     border: 1px solid currentColor;
+
     border-radius: 999px;
 
     font-size: 10px;
@@ -428,13 +461,38 @@
 
 
 /* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .experience-header {
+        padding-top: 80px;
+    }
+
+    .experience-container {
+        max-width: 760px;
+    }
+
+    .company-experiences {
+        margin-left: 55px;
+    }
+
+}
+
+
+/* =========================================================
    MOBILE
    ========================================================= */
 
 @media (max-width: 700px) {
 
+    /* -----------------------------------------
+       Header
+       ----------------------------------------- */
+
     .experience-header {
-        padding: 75px 20px 40px;
+        padding: 70px 20px 35px;
     }
 
     .experience-header h1 {
@@ -442,20 +500,70 @@
     }
 
     .experience-header p {
+        margin-top: 13px;
+
         font-size: 14px;
+        line-height: 1.6;
     }
+
+
+    /* -----------------------------------------
+       Section
+       ----------------------------------------- */
 
     .experience-section {
-        padding: 5px 20px 70px;
+        padding: 4px 20px 60px;
     }
+
+
+    /* -----------------------------------------
+       All Experiences
+       ----------------------------------------- */
+
+    .experience-section-heading {
+        margin-bottom: 8px;
+    }
+
+    .experience-section-heading h2 {
+        font-size: 17px;
+    }
+
+    .experience-section-heading h2 span {
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       Company
+       ----------------------------------------- */
 
     .experience-company {
-        margin-bottom: 36px;
+        margin-bottom: 30px;
     }
 
+
+    /* -----------------------------------------
+       Company Header
+       ----------------------------------------- */
+
     .company-header {
-        margin-bottom: 14px;
+        gap: 10px;
+
+        margin-bottom: 13px;
     }
+
+
+    /* Small bullet notation */
+
+    .company-number {
+        width: 7px;
+        height: 40px;
+
+        font-size: 13px;
+
+        opacity: 0.45;
+    }
+
 
     .company-logo {
         width: 40px;
@@ -466,54 +574,191 @@
         font-size: 16px;
     }
 
+    .company-info a {
+        max-width: 220px;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+
+        font-size: 10px;
+    }
+
+
+    /* -----------------------------------------
+       Experience List
+       ----------------------------------------- */
+
     .company-experiences {
         margin-left: 0;
     }
+
+
+    /* -----------------------------------------
+       Role
+       ----------------------------------------- */
 
     .experience-role-row {
         gap: 10px;
     }
 
+    .experience-role {
+        gap: 7px;
+
+        padding-right: 5px;
+    }
+
     .experience-role h3 {
+        font-size: 15px;
+
+        line-height: 1.4;
+    }
+
+
+    /* -----------------------------------------
+       Employment Type
+       ----------------------------------------- */
+
+    .employment-type {
+        padding: 4px 7px;
+
+        font-size: 8px;
+    }
+
+
+    /* -----------------------------------------
+       Arrow
+       ----------------------------------------- */
+
+    .experience-toggle {
+        width: 28px;
+        height: 28px;
+    }
+
+    .experience-arrow {
         font-size: 15px;
     }
 
+
+    /* -----------------------------------------
+       Date + Duration
+       ----------------------------------------- */
+
     .experience-meta {
+        gap: 5px;
+
+        margin-top: 4px;
+
         font-size: 10px;
+
+        flex-wrap: wrap;
     }
 
+
+    /* -----------------------------------------
+       Key Works
+       ----------------------------------------- */
+
     .experience-bullets {
+        padding: 16px 0 2px 17px;
+
         font-size: 12px;
+
         line-height: 1.7;
+
         opacity: 0.78;
     }
 
-    .technology-tag {
-        font-size: 10px;
+    .experience-bullets li {
+        margin-bottom: 6px;
+
+        padding-left: 2px;
     }
+
+
+    /* -----------------------------------------
+       Technologies
+       ----------------------------------------- */
+
+    .experience-technologies {
+        gap: 5px;
+
+        margin-top: 12px;
+    }
+
+    .technology-tag {
+        padding: 5px 8px;
+
+        font-size: 9px;
+    }
+
+
+    /* -----------------------------------------
+       Experience Item
+       ----------------------------------------- */
+
+    .experience-item {
+        padding-bottom: 17px;
+
+        margin-bottom: 17px;
+    }
+
 }
+
+
 /* =========================================================
-   ALL EXPERIENCES
+   SMALL PHONES
    ========================================================= */
 
-.experience-section-heading {
-    margin-bottom: 18px;
-}
+@media (max-width: 400px) {
 
-.experience-section-heading h2 {
-    margin: 0;
+    .experience-header {
+        padding: 60px 16px 30px;
+    }
 
-    font-size: 20px;
-    font-weight: 500;
+    .experience-header h1 {
+        font-size: 36px;
+    }
 
-    letter-spacing: -0.015em;
-}
+    .experience-header p {
+        font-size: 13px;
+    }
 
-.experience-section-heading h2 span {
-    margin-left: 5px;
+    .experience-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
-    font-size: 13px;
-    font-weight: 400;
+    .experience-section-heading h2 {
+        font-size: 16px;
+    }
 
-    opacity: 0.45;
+    .company-number {
+        width: 6px;
+        font-size: 12px;
+    }
+
+    .company-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .company-info h2 {
+        font-size: 15px;
+    }
+
+    .experience-role h3 {
+        font-size: 14px;
+    }
+
+    .experience-meta {
+        font-size: 9px;
+    }
+
+    .technology-tag {
+        font-size: 8px;
+    }
+
 }
