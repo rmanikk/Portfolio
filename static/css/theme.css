@@ -35,21 +35,21 @@ html.light .home-page {
 html.light .hero-background {
     position: fixed;
 
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    inset: 0;
 
-    width: 100%;
-    
-    height: 100%;
+    z-index: 0;
 
-    overflow: hidden;
     pointer-events: none;
 
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
     background-image: url("../images/hero-bg-light.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+  
 }
 
 html.light .hero-background {
@@ -59,14 +59,22 @@ html.light .hero-background {
 /* Keep the actual image inside the same 768px box */
 
 html.light .hero-background img {
+   position: absolute;
+
     width: 100%;
-  
     height: 100%;
 
     object-fit: cover;
-    object-position: center center;
 
-    opacity: 0;
+    object-position: center;
+
+    opacity: 0.99;
+
+    filter:
+        brightness(1)
+        contrast(1);
+
+    user-select: none;
 }
 
 
@@ -123,7 +131,7 @@ html.light #cursor-glow {
 ===================================================== */
 
 html.light .navbar {
-    color: #18181b;
+    color: #0f0f10;
 }
 
 html.light .navbar.navbar-scrolled {
@@ -132,7 +140,7 @@ html.light .navbar.navbar-scrolled {
 }
 
 html.light .nav-link {
-    color: #71717a;
+    color: #000000;
 }
 
 html.light .nav-link:hover,
@@ -268,4 +276,151 @@ html.light .tech-item {
     html.light .hero-background img {
         object-position: 30% center;
     }
+}
+ /* =================================
+    LIGHT THEME — NAVBAR
+ ================================= */
+
+
+
+
+/* Navigation text */
+
+html.light .nav-link {
+    color: #47474e;
+}
+
+html.light .nav-link:hover,
+html.light .nav-link.active {
+    color: #18181b;
+}
+
+
+/* Blue underline */
+
+html.light .nav-link::after {
+    background: #2563eb;
+}
+
+
+/* Keep the scrolled navbar consistent */
+
+html.light .navbar.navbar-scrolled {
+    background: rgba(247, 247, 245, 0.88);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+ /* =================================
+    LIGHT THEME — HERO + SOCIAL LINKS
+ ================================= */
+
+/* "I'm" and "Full-Stack Developer" */
+html.light .hero-intro,
+html.light .hero-role {
+    color: #2563eb;
+}
+
+
+/* Social link box blends into background */
+html.light .social-link {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #18181b;
+}
+
+
+/* Social links — blue on hover */
+html.light .social-link:hover {
+    color: #2563eb;
+    border-color: #2563eb;
+    background: transparent;
+}
+/* =================================
+   LIGHT THEME — HERO INTRO & BUTTONS
+================================= */
+
+/* Hero description */
+html.light .hero-description {
+    color: #18181b;
+}
+
+/* =================================
+   LIGHT THEME — HERO BUTTONS
+================================= */
+
+/* Contact Me */
+html.light .hero-button-primary {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+html.light .hero-button-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+}
+
+
+/* See Resume */
+html.light .hero-button-secondary {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #18181b;
+}
+
+html.light .hero-button-secondary:hover {
+    background: transparent;
+    border-color: #2563eb;
+    color: #2563eb;
+}
+/* =================================
+   LIGHT THEME — TECHNOLOGY STACK
+================================= */
+
+/* Tech stack container blends with the page */
+html.light .tech-stack {
+    background: transparent;
+    border-color: transparent;
+}
+
+
+/* Tech item */
+html.light .tech-item {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #18181b;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Subtle hover */
+html.light .tech-item:hover {
+    background: rgba(37, 99, 235, 0.05);
+    border-color: #2563eb;
+}
+
+
+/* =================================
+   FIX DARK-ONLY ICON COLORS
+================================= */
+
+/* Express.js */
+html.light .tech-item[data-tech="Express.js"] img {
+    content: url("https://cdn.simpleicons.org/express/18181B");
+}
+
+
+/* GitHub */
+html.light .tech-item[data-tech="GitHub"] img {
+    content: url("https://cdn.simpleicons.org/github/18181B");
+}
+
+
+/* Vercel */
+html.light .tech-item[data-tech="Vercel"] img {
+    content: url("https://cdn.simpleicons.org/vercel/18181B");
 }
