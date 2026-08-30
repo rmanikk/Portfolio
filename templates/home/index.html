@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/experience.css' %}">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+<link rel="stylesheet" href="{% static 'css/input.css' %}">
+
+{% endblock %}
 
 {% block title %}Manik Kafle | Full-Stack Developer{% endblock %}
 
@@ -409,148 +416,265 @@
 
     <div class="projects-container">
 
+        <!-- Section Title -->
         <div class="projects-title">
-            <h2>Featured Projects</h2>
+            <h2>
+                Featured Projects
+            </h2>
         </div>
 
+
+        <!-- Project Grid -->
         <div class="projects-grid">
 
             {% for project in featured_projects %}
 
-                <article class="project-card">
+                <article
+                    class="project-card"
+                    data-project="{{ project.slug }}"
+                >
 
-                    <!-- Project Image -->
-                    <a
-                        href="{% url 'projects:project_detail' project.slug %}"
-                        class="project-image-wrapper"
-                        aria-label="View {{ project.title }} project"
-                    >
+                    <!-- =================================
+                         PROJECT IMAGE
+                    ================================== -->
+
+                    <div class="project-image-wrapper">
 
                         {% if project.image %}
+
                             <img
                                 src="{{ project.image.url }}"
                                 alt="{{ project.title }} project preview"
+                                class="project-image"
                             >
+
+                        {% else %}
+
+                            <img
+                                src="{% static 'images/hero-bg.png' %}"
+                                alt="{{ project.title }} project preview"
+                                class="project-image"
+                            >
+
                         {% endif %}
 
-                    </a>
+                        <div class="project-image-overlay"></div>
+
+                    </div>
 
 
-                    <!-- Project Content -->
-                    <div class="project-content">
+                    <!-- =================================
+                         PROJECT CONTENT
+                    ================================== -->
 
-                        <h3>
-                            {{ project.title }}
-                        </h3>
+                    <div class="project-card-content">
+
+                        <!-- =================================
+                             TITLE + PROJECT LINKS
+                        ================================= -->
+
+                        <div class="project-title-row">
+
+                            <h3>
+                                {{ project.title }}
+                            </h3>
 
 
-                        {% if project.description %}
-                            <p class="project-description">
-                                {{ project.description|truncatewords:20 }}
-                            </p>
-                        {% endif %}
+                            <!-- GitHub + Live -->
+                            <div class="project-links">
 
+                                {% if project.github_url %}
 
-                        <!-- GitHub + Live -->
-                        <div class="project-links">
-
-                            {% if project.github_url %}
-                                <a
-                                    href="{{ project.github_url }}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    GitHub
-
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        aria-hidden="true"
+                                    <a
+                                        href="{{ project.github_url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="{{ project.title }} GitHub repository"
+                                        class="project-icon-link"
                                     >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M7 17L17 7M8 7h9v9"
-                                        />
-                                    </svg>
-                                </a>
-                            {% endif %}
+
+                                        <!-- GitHub -->
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M12 .5C5.65.5.5 5.65.5 12c0 5.08
+                                                3.29 9.39 7.86 10.91.58.11.79-.25.79-.56
+                                                0-.27-.01-1-.01-1.96-3.2.69-3.88-1.54-3.88-1.54
+                                                -.53-1.36-1.28-1.72-1.28-1.72-1.04-.71.08-.7.08-.7
+                                                1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.24
+                                                3.32.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28
+                                                -5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47
+                                                .11-3.06 0 0 .96-.31 3.15 1.18a10.94 10.94 0 015.74 0
+                                                c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06
+                                                .74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25
+                                                5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19
+                                                0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12
+                                                23.5 5.65 18.35.5 12 .5z"
+                                            />
+                                        </svg>
+
+                                    </a>
+
+                                {% endif %}
 
 
-                            {% if project.live_url %}
-                                <a
-                                    href="{{ project.live_url }}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Live
+                                {% if project.live_url %}
 
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        aria-hidden="true"
+                                    <a
+                                        href="{{ project.live_url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="{{ project.title }} live demo"
+                                        class="project-icon-link"
                                     >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M7 17L17 7M8 7h9v9"
-                                        />
-                                    </svg>
-                                </a>
-                            {% endif %}
+
+                                        <!-- Live Demo -->
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="1.8"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M14 5h5v5
+                                                M19 5l-8 8
+                                                M18 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V7
+                                                a1 1 0 011-1h5"
+                                            />
+                                        </svg>
+
+                                    </a>
+
+                                {% endif %}
+
+                            </div>
 
                         </div>
 
 
-                        <!-- View Project -->
-                        <a
-                            href="{% url 'projects:project_detail' project.slug %}"
-                            class="view-project"
-                        >
-                            View Project
+                        <!-- =================================
+                             SHORT DESCRIPTION
+                        ================================== -->
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                aria-hidden="true"
+                        {% if project.short_description %}
+
+                            <p class="project-description">
+                                {{ project.short_description }}
+                            </p>
+
+                        {% elif project.description %}
+
+                            <p class="project-description">
+                                {{ project.description|striptags }}
+                            </p>
+
+                        {% endif %}
+
+
+                        <!-- =================================
+                             TECHNOLOGIES
+                             Show first 5 + remaining count
+                        ================================== -->
+
+                        {% if project.technologies %}
+
+                            <div class="project-technologies">
+
+                                {% for technology in project.technologies|slice:":5" %}
+
+                                    <span class="project-tech">
+                                        {{ technology }}
+                                    </span>
+
+                                {% endfor %}
+
+
+                                {% if project.technologies|length > 5 %}
+
+                                    <span class="project-tech project-tech-more">
+                                        +{{ project.technologies|length|add:"-5" }}
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- =================================
+                             VIEW DETAILS
+                        ================================== -->
+
+                        <div class="project-card-footer">
+
+                            <a
+                                href="{% url 'projects:project_detail' project.slug %}"
+                                class="view-project"
                             >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M5 12h14M13 6l6 6-6 6"
-                                />
-                            </svg>
 
-                        </a>
+                                View Details
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M5 12h14M13 6l6 6-6 6"
+                                    />
+                                </svg>
+
+                            </a>
+
+                        </div>
 
                     </div>
 
                 </article>
 
+
             {% empty %}
 
-                <p class="no-featured-project">
-                    No featured projects yet.
-                </p>
+                <div class="projects-empty">
+
+                    <h3>
+                        No featured projects yet.
+                    </h3>
+
+                    <p>
+                        Select projects as featured from the
+                        admin panel.
+                    </p>
+
+                </div>
 
             {% endfor %}
 
         </div>
 
 
-        <!-- View All -->
+        <!-- =================================
+             VIEW ALL PROJECTS
+        ================================== -->
+
         <div class="all-projects-button">
 
             <a href="{% url 'projects:project_list' %}">
+
                 View All Projects
 
                 <svg
@@ -575,111 +699,166 @@
     </div>
 
 </section>
-
 <!-- =================================
      FEATURED BLOG
-================================== -->
+================================= -->
 
 <section class="featured-blog" id="blog">
-    
 
     <div class="blog-container">
 
         <!-- Section Title -->
+
         <div class="blog-title">
+
             <h2>
                 Featured Blog
             </h2>
+
         </div>
 
 
-        <!-- Blog Posts -->
+        <!-- Featured Blog Posts -->
+
+        {% if featured_blogs %}
+
         <div class="blog-grid">
 
             {% for post in featured_blogs %}
 
-                <article class="blog-card">
+            <article class="blog-card">
 
-                    <!-- Image -->
-                    <a
-                        href="{% url 'blog:detail' post.slug %}"
-                        class="blog-image"
-                        aria-label="Read {{ post.title }}"
+                <!-- =================================
+                     COVER IMAGE
+                ================================== -->
+
+                {% if post.cover_image %}
+
+                <a
+                    href="{% url 'blog:detail' post.slug %}"
+                    class="blog-card-image"
+                    aria-label="Read {{ post.title }}"
+                >
+
+                    <img
+                        src="{{ post.cover_image.url }}"
+                        alt="{{ post.title }}"
+                        loading="lazy"
                     >
 
-                        {% if post.cover_image %}
-                            <img
-                                src="{{ post.cover_image.url }}"
-                                alt="{{ post.title }}"
+                    <!-- Category -->
+
+                    <span class="blog-card-category">
+
+                        {{ post.get_category_display }}
+
+                    </span>
+
+                </a>
+
+                {% endif %}
+
+
+                <!-- =================================
+                     CARD CONTENT
+                ================================== -->
+
+                <div class="blog-card-content">
+
+                    <!-- Title -->
+
+                    <h3>
+
+                        {{ post.title }}
+
+                    </h3>
+
+
+                    <!-- Excerpt -->
+
+                    {% if post.excerpt %}
+
+                    <p>
+
+                        {{ post.excerpt }}
+
+                    </p>
+
+                    {% endif %}
+
+
+                    <!-- =================================
+                         CARD FOOTER
+                    ================================== -->
+
+                    <div class="blog-card-footer">
+
+                        <!-- Published Date -->
+
+                        <div class="blog-card-date">
+
+                            {% if post.published_at %}
+
+                            <span
+                                class="blog-date-icon"
+                                aria-hidden="true"
                             >
-                        {% endif %}
-
-                    </a>
-
-
-                    <!-- Content -->
-                    <div class="blog-content">
-
-                        {% if post.category %}
-                            <span class="blog-category">
-                                {{ post.category }}
+                                📅
                             </span>
-                        {% endif %}
 
+                            <time
+                                datetime="{{ post.published_at|date:'Y-m-d' }}"
+                            >
+                                {{ post.published_at|date:"M d, Y" }}
+                            </time>
 
-                        <h3>
-                            {{ post.title }}
-                        </h3>
+                            {% endif %}
 
-
-                        <p class="blog-description">
-                            {{ post.excerpt }}
-                        </p>
+                        </div>
 
 
                         <!-- Read Article -->
+
                         <a
                             href="{% url 'blog:detail' post.slug %}"
-                            class="read-blog"
+                            class="blog-read-more"
                         >
+
                             Read Article
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M5 12h14M13 6l6 6-6 6"
-                                />
-                            </svg>
+                            <span aria-hidden="true">
+                                →
+                            </span>
 
                         </a>
 
                     </div>
 
-                </article>
+                </div>
 
-            {% empty %}
-
-                <p class="no-featured-blog">
-                    No featured articles yet.
-                </p>
+            </article>
 
             {% endfor %}
 
         </div>
 
+        {% else %}
 
-        <!-- All Blog Posts -->
+        <p class="no-featured-blog">
+            No featured articles yet.
+        </p>
+
+        {% endif %}
+
+
+        <!-- =================================
+             VIEW ALL POSTS
+        ================================== -->
+
         <div class="all-blog-button">
 
             <a href="{% url 'blog:list' %}">
+
                 View All Posts
 
                 <svg
@@ -690,11 +869,13 @@
                     stroke-width="1.8"
                     aria-hidden="true"
                 >
+
                     <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         d="M5 12h14M13 6l6 6-6 6"
                     />
+
                 </svg>
 
             </a>
@@ -705,4 +886,364 @@
 
 </section>
 
+
+<!-- =================================
+     FEATURED EXPERIENCE
+================================== -->
+
+<section class="featured-experience" id="experience">
+
+    <div class="experience-container">
+
+        <!-- =================================
+             SECTION HEADING
+        ================================== -->
+
+        <div class="experience-section-heading">
+
+            <h2>
+                Featured Experience
+            </h2>
+
+        </div>
+
+
+        <!-- =================================
+             FEATURED EXPERIENCE
+        ================================== -->
+
+        {% if featured_experience %}
+
+            <div class="experience-company">
+
+
+                <!-- =================================
+                     COMPANY HEADER
+                ================================== -->
+
+                <div class="company-header">
+
+                    <!-- Company notation -->
+
+                    <span class="company-number">
+                        •
+                    </span>
+
+
+                    <!-- Company Logo -->
+
+                    {% if featured_experience.company.logo %}
+
+                        <img
+                            src="{{ featured_experience.company.logo.url }}"
+                            alt="{{ featured_experience.company.name }}"
+                            class="company-logo"
+                        >
+
+                    {% else %}
+
+                        <div class="company-logo company-logo-fallback">
+                            {{ featured_experience.company.name|first|upper }}
+                        </div>
+
+                    {% endif %}
+
+
+                    <!-- Company Information -->
+
+                    <div class="company-info">
+
+                        <h2>
+                            {{ featured_experience.company.name }}
+                        </h2>
+
+                        {% if featured_experience.company.website %}
+
+                            <a
+                                href="{{ featured_experience.company.website }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {{ featured_experience.company.website }}
+                                ↗
+                            </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     COMPANY EXPERIENCE
+                ================================== -->
+
+                <div class="company-experiences">
+
+                    <article class="experience-item">
+
+
+                        <!-- =================================
+                             ROLE HEADER
+                        ================================== -->
+
+                        <div class="experience-role-row">
+
+                            <div class="experience-role">
+
+                                <h3>
+                                    {{ featured_experience.position }}
+                                </h3>
+
+                                <span class="employment-type">
+                                    {{ featured_experience.get_employment_type_display }}
+                                </span>
+
+                            </div>
+
+
+                            <!-- =================================
+                                 EXPAND BUTTON
+                            ================================== -->
+
+                            {% if featured_experience.bullets.all %}
+
+                                <button
+                                    type="button"
+                                    class="experience-toggle"
+                                    aria-expanded="false"
+                                    aria-label="Show key works"
+                                >
+
+                                    <span class="experience-arrow">
+                                        ↓
+                                    </span>
+
+                                </button>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- =================================
+                             DATE + DURATION
+                        ================================== -->
+
+                        <div class="experience-meta">
+
+                            <span>
+
+                                {{ featured_experience.start_date|date:"m.Y" }}
+
+                                —
+
+                                {% if featured_experience.currently_working %}
+
+                                    Present
+
+                                {% elif featured_experience.end_date %}
+
+                                    {{ featured_experience.end_date|date:"m.Y" }}
+
+                                {% endif %}
+
+                            </span>
+
+
+                            {% if featured_experience.duration %}
+
+                                <span>
+                                    · {{ featured_experience.duration }}
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- =================================
+                             EXPANDABLE KEY WORKS
+                        ================================== -->
+
+                        {% if featured_experience.bullets.all %}
+
+                            <div class="experience-details">
+
+                                <ul class="experience-bullets">
+
+                                    {% for bullet in featured_experience.bullets.all %}
+
+                                        <li>
+                                            {{ bullet.description }}
+                                        </li>
+
+                                    {% endfor %}
+
+                                </ul>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- =================================
+                             TECHNOLOGIES
+                             ALWAYS VISIBLE
+                        ================================== -->
+
+                        {% if featured_experience.technologies %}
+
+                            <div class="experience-technologies">
+
+                                {% for technology in featured_experience.technologies %}
+
+                                    <span class="technology-tag">
+                                        {{ technology }}
+                                    </span>
+
+                                {% endfor %}
+
+                            </div>
+
+                        {% endif %}
+
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+        {% else %}
+
+            <!-- =================================
+                 EMPTY STATE
+            ================================== -->
+
+            <div class="experience-empty">
+
+                <p>
+                    No featured experience yet.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- =================================
+             VIEW ALL EXPERIENCE
+        ================================== -->
+
+        <div class="all-experience-button">
+
+            <a href="{% url 'experience:experience_list' %}">
+
+                View All Experience
+                 <span class="view-all-arrow" aria-hidden="true">→</span>
+                
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
 {% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+    document
+        .querySelectorAll(".experience-toggle")
+        .forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const item =
+                    button.closest(".experience-item");
+
+                const arrow =
+                    button.querySelector(".experience-arrow");
+
+                const isOpen =
+                    item.classList.contains("is-open");
+
+
+                /* Close any currently open experience */
+
+                document
+                    .querySelectorAll(".experience-item.is-open")
+                    .forEach(openItem => {
+
+                        openItem.classList.remove("is-open");
+
+                        const openButton =
+                            openItem.querySelector(
+                                ".experience-toggle"
+                            );
+
+                        const openArrow =
+                            openItem.querySelector(
+                                ".experience-arrow"
+                            );
+
+
+                        if (openButton) {
+
+                            openButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            openButton.setAttribute(
+                                "aria-label",
+                                "Show key works"
+                            );
+
+                        }
+
+
+                        if (openArrow) {
+                            openArrow.textContent = "↓";
+                        }
+
+                    });
+
+
+                /* Open clicked experience */
+
+                if (!isOpen) {
+
+                    item.classList.add("is-open");
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    button.setAttribute(
+                        "aria-label",
+                        "Hide key works"
+                    );
+
+                    arrow.textContent = "↑";
+
+                }
+
+            });
+
+        });
+
+</script>
+
+{% endblock %}
+

@@ -794,7 +794,7 @@ body {
 .featured-projects {
   position: relative;
   z-index: 10;
-  padding: 0 24px 120px;
+  padding: 0 24px 140px;
 }
 .projects-container {
   width: 100%;
@@ -811,106 +811,12 @@ body {
   line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.045em;
+  text-align: left;
 }
 .projects-grid {
   display: grid;
   grid-template-columns: repeat( 2, minmax(0, 1fr) );
   gap: 18px;
-}
-.project-card {
-  overflow: hidden;
-  border: 1px solid rgba( 255, 255, 255, 0.10 );
-  border-radius: 12px;
-  background: rgba( 12, 12, 12, 0.32 );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: transform 300ms ease, border-color 300ms ease, background 300ms ease, box-shadow 300ms ease;
-}
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba( 185, 28, 28, 0.38 );
-  background: rgba( 18, 18, 18, 0.42 );
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
-}
-.project-image-wrapper {
-  display: block;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-}
-.project-image-wrapper img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 300ms ease;
-}
-.project-card:hover .project-image-wrapper img {
-  transform: scale(1.03);
-}
-.project-content {
-  padding: 20px;
-}
-.project-content h3 {
-  margin: 0;
-  color: #f5f5f5;
-  font-size: 1.05rem;
-  line-height: 1.4;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-}
-.project-description {
-  margin: 10px 0 0;
-  color: rgba( 244, 244, 245, 0.58 );
-  font-size: 0.82rem;
-  line-height: 1.65;
-}
-.project-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 17px;
-}
-.project-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: rgba( 244, 244, 245, 0.68 );
-  font-size: 0.76rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 200ms ease;
-}
-.project-links a:hover {
-  color: #fca5a5;
-}
-.project-links svg {
-  width: 13px;
-  height: 13px;
-}
-.view-project {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 22px;
-  color: rgba( 244, 244, 245, 0.78 );
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 200ms ease, gap 200ms ease;
-}
-.view-project svg {
-  width: 15px;
-  height: 15px;
-  transition: transform 200ms ease;
-}
-.view-project:hover {
-  gap: 10px;
-  color: #ffffff;
-}
-.view-project:hover svg {
-  transform: translateX(2px);
 }
 .all-projects-button {
   display: flex;
@@ -935,16 +841,16 @@ body {
   -webkit-backdrop-filter: blur(8px);
   transition: transform 220ms ease, color 220ms ease, border-color 220ms ease, background 220ms ease;
 }
+.all-projects-button svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 220ms ease;
+}
 .all-projects-button a:hover {
   transform: translateY(-2px);
   color: #ffffff;
   border-color: rgba( 185, 28, 28, 0.45 );
   background: rgba( 127, 29, 29, 0.10 );
-}
-.all-projects-button svg {
-  width: 15px;
-  height: 15px;
-  transition: transform 220ms ease;
 }
 .all-projects-button a:hover svg {
   transform: translateX(3px);
@@ -953,86 +859,19 @@ body {
   .featured-projects {
     padding: 0 20px 100px;
   }
+  .projects-title {
+    margin-bottom: 30px;
+  }
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 }
-.featured-projects .project-image {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: transparent;
-  text-decoration: none;
-}
-.featured-projects .project-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 500ms ease, filter 500ms ease;
-}
-.featured-projects .project-card:hover .project-image img {
-  transform: scale(1.04);
-  filter: brightness(1.05);
-}
-.featured-projects .project-links svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-}
-.featured-projects .view-project svg {
-  width: 15px;
-  height: 15px;
-  flex-shrink: 0;
-}
-.featured-projects .project-content {
-  padding: 20px;
-}
-.featured-projects .project-content h3 {
-  margin: 0;
-  color: #f5f5f5;
-  font-size: 1.05rem;
-  line-height: 1.4;
-  font-weight: 600;
-}
-.featured-projects .project-description {
-  margin: 10px 0 0;
-  color: rgba(244, 244, 245, 0.58);
-  font-size: 0.82rem;
-  line-height: 1.65;
-}
-.featured-projects .project-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 17px;
-}
-.featured-projects .project-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: rgba(244, 244, 245, 0.68);
-  font-size: 0.76rem;
-  text-decoration: none;
-}
-.featured-projects .project-links a:hover {
-  color: #fca5a5;
-}
-.featured-projects .view-project {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 22px;
-  color: rgba(244, 244, 245, 0.78);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-.featured-projects .view-project:hover {
-  color: #ffffff;
+@media (max-width: 400px) {
+  .featured-projects {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 .featured-blog {
   position: relative;
