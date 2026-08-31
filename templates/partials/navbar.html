@@ -31,20 +31,19 @@
             </a>
 
 
-            <a
-                href="#experience"
-                class="nav-link"
-            >
-                Experience
+           <!-- Experience -->
+             <a href="{% url 'experience:experience_list' %}" 
+             class="nav-link {% if request.resolver_match.namespace == 'experience' %}active{% endif %}"
+              >
+               Experience 
             </a>
-
-
-            <a
-                href="#contact"
-                class="nav-link"
-            >
-                Contact
-            </a>
+            
+            <!-- Contact --> 
+             <a href="{% url 'contact:contact' %}"
+              class="nav-link {% if request.resolver_match.namespace == 'contact' %}active{% endif %}" 
+              > 
+              Contact
+             </a>
 
         </div>
 

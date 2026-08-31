@@ -424,3 +424,601 @@ html.light .tech-item[data-tech="GitHub"] img {
 html.light .tech-item[data-tech="Vercel"] img {
     content: url("https://cdn.simpleicons.org/vercel/18181B");
 }
+
+/* =================================
+   LIGHT THEME — PROJECTS HEADER
+================================= */
+
+html.light .projects-header h1,
+html.light .projects-header p {
+    color: #080808;
+}
+/* Projects section title */
+html.light .projects-list-header h2,
+html.light .projects-count {
+    color: #18181b;
+}
+/* =================================
+   LIGHT THEME — PROJECT CARDS
+================================= */
+
+/* Card blends into page */
+html.light .project-card {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: none;
+}
+
+
+/* Project title */
+html.light .project-card h3 {
+    color: #18181b;
+}
+
+
+/* GitHub + Live links */
+html.light .project-icon-link {
+    color: #18181b;
+}
+
+html.light .project-icon-link:hover {
+    color: #2563eb;
+}
+
+
+/* Short description */
+html.light .project-description {
+    color: #52525b;
+}
+
+
+/* Technologies */
+html.light .project-tech {
+    color: #18181b;
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+
+/* View Details */
+html.light .view-project {
+    color: #18181b;
+}
+
+html.light .view-project:hover {
+    color: #2563eb;
+}
+
+
+/* Smooth card hover */
+html.light .project-card:hover {
+    border-color: rgba(37, 99, 235, 0.25);
+    background: rgba(37, 99, 235, 0.02);
+}
+/* =================================
+   LIGHT THEME — BLOG HEADER
+================================= */
+
+html.light .blog-heading h1,
+html.light .blog-intro  {
+    color: #18181b;
+}
+/* =================================
+   LIGHT THEME — LATEST ARTICLES
+================================= */
+
+html.light .blog-list-header h2,
+html.light .blog-list-header span {
+    color: #18181b;
+}
+/* =================================
+   LIGHT THEME — BLOG CARDS
+================================= */
+
+/* Card */
+/* Blog card — transparent glass */
+html.light .blog-card {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* ---------------------------------
+   CONTENT HIERARCHY
+--------------------------------- */
+
+/* Title — strongest */
+html.light .blog-card-content h3 {
+    color: #18181b;
+}
+
+
+/* Description — softer than title */
+html.light .blog-card-content p {
+    color: #52525b;
+}
+
+
+/* Published date — subtle metadata */
+html.light .blog-card-date,
+html.light .blog-card-date time {
+    color: #71717a;
+}
+
+
+/* Read Article — secondary emphasis */
+html.light .blog-card-footer .blog-read-more {
+    color: #3f3f46;
+}
+
+html.light .blog-card-footer .blog-read-more:hover {
+    color: #18181b;
+}
+
+
+/* ---------------------------------
+   CARD HOVER
+--------------------------------- */
+
+html.light .blog-card:hover {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.14);
+    box-shadow: none;
+}
+
+/* ---------------------------------
+   IMAGE HOVER
+--------------------------------- */
+
+/*
+   Light theme image:
+   - zooms on hover
+   - no brightness change
+   - no contrast change
+*/
+html.light .blog-card-image img {
+    filter: none;
+    transition: transform 500ms ease;
+}
+
+html.light .blog-card:hover .blog-card-image img {
+    transform: scale(1.06);
+    filter: none;
+}
+/* LIGHT THEME — EXPERIENCE HEADER */
+
+html.light .experience-header h1 {
+    color: #18181b;
+}
+
+html.light .experience-header p {
+    color: #000000;
+}
+
+/* =========================================
+   LIGHT THEME — EXPERIENCE CONTENT
+========================================= */
+
+/* Company bullet notation */
+html.light .company-number {
+    color: #18181b;
+    font-size: 1.1rem;
+    font-weight: 800;
+    opacity: 1;
+}
+
+/* Company name */
+html.light .company-info h2 {
+    color: #18181b;
+}
+
+
+/* Company website */
+html.light .company-info a {
+    color: #424248;
+}
+
+
+/* Position — primary */
+html.light .experience-role h3 {
+    color: #18181b;
+}
+
+
+/* Employment type — secondary */
+html.light .employment-type {
+    color: #3d3d3f;
+}
+
+
+/* Date + duration */
+html.light .experience-meta {
+    color: #37373b;
+}
+
+
+/* Key work descriptions */
+html.light .experience-bullets li {
+    color: #3f3f46;
+}
+
+
+/* Expand button */
+html.light .experience-toggle {
+    color: #18181b;
+}
+
+html.light .experience-arrow {
+    color: #18181b;
+}
+
+
+/* Technology tags */
+html.light .technology-tag {
+    color: #1e1e22;
+}
+/* =========================================================
+   LIGHT THEME — CONTACT PAGE
+   TRANSPARENT / MINIMAL VERSION
+========================================================= */
+
+
+/* -------------------------
+   Header
+------------------------- */
+
+html.light .contact-header {
+    color: #18181b;
+}
+
+html.light .contact-header-line {
+    background: rgba(37, 99, 235, 0.55);
+}
+
+html.light .contact-header .contact-eyebrow {
+    color: #2563eb;
+}
+
+html.light .contact-header h1 {
+    color: #18181b !important;
+}
+
+html.light .contact-header .contact-intro {
+    color: rgba(24, 24, 27, 0.62) !important;
+}
+
+
+/* -------------------------
+   Form Card
+------------------------- */
+
+html.light .contact-card {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.10);
+
+    box-shadow: none;
+}
+
+
+/* -------------------------
+   Labels
+------------------------- */
+
+html.light .contact-field label {
+    color: rgba(24, 24, 27, 0.72);
+}
+
+
+/* -------------------------
+   Inputs
+------------------------- */
+
+html.light .contact-field input,
+html.light .contact-field textarea {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.14);
+
+    color: #18181b;
+
+    box-shadow: none;
+}
+
+
+/* Hover */
+
+html.light .contact-field input:hover,
+html.light .contact-field textarea:hover {
+    border-color: rgba(0, 0, 0, 0.25);
+
+    background: transparent;
+}
+
+
+/* Placeholder */
+
+html.light .contact-field input::placeholder,
+html.light .contact-field textarea::placeholder {
+    color: rgba(24, 24, 27, 0.38);
+}
+
+
+/* Focus */
+
+html.light .contact-field input:focus,
+html.light .contact-field textarea:focus {
+    background: transparent;
+
+    border-color: rgba(37, 99, 235, 0.65);
+
+    box-shadow:
+        0 0 0 2px rgba(37, 99, 235, 0.08);
+}
+
+
+/* -------------------------
+   Errors
+------------------------- */
+
+html.light .contact-error {
+    color: #dc2626;
+}
+
+
+/* -------------------------
+   Send Button
+------------------------- */
+
+html.light .contact-button {
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+}
+
+html.light .contact-button:hover {
+    background: #1d4ed8;
+
+    border-color: #1d4ed8;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.14);
+}
+
+
+/* -------------------------
+   Direct Contact
+------------------------- */
+
+html.light .contact-direct-title {
+    color: #18181b;
+}
+
+html.light .contact-social {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.10);
+
+    color: rgba(24, 24, 27, 0.68);
+}
+
+html.light .contact-social:hover {
+    background: transparent;
+
+    border-color: rgba(37, 99, 235, 0.50);
+
+    color: #2563eb;
+
+    transform: translateY(-2px);
+}
+
+
+/* -------------------------
+   Success Modal Overlay
+------------------------- */
+
+html.light .contact-modal-overlay {
+    background: rgba(15, 23, 42, 0.38);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+
+/* -------------------------
+   Success Modal
+------------------------- */
+
+html.light .contact-modal-card {
+    background: rgba(255, 255, 255, 0.94);
+
+    border-color: rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.16);
+}
+
+
+/* -------------------------
+   Success Icon
+------------------------- */
+
+html.light .contact-success-icon {
+    background: transparent;
+
+    border-color: rgba(22, 163, 74, 0.30);
+
+    color: #16a34a;
+}
+
+
+/* -------------------------
+   Modal Text
+------------------------- */
+
+html.light .contact-modal-card h2 {
+    color: #18181b;
+}
+
+html.light .contact-modal-card p {
+    color: rgba(24, 24, 27, 0.60);
+}
+
+
+/* -------------------------
+   Modal Secondary Button
+------------------------- */
+
+html.light .contact-modal-secondary {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.12);
+
+    color: rgba(24, 24, 27, 0.72);
+}
+
+html.light .contact-modal-secondary:hover {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.22);
+}
+
+
+/* -------------------------
+   Modal Primary Button
+------------------------- */
+
+html.light .contact-modal-primary {
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+}
+
+html.light .contact-modal-primary:hover {
+    background: #1d4ed8;
+
+    border-color: #1d4ed8;
+}
+
+
+/* -------------------------
+   Mobile
+------------------------- */
+
+@media (max-width: 600px) {
+
+    html.light .contact-card {
+        background: transparent;
+
+        border-color: rgba(0, 0, 0, 0.08);
+
+        box-shadow: none;
+    }
+
+    html.light .contact-field input,
+    html.light .contact-field textarea {
+        background: transparent;
+    }
+
+    html.light .contact-field input:focus,
+    html.light .contact-field textarea:focus {
+        background: transparent;
+    }
+
+}
+/* =========================================================
+   LIGHT THEME — FOOTER
+   Transparent / Minimal
+========================================================= */
+
+
+/* Footer */
+
+html.light .site-footer {
+    background: transparent !important;
+    color: #18181b;
+}
+
+
+/* Footer container */
+
+html.light .footer-container {
+    background: transparent;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+html.light .footer-social-link {
+    color: rgba(24, 24, 27, 0.58);
+
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.10);
+}
+
+
+html.light .footer-social-link:hover {
+    color: #2563eb;
+
+    background: transparent;
+
+    border-color: rgba(37, 99, 235, 0.45);
+
+    box-shadow: none;
+}
+
+
+/* SVG icons */
+
+html.light .footer-social-link svg {
+    color: inherit;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+html.light .footer-divider {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+html.light .footer-bottom {
+    color: rgba(24, 24, 27, 0.45);
+}
+
+
+html.light .footer-bottom p {
+    color: inherit;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    html.light .site-footer {
+        background: transparent !important;
+    }
+
+    html.light .footer-social-link:hover {
+        background: transparent;
+    }
+
+}
+
