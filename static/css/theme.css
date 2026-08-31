@@ -707,7 +707,7 @@ html.light .contact-card {
 ------------------------- */
 
 html.light .contact-field label {
-    color: rgba(24, 24, 27, 0.72);
+    color: rgba(0, 0, 0, 0.72);
 }
 
 
@@ -721,7 +721,7 @@ html.light .contact-field textarea {
 
     border-color: rgba(0, 0, 0, 0.14);
 
-    color: #18181b;
+    color: #000000;
 
     box-shadow: none;
 }
@@ -957,7 +957,7 @@ html.light .footer-container {
 ========================================================= */
 
 html.light .footer-social-link {
-    color: rgba(24, 24, 27, 0.58);
+    color: rgba(15, 15, 17, 0.58);
 
     background: transparent;
 
@@ -997,7 +997,7 @@ html.light .footer-divider {
 ========================================================= */
 
 html.light .footer-bottom {
-    color: rgba(24, 24, 27, 0.45);
+    color: rgba(6, 6, 6, 0.45);
 }
 
 
@@ -1021,4 +1021,236 @@ html.light .footer-bottom p {
     }
 
 }
+/* =========================================================
+   PROJECT DETAIL — LIGHT THEME TEXT
+   ========================================================= */
 
+html.light .project-detail-page {
+    color: #000000;
+}
+
+/* Back to Projects */
+html.light .project-detail-page .project-back-link {
+    color: #000000;
+}
+
+/* Technologies */
+html.light .project-detail-page .project-detail-technologies,
+html.light .project-detail-page .project-detail-tech {
+    color: #000000;
+}
+
+/* Project eyebrow */
+html.light .project-detail-page .project-detail-eyebrow {
+    color: #2563eb;
+}
+
+/* Project title */
+html.light .project-detail-page .project-detail-title-row h1 {
+    color: #000000;
+}
+
+/* Short description */
+html.light .project-detail-page .project-detail-intro {
+    color: #000000;
+}
+
+/* Action buttons */
+html.light .project-detail-page .project-action-button,
+html.light .project-detail-page .project-action-button span,
+html.light .project-detail-page .project-action-button svg {
+    color: #000000;
+}
+
+/* Project content */
+html.light .project-detail-page .project-detail-content,
+html.light .project-detail-page .project-detail-content * {
+    color: #000000;
+}
+
+/* Content links */
+html.light .project-detail-page .project-detail-content a {
+    color: #000000;
+}
+
+/* Explore More Projects */
+html.light .project-detail-page .project-recommendations-header h2,
+html.light .project-detail-page .project-recommendations-header p {
+    color: #000000;
+}
+
+/* View All */
+html.light .project-detail-page .view-project,
+html.light .project-detail-page .view-project svg {
+    color: #000000;
+}
+
+/* Recommendation cards */
+html.light .project-detail-page .project-recommendation-title-row h3,
+html.light .project-detail-page .project-recommendation-title-row svg {
+    color: #000000;
+}
+
+html.light .project-detail-page .project-recommendation-content > p {
+    color: #000000;
+}
+
+/* Recommendation technologies */
+html.light .project-detail-page .project-recommendation-techs span,
+html.light .project-detail-page .project-recommendation-techs
+.project-recommendation-more {
+    color: #000000;
+}
+
+/* Recommendation links */
+html.light .project-detail-page .project-recommendation-link {
+    color: #000000;
+}
+
+/* Bottom Back to Projects */
+html.light .project-detail-page .project-detail-bottom .project-back-link {
+    color: #000000;
+}
+/* Project Detail Dividers — Light Theme */
+
+html.light .project-detail-page .project-detail-divider,
+html.light .project-detail-page .project-recommendations,
+ {
+    border-color: #000000;
+}
+/* =========================================================
+   BLOG DETAIL — LIGHT THEME TEXT
+   ========================================================= */
+
+html.light .blog-detail-page {
+    color: #000000;
+}
+
+/* Back to Blog links */
+html.light .blog-detail-page .article-top-back,
+html.light .blog-detail-page .article-back {
+    color: #000000;
+}
+
+
+html.light .blog-detail-page .article-category {
+    color: #2563eb;
+    border-color: #373434;
+}
+
+/* Title */
+html.light .blog-detail-page .article-title {
+    color: #000000;
+}
+
+/* Excerpt / description */
+html.light .blog-detail-page .article-excerpt {
+    color: #000000;
+}
+
+/* Published date */
+html.light .blog-detail-page .article-date,
+html.light .blog-detail-page .article-date time {
+    color: #000000;
+}
+
+/* Article content */
+html.light .blog-detail-page .article-content,
+html.light .blog-detail-page .article-content * {
+    color: #000000;
+}
+
+/* Read Other Articles section */
+html.light .blog-detail-page .other-articles-header h2,
+html.light .blog-detail-page .other-articles-header p {
+    color: #000000;
+}
+
+/* Other article cards */
+html.light .blog-detail-page .other-article-content h3,
+html.light .blog-detail-page .other-article-content p,
+html.light .blog-detail-page .other-article-link {
+    color: #000000;
+}
+
+/* Arrow inside Read Article */
+html.light .blog-detail-page .other-article-link span {
+    color: #000000;
+}
+/* Article divider — Light Theme */
+html.light .blog-detail-page .article-divider {
+    background-color: #000000;
+}
+/* Read Other Articles cards — Light Theme */
+
+html.light .blog-detail-page .other-article-card {
+    border-color: #000000;
+}
+
+/* =========================================================
+   HOME PAGE — LIGHT THEME TEXT
+   ========================================================= */
+
+/* Featured Projects */
+html.light .featured-projects .projects-title h2,
+html.light .featured-projects .project-title-row h3,
+html.light .featured-projects .project-description,
+html.light .featured-projects .project-tech,
+html.light .featured-projects .view-project,
+html.light .featured-projects .view-project svg,
+html.light .featured-projects .all-projects-button a,
+html.light .featured-projects .all-projects-button svg {
+    color: #000000;
+}
+
+/* Featured Blog */
+html.light .featured-blog .blog-title h2,
+html.light .featured-blog .blog-card-content h3,
+html.light .featured-blog .blog-card-content p,
+html.light .featured-blog .blog-card-date,
+html.light .featured-blog .blog-card-date time,
+html.light .featured-blog .blog-read-more,
+html.light .featured-blog .blog-read-more span,
+html.light .featured-blog .all-blog-button a,
+html.light .featured-blog .all-blog-button svg,
+html.light .featured-blog .no-featured-blog {
+    color: #000000;
+}
+
+/* Featured Experience */
+html.light .featured-experience .experience-section-heading h2,
+html.light .featured-experience .company-info h2,
+html.light .featured-experience .company-info a,
+html.light .featured-experience .experience-role h3,
+html.light .featured-experience .employment-type,
+html.light .featured-experience .experience-meta,
+html.light .featured-experience .experience-meta span,
+html.light .featured-experience .experience-bullets,
+html.light .featured-experience .experience-bullets li,
+html.light .featured-experience .technology-tag,
+html.light .featured-experience .all-experience-button a,
+html.light .featured-experience .view-all-arrow {
+    color: #000000;
+}
+/* =========================================================
+   HOME PAGE — LIGHT THEME VIEW ALL BUTTON HOVER
+   ========================================================= */
+
+html.light .featured-projects .all-projects-button a:hover,
+html.light .featured-blog .all-blog-button a:hover,
+html.light .featured-experience .all-experience-button a:hover {
+    border-color: #2563eb;
+}
+/* =========================================================
+   HOME — LIGHT THEME VIEW-ALL BUTTON HOVER
+   Remove existing red hover effects
+   ========================================================= */
+
+html.light .featured-projects .all-projects-button a:hover,
+html.light .featured-blog .all-blog-button a:hover,
+html.light .featured-experience .all-experience-button a:hover {
+    color: #2563eb;
+    border-color: #2563eb;
+    background-color: transparent;
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);
+}
