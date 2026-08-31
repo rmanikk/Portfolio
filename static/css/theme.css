@@ -1114,7 +1114,7 @@ html.light .project-detail-page .project-detail-bottom .project-back-link {
 /* Project Detail Dividers — Light Theme */
 
 html.light .project-detail-page .project-detail-divider,
-html.light .project-detail-page .project-recommendations,
+html.light .project-detail-page .project-recommendations
  {
     border-color: #000000;
 }
