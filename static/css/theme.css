@@ -124,6 +124,43 @@ html.light #cursor-glow {
     */
     mix-blend-mode: multiply;
 }
+/* =====================================================
+   RESPONSIVE LIGHT BACKGROUND
+   Match dark-theme responsive image positioning
+===================================================== */
+
+@media (max-width: 900px) {
+
+    html.light .hero-background img {
+        object-position: 62% center;
+    }
+
+    html.light .hero-background {
+        background-position: 62% center;
+    }
+}
+
+@media (max-width: 640px) {
+
+    html.light .hero-background img {
+        object-position: 66% center;
+    }
+
+    html.light .hero-background {
+        background-position: 66% center;
+    }
+}
+
+@media (max-width: 400px) {
+
+    html.light .hero-background img {
+        object-position: 66% center;
+    }
+
+    html.light .hero-background {
+        background-position: 66% center;
+    }
+}
 
 
 /* =====================================================
