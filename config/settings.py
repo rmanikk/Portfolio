@@ -101,24 +101,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-import sys
 import dj_database_url
 
-if "collectstatic" in sys.argv:
-    # collectstatic never queries the DB — use a dummy backend so the
-    # build step doesn't need psycopg2 to import successfully
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.dummy",
-        }
-    }
-else:
-    DATABASES = {
-        "default": dj_database_url.config(
-            default=os.getenv("DATABASE_URL")
-        )
-    }
-
+DATABASES = {
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL")
+    )
+}
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
 
