@@ -32,40 +32,32 @@ html.light .home-page {
    768px maximum width, centered like the navbar
 ===================================================== */
 
+/* =================================
+   LIGHT THEME BACKGROUND
+================================= */
+
 html.light .hero-background {
     position: fixed;
-
     inset: 0;
-
     z-index: 0;
-
     pointer-events: none;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
 
-    background-image: url("../images/hero-bg-light.png");
-  
-}
-
-html.light .hero-background {
     filter: brightness(0.82);
 }
 
-/* Keep the actual image inside the same 768px box */
-
 html.light .hero-background img {
-   position: absolute;
+    position: absolute;
 
     width: 100%;
     height: 100%;
 
     object-fit: cover;
-
     object-position: center;
 
     opacity: 0.99;
@@ -76,7 +68,6 @@ html.light .hero-background img {
 
     user-select: none;
 }
-
 
 /* Light fade toward the content */
 
@@ -98,7 +89,19 @@ html.light .hero-background::after {
             rgba(247, 247, 245, 0.05) 100%
         );
 }
+@media (max-width: 900px) {
 
+    html.light .hero-background img {
+        object-position: 62% center;
+    }
+}
+
+@media (max-width: 640px) {
+
+    html.light .hero-background img {
+        object-position: 66% center;
+    }
+}
 /* =====================================================
    LIGHT CURSOR GLOW
    Dark mode remains RED.
@@ -123,43 +126,6 @@ html.light #cursor-glow {
        looking like a bright white spot.
     */
     mix-blend-mode: multiply;
-}
-/* =====================================================
-   RESPONSIVE LIGHT BACKGROUND
-   Match dark-theme responsive image positioning
-===================================================== */
-
-@media (max-width: 900px) {
-
-    html.light .hero-background img {
-        object-position: 62% center;
-    }
-
-    html.light .hero-background {
-        background-position: 62% center;
-    }
-}
-
-@media (max-width: 640px) {
-
-    html.light .hero-background img {
-        object-position: 66% center;
-    }
-
-    html.light .hero-background {
-        background-position: 66% center;
-    }
-}
-
-@media (max-width: 400px) {
-
-    html.light .hero-background img {
-        object-position: 66% center;
-    }
-
-    html.light .hero-background {
-        background-position: 66% center;
-    }
 }
 
 
@@ -250,6 +216,8 @@ html.light .hero-button-secondary:hover {
 }
 
 
+
+
 /* =====================================================
    LIGHT TECH STACK
    Keeps the existing colored technology icons.
@@ -261,59 +229,6 @@ html.light .tech-item {
 }
 
 
-/* =====================================================
-   RESPONSIVE LIGHT BACKGROUND
-
-   IMPORTANT:
-   These overrides come AFTER input.css so the original
-   mobile dark-theme object-position does not override
-   the light-theme crop.
-===================================================== */
-
-@media (max-width: 900px) {
-
-    html.light .hero-background img {
-        object-position: 35% center;
-    }
-
-    html.light .hero-background {
-        background-position: 35% center;
-    }
-
-    html.light .hero-background::after {
-        background:
-            linear-gradient(
-                90deg,
-                rgba(247, 247, 245, 0.98) 0%,
-                rgba(247, 247, 245, 0.88) 30%,
-                rgba(247, 247, 245, 0.55) 58%,
-                rgba(247, 247, 245, 0.12) 100%
-            ),
-
-            radial-gradient(
-                circle at center,
-                transparent 32%,
-                rgba(247, 247, 245, 0.28) 75%,
-                rgba(247, 247, 245, 0.86) 100%
-            );
-    }
-}
-
-
-/* =====================================================
-   VERY SMALL SCREENS
-===================================================== */
-
-@media (max-width: 400px) {
-
-    html.light .hero-background {
-        background-position: 30% center;
-    }
-
-    html.light .hero-background img {
-        object-position: 30% center;
-    }
-}
  /* =================================
     LIGHT THEME — NAVBAR
  ================================= */
