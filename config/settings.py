@@ -47,8 +47,6 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     "django_ckeditor_5",
-    "cloudinary",
-    "cloudinary_storage",
 
     "django.contrib.admin",
     "django.contrib.auth",
@@ -56,6 +54,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    "cloudinary",
+    "cloudinary_storage",
 
     "apps.core",
     "apps.projects",
@@ -121,7 +122,7 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
 
