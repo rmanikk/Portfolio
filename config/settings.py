@@ -36,9 +36,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
-    host.strip()
-    for host in os.getenv("ALLOWED_HOSTS", "").split(",")
-    if host.strip()
+    "manikkafle.com.np",
+    "www.manikkafle.com.np",
+    ".vercel.app",
 ]
 
 
@@ -177,11 +177,11 @@ CKEDITOR_5_CONFIGS = {
     },
 }
 CSRF_TRUSTED_ORIGINS = [
-    origin.strip()
-    for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
-    if origin.strip()
+    "https://manikkafle.com.np",
+    "https://www.manikkafle.com.np",
 ]
 # Production security
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = not DEBUG
 
 SESSION_COOKIE_SECURE = not DEBUG
