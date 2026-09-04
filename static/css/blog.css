@@ -1342,24 +1342,120 @@
 }
 
 
-.other-article-link {
-    display: inline-flex;
+/* =========================================
+   OTHER ARTICLE FOOTER
+========================================= */
+
+.other-article-footer {
+    display: flex;
+
+    flex-direction: row;
 
     align-items: center;
 
-    gap: 7px;
+    justify-content: space-between;
 
-    width: fit-content;
+    width: 100%;
 
     margin-top: auto;
 
     padding-top: 18px;
 
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   OTHER ARTICLE DATE
+========================================= */
+
+.other-article-date {
+    display: inline-flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 6px;
+
+    flex: 0 0 auto;
+
+    color: #71717a;
+
+    font-size: 0.62rem;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+.other-article-date time {
+    display: inline-block;
+
+    margin: 0;
+
+    color: #71717a;
+
+    font-size: 0.62rem;
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+.other-date-icon {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    font-size: 0.72rem;
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   OTHER ARTICLE VIEW LINK
+========================================= */
+
+.other-article-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 7px;
+
+    flex: 0 0 auto;
+
+    margin: 0;
+
+    padding: 0;
+
     color: #a1a1aa;
 
-    font-size: 0.7rem;
+    font-size: 0.72rem;
+
+    font-weight: 500;
+
+    line-height: 1;
 
     text-decoration: none;
+
+    white-space: nowrap;
 
     transition:
         color 200ms ease,
@@ -1372,7 +1468,6 @@
 
     color: #ffffff;
 }
-
 
 /* =========================================
    ARTICLE FOOTER

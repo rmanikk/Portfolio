@@ -74,9 +74,34 @@
 
             <div class="article-category">
 
-                {{ post.get_category_display }}
+    {% if post.category %}
+        <a
+            href="{% url 'blog:category' post.category.slug %}"
+            class="article-category-link"
+        >
+            {{ post.category.name }}
+        </a>
+    {% endif %}
 
-            </div>
+</div>
+{% if post.tags.all %}
+
+<div class="article-tags">
+
+    {% for tag in post.tags.all %}
+
+    <a
+        href="{% url 'blog:tag' tag.slug %}"
+        class="article-tag"
+    >
+        #{{ tag.name }}
+    </a>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
 
 
             <!-- Title -->
@@ -206,40 +231,48 @@
                     {% endif %}
 
 
-                    <div class="other-article-content">
+                    <div class="other-article-footer">
 
-                        <h3>
+    <!-- Published Date -->
 
-                            {{ other_post.title }}
+    <div class="other-article-date">
 
-                        </h3>
+        {% if other_post.published_at %}
+
+        <span
+            class="other-date-icon"
+            aria-hidden="true"
+        >
+            📅
+        </span>
+
+        <time
+            datetime="{{ other_post.published_at|date:'Y-m-d' }}"
+        >
+            {{ other_post.published_at|date:"M d, Y" }}
+        </time>
+
+        {% endif %}
+
+    </div>
 
 
-                        {% if other_post.excerpt %}
+    <!-- View Article -->
 
-                        <p>
+    <a
+        href="{% url 'blog:detail' other_post.slug %}"
+        class="other-article-link"
+    >
 
-                            {{ other_post.excerpt }}
+        Read Article
 
-                        </p>
+        <span aria-hidden="true">
+            →
+        </span>
 
-                        {% endif %}
+    </a>
 
-
-                        <a
-                            href="{% url 'blog:detail' other_post.slug %}"
-                            class="other-article-link"
-                        >
-
-                            Read Article
-
-                            <span aria-hidden="true">
-                                →
-                            </span>
-
-                        </a>
-
-                    </div>
+</div>
 
                 </article>
 

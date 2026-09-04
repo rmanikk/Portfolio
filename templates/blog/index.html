@@ -132,7 +132,16 @@
 
                         <span class="blog-card-category">
 
-                            {{ post.get_category_display }}
+                           {% if post.category %}
+
+<a
+    href="{% url 'blog:category' post.category.slug %}"
+    class="blog-card-category"
+>
+    {{ post.category.name }}
+</a>
+
+{% endif %}
 
                         </span>
 

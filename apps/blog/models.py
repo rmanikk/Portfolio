@@ -4,16 +4,66 @@ from django.utils.text import slugify
 from django_ckeditor_5.fields import CKEditor5Field
 
 
-class BlogPost(models.Model):
+class Category(models.Model):
 
-    CATEGORY_CHOICES = [
-        ("development", "Development"),
-        ("projects", "Projects"),
-        ("learning", "Learning"),
-        ("ai", "AI"),
-        ("design", "Design"),
-        ("personal", "Personal"),
-    ]
+    name = models.CharField(
+        max_length=100,
+        unique=True
+    )
+
+    slug = models.SlugField(
+        max_length=120,
+        unique=True,
+        blank=True
+    )
+
+    description = models.TextField(
+        blank=True
+    )
+
+    def save(self, *args, **kwargs):
+
+        if not self.slug:
+            self.slug = slugify(self.name)
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name_plural = "Categories"
+
+
+class Tag(models.Model):
+
+    name = models.CharField(
+        max_length=50,
+        unique=True
+    )
+
+    slug = models.SlugField(
+        max_length=70,
+        unique=True,
+        blank=True
+    )
+
+    def save(self, *args, **kwargs):
+
+        if not self.slug:
+            self.slug = slugify(self.name)
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["name"]
+
+
+class BlogPost(models.Model):
 
     title = models.CharField(
         max_length=200
@@ -41,10 +91,18 @@ class BlogPost(models.Model):
         null=True
     )
 
-    category = models.CharField(
-        max_length=30,
-        choices=CATEGORY_CHOICES,
-        default="development"
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="posts"
+    )
+
+    tags = models.ManyToManyField(
+        Tag,
+        blank=True,
+        related_name="posts"
     )
 
     featured = models.BooleanField(
@@ -70,12 +128,9 @@ class BlogPost(models.Model):
 
     def save(self, *args, **kwargs):
 
-        # Generate slug automatically
         if not self.slug:
             self.slug = slugify(self.title)
 
-        # Set publication date the first time
-        # the post is published.
         if self.published and self.published_at is None:
             self.published_at = timezone.now()
 
