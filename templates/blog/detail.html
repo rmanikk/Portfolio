@@ -201,82 +201,99 @@
 
             <!-- Dynamic article cards will go here -->
 
-            <div class="other-articles-grid">
-
-                {% for other_post in other_posts %}
-
-                <article class="other-article-card">
-
-                    {% if other_post.cover_image %}
-
-                    <a
-                        href="{% url 'blog:detail' other_post.slug %}"
-                        class="other-article-image"
-                    >
-
-                        <img
-                            src="{{ other_post.cover_image.url }}"
-                            alt="{{ other_post.title }}"
-                            loading="lazy"
-                        >
-
-                        <span class="other-article-category">
-
-                            {{ other_post.get_category_display }}
-
-                        </span>
-
-                    </a>
-
-                    {% endif %}
-
-
-                    <div class="other-article-footer">
-
-    <!-- Published Date -->
-
-    <div class="other-article-date">
-
-        {% if other_post.published_at %}
-
-        <span
-            class="other-date-icon"
-            aria-hidden="true"
-        >
-            📅
-        </span>
-
-        <time
-            datetime="{{ other_post.published_at|date:'Y-m-d' }}"
-        >
-            {{ other_post.published_at|date:"M d, Y" }}
-        </time>
-
-        {% endif %}
-
-    </div>
+          
 
 
     <!-- View Article -->
 
-    <a
-        href="{% url 'blog:detail' other_post.slug %}"
-        class="other-article-link"
-    >
+   <div class="other-articles-grid">
 
-        Read Article
+    {% for other_post in other_posts %}
 
-        <span aria-hidden="true">
-            →
-        </span>
+    <article class="blog-card">
 
-    </a>
+        {% if other_post.cover_image %}
+
+        <a
+            href="{% url 'blog:detail' other_post.slug %}"
+            class="blog-card-image"
+        >
+
+            <img
+                src="{{ other_post.cover_image.url }}"
+                alt="{{ other_post.title }}"
+                loading="lazy"
+            >
+
+            <span class="blog-card-category">
+                {{ other_post.get_category_display }}
+            </span>
+
+        </a>
+
+        {% endif %}
+
+
+        <div class="blog-card-content">
+
+            <h3>
+                {{ other_post.title }}
+            </h3>
+
+            {% if other_post.excerpt %}
+
+            <p>
+                {{ other_post.excerpt }}
+            </p>
+
+            {% endif %}
+
+
+            <div class="blog-card-footer">
+
+                <div class="blog-card-date">
+
+                    {% if other_post.published_at %}
+
+                    <span
+                        class="blog-date-icon"
+                        aria-hidden="true"
+                    >
+                        📅
+                    </span>
+
+                    <time
+                        datetime="{{ other_post.published_at|date:'Y-m-d' }}"
+                    >
+                        {{ other_post.published_at|date:"M d, Y" }}
+                    </time>
+
+                    {% endif %}
+
+                </div>
+
+
+                <a
+                    href="{% url 'blog:detail' other_post.slug %}"
+                    class="blog-read-more"
+                >
+                    Read Article
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    {% endfor %}
 
 </div>
-
-                </article>
-
-                {% endfor %}
 
             </div>
 
