@@ -128,23 +128,11 @@
                         >
 
 
-                        <!-- Category -->
-
-                        <span class="blog-card-category">
-
-                           {% if post.category %}
-
-<a
-    href="{% url 'blog:category' post.category.slug %}"
-    class="blog-card-category"
->
-    {{ post.category.name }}
-</a>
+          
 
 {% endif %}
 
-                        </span>
-
+                       
                     </a>
 
                     {% endif %}
