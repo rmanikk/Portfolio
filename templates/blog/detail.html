@@ -49,12 +49,18 @@
 
         <figure class="article-cover">
 
-            <img
-                src="{{ post.cover_image.url }}"
-                alt="{{ post.title }}"
-            >
+    <img
+        src="{{ post.cover_image.url }}"
+        alt="{{ post.title }}"
+    >
 
-        </figure>
+    {% if post.category %}
+    <span class="blog-card-category">
+        {{ post.category.name }}
+    </span>
+    {% endif %}
+
+</figure>
 
     </section>
 
