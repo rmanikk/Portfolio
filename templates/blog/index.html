@@ -52,15 +52,38 @@
             <div class="blog-heading">
 
                 
+{% if active_tag %}
 
-                <h1>
-                    Blog
-                </h1>
+    <a href="{% url 'blog:list' %}" class="blog-filter-back">
+        ← All Articles
+    </a>
 
-                <p class="blog-intro">
-                   Thoughts, lessons, and troublesome ideas. Learning as I go—what a drag.
+    <div class="blog-filter-heading">
+        <span class="blog-filter-label">TAGGED</span>
+        <h1>#{{ active_tag.name }}</h1>
+        <p>Articles related to {{ active_tag.name }}.</p>
+    </div>
 
-                </p>
+{% elif active_category %}
+
+    <a href="{% url 'blog:list' %}" class="blog-filter-back">
+        ← All Articles
+    </a>
+
+    <div class="blog-filter-heading">
+        <span class="blog-filter-label">CATEGORY</span>
+        <h1>{{ active_category.name }}</h1>
+        <p>Articles in {{ active_category.name }}.</p>
+    </div>
+
+{% else %}
+
+    <div class="blog-filter-heading">
+        <h1>Blog</h1>
+        <p>A collection of thoughts, lessons, experiments, and things I'm learning along the way.</p>
+    </div>
+
+{% endif %}
 
             </div>
 
@@ -115,28 +138,33 @@
 
                     {% if post.cover_image %}
 
-                    <a
-                        href="{% url 'blog:detail' post.slug %}"
-                        class="blog-card-image"
-                        aria-label="Read {{ post.title }}"
-                    >
+<div
+    class="blog-card-image"
+>
 
-                        <img
-                            src="{{ post.cover_image.url }}"
-                            alt="{{ post.title }}"
-                            loading="lazy"
-                        >
+    <a
+        href="{% url 'blog:detail' post.slug %}"
+        aria-label="Read {{ post.title }}"
+    >
+        <img
+            src="{{ post.cover_image.url }}"
+            alt="{{ post.title }}"
+            loading="lazy"
+        >
+    </a>
 
+    {% if post.category %}
+        <a
+            href="{% url 'blog:category' post.category.slug %}"
+            class="blog-card-category"
+        >
+            {{ post.category.name }}
+        </a>
+    {% endif %}
 
-          
+</div>
 
 {% endif %}
-
-                       
-                    </a>
-
-                    {% endif %}
-
 
                     <!-- =================================
                          CARD CONTENT
