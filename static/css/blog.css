@@ -1500,10 +1500,8 @@
 
 
     .article-cover {
-        height: 48vh;
-
-        min-height: 260px;
-
+         height: auto;
+        min-height: 0;
         border-radius: 13px;
     }
 
