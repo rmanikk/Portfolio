@@ -1,4 +1,4 @@
-from django.contrib.sitemaps.views import 
+from django.contrib.sitemaps.views import sitemap, index
 from apps.core.sitemaps import StaticViewSitemap
 from apps.core.views import robots_txt
 
