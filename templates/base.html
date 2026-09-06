@@ -48,7 +48,7 @@
 
 <link
     rel="canonical"
-    href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
+    href="https://www.manikkafle.com.np{{ request.path }}"
 >
 
 <title>
@@ -70,7 +70,7 @@
 
 <meta
     property="og:url"
-    content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
+    content="https://www.manikkafle.com.np{{ request.path }}"
 >
 
 <meta
@@ -80,7 +80,7 @@
 
 <meta
     property="og:image"
-    content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-bg.png' %}{% endblock %}"
+    content="{% block og_image %}https://www.manikkafle.com.np{% static 'images/hero-bg.png' %}{% endblock %}"
 >
 
 <!-- Twitter / X -->
@@ -98,7 +98,7 @@
 
 <meta
     name="twitter:image"
-    content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-bg.png' %}"
+    content="https://www.manikkafle.com.np{% static 'images/hero-bg.png' %}"
 >
 
 {% block structured_data %}{% endblock %}
