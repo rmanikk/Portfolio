@@ -125,6 +125,7 @@ STORAGES = {
         "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
+}
 CKEDITOR_5_FILE_STORAGE = "apps.ckeditor_storage.CKEditorCloudinaryStorage"
 
 # Password validation
