@@ -40,7 +40,9 @@ def home(request):
             "featured_experience": featured_experience,
         },
     )
-    def robots_txt(request):
+
+
+def robots_txt(request):
     content = (
         "User-agent: *\n"
         "Disallow: /admin/\n"
