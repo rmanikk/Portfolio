@@ -1,0 +1,1208 @@
+/*
+=========================================================
+THEME.CSS
+Light-theme visual overrides for the portfolio.
+
+IMPORTANT:
+- Does NOT change layout, spacing, typography or sizing.
+- Keeps the existing dark background completely untouched.
+- Light mode uses the same full-screen background box.
+- Light background image:
+      static/images/hero-bg-light.png
+=========================================================
+*/
+
+
+/* =====================================================
+   LIGHT THEME BASE
+===================================================== */
+
+html.light,
+html.light body {
+    background: #f7f7f5;
+    color: #18181b;
+}
+
+html.light .home-page {
+    background: #f7f7f5;
+}
+
+/* =====================================================
+   LIGHT HERO BACKGROUND
+   768px maximum width, centered like the navbar
+===================================================== */
+
+/* =================================
+   LIGHT THEME BACKGROUND
+================================= */
+
+html.light .hero-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    filter: brightness(0.82);
+}
+
+html.light .hero-background img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 0.99;
+
+    filter:
+        brightness(1)
+        contrast(1);
+
+    user-select: none;
+}
+
+/* Light fade toward the content */
+
+html.light .hero-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(247, 247, 245, 1) 0%,
+            rgba(247, 247, 245, 0.97) 12%,
+            rgba(247, 247, 245, 0.85) 28%,
+            rgba(247, 247, 245, 0.58) 45%,
+            rgba(247, 247, 245, 0.25) 68%,
+            rgba(247, 247, 245, 0.05) 100%
+        );
+}
+@media (max-width: 900px) {
+
+    html.light .hero-background img {
+        object-position: 62% center;
+    }
+}
+
+@media (max-width: 640px) {
+
+    html.light .hero-background img {
+        object-position: 66% center;
+    }
+}
+/* =====================================================
+   LIGHT CURSOR GLOW
+   Dark mode remains RED.
+   Light mode becomes BLUE.
+===================================================== */
+
+html.light #cursor-glow {
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.30) 0%,
+            rgba(59, 130, 246, 0.23) 18%,
+            rgba(59, 130, 246, 0.14) 35%,
+            rgba(59, 130, 246, 0.07) 52%,
+            rgba(59, 130, 246, 0.025) 65%,
+            transparent 78%
+        );
+
+    /*
+       Multiply works better against a light background
+       than screen, so the blue remains visible without
+       looking like a bright white spot.
+    */
+    mix-blend-mode: multiply;
+}
+
+
+/* =====================================================
+   LIGHT NAVBAR
+===================================================== */
+
+html.light .navbar {
+    color: #0f0f10;
+}
+
+html.light .navbar.navbar-scrolled {
+    background: rgba(247, 247, 245, 0.78);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .nav-link {
+    color: #000000;
+}
+
+html.light .nav-link:hover,
+html.light .nav-link.active {
+    color: #18181b;
+}
+
+
+/* =====================================================
+   LIGHT THEME TOGGLE
+===================================================== */
+
+html.light .theme-toggle {
+    color: rgba(24, 24, 27, 0.65);
+    background: rgba(0, 0, 0, 0.025);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+html.light .theme-toggle:hover {
+    color: #18181b;
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.20);
+}
+
+
+/* =====================================================
+   LIGHT HERO TEXT
+===================================================== */
+
+html.light .hero h1 {
+    color: #18181b;
+}
+
+html.light .hero-description {
+    color: #52525b;
+}
+
+
+/* =====================================================
+   LIGHT SOCIAL BUTTONS
+===================================================== */
+
+html.light .social-link {
+    color: rgba(39, 39, 42, 0.70);
+    background: rgba(255, 255, 255, 0.48);
+    border-color: rgba(0, 0, 0, 0.10);
+}
+
+html.light .social-link:hover {
+    color: #18181b;
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(185, 28, 28, 0.45);
+}
+
+
+/* =====================================================
+   LIGHT SECONDARY HERO BUTTON
+===================================================== */
+
+html.light .hero-button-secondary {
+    color: #3f3f46;
+    background: rgba(255, 255, 255, 0.50);
+    border-color: rgba(0, 0, 0, 0.14);
+}
+
+html.light .hero-button-secondary:hover {
+    color: #18181b;
+    background: rgba(255, 255, 255, 0.80);
+    border-color: rgba(0, 0, 0, 0.24);
+}
+
+
+
+
+/* =====================================================
+   LIGHT TECH STACK
+   Keeps the existing colored technology icons.
+===================================================== */
+
+html.light .tech-item {
+    background: rgba(0, 0, 0, 0.035);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+
+ /* =================================
+    LIGHT THEME — NAVBAR
+ ================================= */
+
+
+
+
+/* Navigation text */
+
+html.light .nav-link {
+    color: #47474e;
+}
+
+html.light .nav-link:hover,
+html.light .nav-link.active {
+    color: #18181b;
+}
+
+
+/* Blue underline */
+
+html.light .nav-link::after {
+    background: #2563eb;
+}
+
+
+/* Keep the scrolled navbar consistent */
+
+html.light .navbar.navbar-scrolled {
+    background: rgba(247, 247, 245, 0.88);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+ /* =================================
+    LIGHT THEME — HERO + SOCIAL LINKS
+ ================================= */
+
+/* "I'm" and "Full-Stack Developer" */
+html.light .hero-intro,
+html.light .hero-role {
+    color: #2563eb;
+}
+
+
+/* Social link box blends into background */
+html.light .social-link {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #18181b;
+}
+
+
+/* Social links — blue on hover */
+html.light .social-link:hover {
+    color: #2563eb;
+    border-color: #2563eb;
+    background: transparent;
+}
+/* =================================
+   LIGHT THEME — HERO INTRO & BUTTONS
+================================= */
+
+/* Hero description */
+html.light .hero-description {
+    color: #18181b;
+}
+
+/* =================================
+   LIGHT THEME — HERO BUTTONS
+================================= */
+
+/* Contact Me */
+html.light .hero-button-primary {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+html.light .hero-button-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+}
+
+
+/* See Resume */
+html.light .hero-button-secondary {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #18181b;
+}
+
+html.light .hero-button-secondary:hover {
+    background: transparent;
+    border-color: #2563eb;
+    color: #2563eb;
+}
+/* =================================
+   LIGHT THEME — TECHNOLOGY STACK
+================================= */
+
+/* Tech stack container blends with the page */
+html.light .tech-stack {
+    background: transparent;
+    border-color: transparent;
+}
+
+
+/* Tech item */
+html.light .tech-item {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #18181b;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Subtle hover */
+html.light .tech-item:hover {
+    background: rgba(37, 99, 235, 0.05);
+    border-color: #2563eb;
+}
+
+
+/* =================================
+   FIX DARK-ONLY ICON COLORS
+================================= */
+
+/* Express.js */
+html.light .tech-item[data-tech="Express.js"] img {
+    content: url("https://cdn.simpleicons.org/express/18181B");
+}
+
+
+/* GitHub */
+html.light .tech-item[data-tech="GitHub"] img {
+    content: url("https://cdn.simpleicons.org/github/18181B");
+}
+
+
+/* Vercel */
+html.light .tech-item[data-tech="Vercel"] img {
+    content: url("https://cdn.simpleicons.org/vercel/18181B");
+}
+
+/* =================================
+   LIGHT THEME — PROJECTS HEADER
+================================= */
+
+html.light .projects-header h1,
+html.light .projects-header p {
+    color: #080808;
+}
+/* Projects section title */
+html.light .projects-list-header h2,
+html.light .projects-count {
+    color: #18181b;
+}
+/* =================================
+   LIGHT THEME — PROJECT CARDS
+================================= */
+
+/* Card blends into page */
+html.light .project-card {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: none;
+}
+
+
+/* Project title */
+html.light .project-card h3 {
+    color: #18181b;
+}
+
+
+/* GitHub + Live links */
+html.light .project-icon-link {
+    color: #18181b;
+}
+
+html.light .project-icon-link:hover {
+    color: #2563eb;
+}
+
+
+/* Short description */
+html.light .project-description {
+    color: #52525b;
+}
+
+
+/* Technologies */
+html.light .project-tech {
+    color: #18181b;
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+
+/* View Details */
+html.light .view-project {
+    color: #18181b;
+}
+
+html.light .view-project:hover {
+    color: #2563eb;
+}
+
+
+/* Smooth card hover */
+html.light .project-card:hover {
+    border-color: rgba(37, 99, 235, 0.25);
+    background: rgba(37, 99, 235, 0.02);
+}
+/* =================================
+   LIGHT THEME — BLOG HEADER
+================================= */
+
+html.light .blog-heading h1,
+html.light .blog-intro  {
+    color: #18181b;
+}
+/* =================================
+   LIGHT THEME — LATEST ARTICLES
+================================= */
+
+html.light .blog-list-header h2,
+html.light .blog-list-header span {
+    color: #18181b;
+}
+/* =================================
+   LIGHT THEME — BLOG CARDS
+================================= */
+
+/* Card */
+/* Blog card — transparent glass */
+html.light .blog-card {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* ---------------------------------
+   CONTENT HIERARCHY
+--------------------------------- */
+
+/* Title — strongest */
+html.light .blog-card-content h3 {
+    color: #18181b;
+}
+
+
+/* Description — softer than title */
+html.light .blog-card-content p {
+    color: #52525b;
+}
+
+
+/* Published date — subtle metadata */
+html.light .blog-card-date,
+html.light .blog-card-date time {
+    color: #71717a;
+}
+
+
+/* Read Article — secondary emphasis */
+html.light .blog-card-footer .blog-read-more {
+    color: #3f3f46;
+}
+
+html.light .blog-card-footer .blog-read-more:hover {
+    color: #18181b;
+}
+
+
+/* ---------------------------------
+   CARD HOVER
+--------------------------------- */
+
+html.light .blog-card:hover {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.14);
+    box-shadow: none;
+}
+
+/* ---------------------------------
+   IMAGE HOVER
+--------------------------------- */
+
+/*
+   Light theme image:
+   - zooms on hover
+   - no brightness change
+   - no contrast change
+*/
+html.light .blog-card-image img {
+    filter: none;
+    transition: transform 500ms ease;
+}
+
+html.light .blog-card:hover .blog-card-image img {
+    transform: scale(1.06);
+    filter: none;
+}
+/* LIGHT THEME — EXPERIENCE HEADER */
+
+html.light .experience-header h1 {
+    color: #18181b;
+}
+
+html.light .experience-header p {
+    color: #000000;
+}
+
+/* =========================================
+   LIGHT THEME — EXPERIENCE CONTENT
+========================================= */
+
+/* Company bullet notation */
+html.light .company-number {
+    color: #18181b;
+    font-size: 1.1rem;
+    font-weight: 800;
+    opacity: 1;
+}
+
+/* Company name */
+html.light .company-info h2 {
+    color: #18181b;
+}
+
+
+/* Company website */
+html.light .company-info a {
+    color: #424248;
+}
+
+
+/* Position — primary */
+html.light .experience-role h3 {
+    color: #18181b;
+}
+
+
+/* Employment type — secondary */
+html.light .employment-type {
+    color: #3d3d3f;
+}
+
+
+/* Date + duration */
+html.light .experience-meta {
+    color: #37373b;
+}
+
+
+/* Key work descriptions */
+html.light .experience-bullets li {
+    color: #3f3f46;
+}
+
+
+/* Expand button */
+html.light .experience-toggle {
+    color: #18181b;
+}
+
+html.light .experience-arrow {
+    color: #18181b;
+}
+
+
+/* Technology tags */
+html.light .technology-tag {
+    color: #1e1e22;
+}
+/* =========================================================
+   LIGHT THEME — CONTACT PAGE
+   TRANSPARENT / MINIMAL VERSION
+========================================================= */
+
+
+/* -------------------------
+   Header
+------------------------- */
+
+html.light .contact-header {
+    color: #18181b;
+}
+
+html.light .contact-header-line {
+    background: rgba(37, 99, 235, 0.55);
+}
+
+html.light .contact-header .contact-eyebrow {
+    color: #2563eb;
+}
+
+html.light .contact-header h1 {
+    color: #18181b !important;
+}
+
+html.light .contact-header .contact-intro {
+    color: rgba(24, 24, 27, 0.62) !important;
+}
+
+
+/* -------------------------
+   Form Card
+------------------------- */
+
+html.light .contact-card {
+    background: transparent;
+    border-color: rgba(0, 0, 0, 0.10);
+
+    box-shadow: none;
+}
+
+
+/* -------------------------
+   Labels
+------------------------- */
+
+html.light .contact-field label {
+    color: rgba(0, 0, 0, 0.72);
+}
+
+
+/* -------------------------
+   Inputs
+------------------------- */
+
+html.light .contact-field input,
+html.light .contact-field textarea {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.14);
+
+    color: #000000;
+
+    box-shadow: none;
+}
+
+
+/* Hover */
+
+html.light .contact-field input:hover,
+html.light .contact-field textarea:hover {
+    border-color: rgba(0, 0, 0, 0.25);
+
+    background: transparent;
+}
+
+
+/* Placeholder */
+
+html.light .contact-field input::placeholder,
+html.light .contact-field textarea::placeholder {
+    color: rgba(24, 24, 27, 0.38);
+}
+
+
+/* Focus */
+
+html.light .contact-field input:focus,
+html.light .contact-field textarea:focus {
+    background: transparent;
+
+    border-color: rgba(37, 99, 235, 0.65);
+
+    box-shadow:
+        0 0 0 2px rgba(37, 99, 235, 0.08);
+}
+
+
+/* -------------------------
+   Errors
+------------------------- */
+
+html.light .contact-error {
+    color: #dc2626;
+}
+
+
+/* -------------------------
+   Send Button
+------------------------- */
+
+html.light .contact-button {
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+}
+
+html.light .contact-button:hover {
+    background: #1d4ed8;
+
+    border-color: #1d4ed8;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.14);
+}
+
+
+/* -------------------------
+   Direct Contact
+------------------------- */
+
+html.light .contact-direct-title {
+    color: #18181b;
+}
+
+html.light .contact-social {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.10);
+
+    color: rgba(24, 24, 27, 0.68);
+}
+
+html.light .contact-social:hover {
+    background: transparent;
+
+    border-color: rgba(37, 99, 235, 0.50);
+
+    color: #2563eb;
+
+    transform: translateY(-2px);
+}
+
+
+/* -------------------------
+   Success Modal Overlay
+------------------------- */
+
+html.light .contact-modal-overlay {
+    background: rgba(15, 23, 42, 0.38);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+
+/* -------------------------
+   Success Modal
+------------------------- */
+
+html.light .contact-modal-card {
+    background: rgba(255, 255, 255, 0.94);
+
+    border-color: rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.16);
+}
+
+
+/* -------------------------
+   Success Icon
+------------------------- */
+
+html.light .contact-success-icon {
+    background: transparent;
+
+    border-color: rgba(22, 163, 74, 0.30);
+
+    color: #16a34a;
+}
+
+
+/* -------------------------
+   Modal Text
+------------------------- */
+
+html.light .contact-modal-card h2 {
+    color: #18181b;
+}
+
+html.light .contact-modal-card p {
+    color: rgba(24, 24, 27, 0.60);
+}
+
+
+/* -------------------------
+   Modal Secondary Button
+------------------------- */
+
+html.light .contact-modal-secondary {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.12);
+
+    color: rgba(24, 24, 27, 0.72);
+}
+
+html.light .contact-modal-secondary:hover {
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.22);
+}
+
+
+/* -------------------------
+   Modal Primary Button
+------------------------- */
+
+html.light .contact-modal-primary {
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+}
+
+html.light .contact-modal-primary:hover {
+    background: #1d4ed8;
+
+    border-color: #1d4ed8;
+}
+
+
+/* -------------------------
+   Mobile
+------------------------- */
+
+@media (max-width: 600px) {
+
+    html.light .contact-card {
+        background: transparent;
+
+        border-color: rgba(0, 0, 0, 0.08);
+
+        box-shadow: none;
+    }
+
+    html.light .contact-field input,
+    html.light .contact-field textarea {
+        background: transparent;
+    }
+
+    html.light .contact-field input:focus,
+    html.light .contact-field textarea:focus {
+        background: transparent;
+    }
+
+}
+/* =========================================================
+   LIGHT THEME — FOOTER
+   Transparent / Minimal
+========================================================= */
+
+
+/* Footer */
+
+html.light .site-footer {
+    background: transparent !important;
+    color: #18181b;
+}
+
+
+/* Footer container */
+
+html.light .footer-container {
+    background: transparent;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+html.light .footer-social-link {
+    color: rgba(15, 15, 17, 0.58);
+
+    background: transparent;
+
+    border-color: rgba(0, 0, 0, 0.10);
+}
+
+
+html.light .footer-social-link:hover {
+    color: #2563eb;
+
+    background: transparent;
+
+    border-color: rgba(37, 99, 235, 0.45);
+
+    box-shadow: none;
+}
+
+
+/* SVG icons */
+
+html.light .footer-social-link svg {
+    color: inherit;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+html.light .footer-divider {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+html.light .footer-bottom {
+    color: rgba(6, 6, 6, 0.45);
+}
+
+
+html.light .footer-bottom p {
+    color: inherit;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    html.light .site-footer {
+        background: transparent !important;
+    }
+
+    html.light .footer-social-link:hover {
+        background: transparent;
+    }
+
+}
+/* =========================================================
+   PROJECT DETAIL — LIGHT THEME TEXT
+   ========================================================= */
+
+html.light .project-detail-page {
+    color: #000000;
+}
+
+/* Back to Projects */
+html.light .project-detail-page .project-back-link {
+    color: #000000;
+}
+
+/* Technologies */
+html.light .project-detail-page .project-detail-technologies,
+html.light .project-detail-page .project-detail-tech {
+    color: #000000;
+}
+
+/* Project eyebrow */
+html.light .project-detail-page .project-detail-eyebrow {
+    color: #2563eb;
+}
+
+/* Project title */
+html.light .project-detail-page .project-detail-title-row h1 {
+    color: #000000;
+}
+
+/* Short description */
+html.light .project-detail-page .project-detail-intro {
+    color: #000000;
+}
+
+/* Action buttons */
+html.light .project-detail-page .project-action-button,
+html.light .project-detail-page .project-action-button span,
+html.light .project-detail-page .project-action-button svg {
+    color: #000000;
+}
+
+/* Project content */
+html.light .project-detail-page .project-detail-content,
+html.light .project-detail-page .project-detail-content * {
+    color: #000000;
+}
+
+/* Content links */
+html.light .project-detail-page .project-detail-content a {
+    color: #000000;
+}
+
+/* Explore More Projects */
+html.light .project-detail-page .project-recommendations-header h2,
+html.light .project-detail-page .project-recommendations-header p {
+    color: #000000;
+}
+
+/* View All */
+html.light .project-detail-page .view-project,
+html.light .project-detail-page .view-project svg {
+    color: #000000;
+}
+
+/* Recommendation cards */
+html.light .project-detail-page .project-recommendation-title-row h3,
+html.light .project-detail-page .project-recommendation-title-row svg {
+    color: #000000;
+}
+
+html.light .project-detail-page .project-recommendation-content > p {
+    color: #000000;
+}
+
+/* Recommendation technologies */
+html.light .project-detail-page .project-recommendation-techs span,
+html.light .project-detail-page .project-recommendation-techs
+.project-recommendation-more {
+    color: #000000;
+}
+
+/* Recommendation links */
+html.light .project-detail-page .project-recommendation-link {
+    color: #000000;
+}
+
+/* Bottom Back to Projects */
+html.light .project-detail-page .project-detail-bottom .project-back-link {
+    color: #000000;
+}
+/* Project Detail Dividers — Light Theme */
+
+html.light .project-detail-page .project-detail-divider,
+html.light .project-detail-page .project-recommendations
+ {
+    border-color: #000000;
+}
+/* =========================================================
+   BLOG DETAIL — LIGHT THEME TEXT
+   ========================================================= */
+
+html.light .blog-detail-page {
+    color: #000000;
+}
+
+/* Back to Blog links */
+html.light .blog-detail-page .article-top-back,
+html.light .blog-detail-page .article-back {
+    color: #000000;
+}
+
+
+html.light .blog-detail-page .article-category {
+    color: #2563eb;
+    border-color: #373434;
+}
+
+/* Title */
+html.light .blog-detail-page .article-title {
+    color: #000000;
+}
+
+/* Excerpt / description */
+html.light .blog-detail-page .article-excerpt {
+    color: #000000;
+}
+
+/* Published date */
+html.light .blog-detail-page .article-date,
+html.light .blog-detail-page .article-date time {
+    color: #000000;
+}
+
+/* Article content */
+html.light .blog-detail-page .article-content,
+html.light .blog-detail-page .article-content * {
+    color: #000000;
+}
+
+/* Read Other Articles section */
+html.light .blog-detail-page .other-articles-header h2,
+html.light .blog-detail-page .other-articles-header p {
+    color: #000000;
+}
+
+/* Other article cards */
+html.light .blog-detail-page .other-article-content h3,
+html.light .blog-detail-page .other-article-content p,
+html.light .blog-detail-page .other-article-link {
+    color: #000000;
+}
+
+/* Arrow inside Read Article */
+html.light .blog-detail-page .other-article-link span {
+    color: #000000;
+}
+/* Article divider — Light Theme */
+html.light .blog-detail-page .article-divider {
+    background-color: #000000;
+}
+/* Read Other Articles cards — Light Theme */
+
+html.light .blog-detail-page .other-article-card {
+    border-color: #000000;
+}
+
+/* =========================================================
+   HOME PAGE — LIGHT THEME TEXT
+   ========================================================= */
+
+/* Featured Projects */
+html.light .featured-projects .projects-title h2,
+html.light .featured-projects .project-title-row h3,
+html.light .featured-projects .project-description,
+html.light .featured-projects .project-tech,
+html.light .featured-projects .view-project,
+html.light .featured-projects .view-project svg,
+html.light .featured-projects .all-projects-button a,
+html.light .featured-projects .all-projects-button svg {
+    color: #000000;
+}
+
+/* Featured Blog */
+html.light .featured-blog .blog-title h2,
+html.light .featured-blog .blog-card-content h3,
+html.light .featured-blog .blog-card-content p,
+html.light .featured-blog .blog-card-date,
+html.light .featured-blog .blog-card-date time,
+html.light .featured-blog .blog-read-more,
+html.light .featured-blog .blog-read-more span,
+html.light .featured-blog .all-blog-button a,
+html.light .featured-blog .all-blog-button svg,
+html.light .featured-blog .no-featured-blog {
+    color: #000000;
+}
+
+/* Featured Experience */
+html.light .featured-experience .experience-section-heading h2,
+html.light .featured-experience .company-info h2,
+html.light .featured-experience .company-info a,
+html.light .featured-experience .experience-role h3,
+html.light .featured-experience .employment-type,
+html.light .featured-experience .experience-meta,
+html.light .featured-experience .experience-meta span,
+html.light .featured-experience .experience-bullets,
+html.light .featured-experience .experience-bullets li,
+html.light .featured-experience .technology-tag,
+html.light .featured-experience .all-experience-button a,
+html.light .featured-experience .view-all-arrow {
+    color: #000000;
+}
+/* =========================================================
+   HOME PAGE — LIGHT THEME VIEW ALL BUTTON HOVER
+   ========================================================= */
+
+html.light .featured-projects .all-projects-button a:hover,
+html.light .featured-blog .all-blog-button a:hover,
+html.light .featured-experience .all-experience-button a:hover {
+    border-color: #2563eb;
+}
+/* =========================================================
+   HOME — LIGHT THEME VIEW-ALL BUTTON HOVER
+   Remove existing red hover effects
+   ========================================================= */
+
+html.light .featured-projects .all-projects-button a:hover,
+html.light .featured-blog .all-blog-button a:hover,
+html.light .featured-experience .all-experience-button a:hover {
+    color: #2563eb;
+    border-color: #2563eb;
+    background-color: transparent;
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);
+}

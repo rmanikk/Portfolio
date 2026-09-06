@@ -53,7 +53,7 @@ pnpm-debug.log*
 dist/
 build/
 
-staticfiles/
+
 
 
 # =========================
