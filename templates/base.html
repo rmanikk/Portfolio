@@ -31,25 +31,77 @@
         rel="stylesheet"
     >
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon.png' %}?v=2">
+<meta charset="UTF-8">
 
-    <meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="author" content="Manik Kafle">
+<meta name="robots" content="index, follow">
 
-    <title>
-        {% block title %}Portfolio{% endblock %}
-    </title>
+<meta
+    name="description"
+    content="{% block meta_description %}Manik Kafle is a Full-Stack Developer and Computer Engineering student from Nepal, building web applications, software projects, and practical digital experiences.{% endblock %}"
+>
 
-    <link
-        rel="stylesheet"
-        href="{% static 'css/output.css' %}"
-    >
+<link
+    rel="canonical"
+    href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
+>
 
-    {% block extra_css %}
-    {% endblock %}
+<title>
+    {% block title %}Manik Kafle | Full-Stack Developer{% endblock %}
+</title>
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Manik Kafle">
+
+<meta
+    property="og:title"
+    content="{% block og_title %}Manik Kafle | Full-Stack Developer{% endblock %}"
+>
+
+<meta
+    property="og:description"
+    content="{% block og_description %}Manik Kafle is a Full-Stack Developer and Computer Engineering student from Nepal.{% endblock %}"
+>
+
+<meta
+    property="og:url"
+    content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
+>
+
+<meta
+    property="og:type"
+    content="{% block og_type %}website{% endblock %}"
+>
+
+<meta
+    property="og:image"
+    content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-bg.png' %}{% endblock %}"
+>
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+
+<meta
+    name="twitter:title"
+    content="{% block twitter_title %}Manik Kafle | Full-Stack Developer{% endblock %}"
+>
+
+<meta
+    name="twitter:description"
+    content="{% block twitter_description %}Manik Kafle is a Full-Stack Developer and Computer Engineering student from Nepal.{% endblock %}"
+>
+
+<meta
+    name="twitter:image"
+    content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-bg.png' %}"
+>
+
+{% block structured_data %}{% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/theme.css' %}">
 

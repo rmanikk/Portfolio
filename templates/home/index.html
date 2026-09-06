@@ -8,6 +8,43 @@
 
 {% endblock %}
 
+{% block meta_description %}
+Manik Kafle is a Full-Stack Developer and Computer Engineering student from Nepal, building web applications, software projects, and practical digital experiences.
+{% endblock %}
+
+{% block og_description %}
+Portfolio, projects, experience, and writing by Manik Kafle, a Full-Stack Developer and Computer Engineering student from Nepal.
+{% endblock %}
+
+{% block og_title %}
+Manik Kafle | Full-Stack Developer
+{% endblock %}
+
+{% block twitter_title %}
+Manik Kafle | Full-Stack Developer
+{% endblock %}
+{% block structured_data %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Manik Kafle | Full-Stack Developer",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+    "mainEntity": {
+        "@type": "Person",
+        "name": "Manik Kafle",
+        "url": "{{ request.scheme }}://{{ request.get_host }}/",
+        "jobTitle": "Full-Stack Developer",
+        "sameAs": [
+            "https://github.com/rmanikk",
+            "https://www.linkedin.com/in/rm4nik/",
+            "https://www.instagram.com/slacker_m4nik/"
+        ]
+    }
+}
+</script>
+{% endblock %}
+
 {% block title %}Manik Kafle | Full-Stack Developer{% endblock %}
 
 {% block content %}

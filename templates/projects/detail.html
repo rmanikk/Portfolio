@@ -1,6 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
+{% block meta_description %}
+{{ project.short_description|truncatechars:155 }}
+{% endblock %}
 
+{% block og_description %}
+{{ project.short_description|truncatechars:200 }}
+{% endblock %}
+
+{% block og_title %}
+{{ project.title }} — Manik Kafle
+{% endblock %}
+
+{% block twitter_title %}
+{{ project.title }} — Manik Kafle
+{% endblock %}
+
+{% block twitter_description %}
+{{ project.short_description|truncatechars:200 }}
+{% endblock %}
+
+{% block og_image %}
+{% if project.image %}
+{{ project.image.url }}
+{% else %}
+{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-bg.png' %}
+{% endif %}
+{% endblock %}
 {% block title %}
     {{ project.title }} — Manik Kafle
 {% endblock %}

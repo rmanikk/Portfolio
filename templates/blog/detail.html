@@ -1,6 +1,36 @@
 {% extends "base.html" %}
 {% load static %}
+{% block meta_description %}
+{{ post.excerpt|default:"Read this article by Manik Kafle about software development, learning, projects, and technology."|truncatechars:155 }}
+{% endblock %}
 
+{% block og_description %}
+{{ post.excerpt|default:"An article by Manik Kafle."|truncatechars:200 }}
+{% endblock %}
+
+{% block og_type %}
+article
+{% endblock %}
+
+{% block og_title %}
+{{ post.title }} | Manik Kafle
+{% endblock %}
+
+{% block twitter_title %}
+{{ post.title }} | Manik Kafle
+{% endblock %}
+
+{% block twitter_description %}
+{{ post.excerpt|default:"An article by Manik Kafle."|truncatechars:200 }}
+{% endblock %}
+
+{% block og_image %}
+{% if post.cover_image %}
+{{ post.cover_image.url }}
+{% else %}
+{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-bg.png' %}
+{% endif %}
+{% endblock %}
 {% block title %}
     {{ post.title }} | Manik Kafle
 {% endblock %}

@@ -1,4 +1,6 @@
-from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps.views import 
+from apps.core.sitemaps import StaticViewSitemap
+from apps.core.views import robots_txt
 
 from apps.blog.sitemaps import BlogPostSitemap
 from apps.projects.sitemaps import ProjectSitemap
@@ -8,6 +10,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 sitemaps = {
+    "static": StaticViewSitemap,
     "blog": BlogPostSitemap,
     "projects": ProjectSitemap,
 }
@@ -24,6 +27,11 @@ urlpatterns = [
     sitemap,
     {"sitemaps": sitemaps},
     name="sitemap",
+),
+path(
+    "robots.txt",
+    robots_txt,
+    name="robots_txt",
 ),
 
     path("blog/", include("apps.blog.urls")),
